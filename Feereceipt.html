@@ -1,0 +1,213 @@
+<div class="container">
+
+    <div class="row hightlight-background" style="height: 70px;margin-top: 4px;">
+        <div class="col-md-3">
+            <img src='@Model.GetString("PrimaryBranding", "LogoUrl")' style="max-width: 150px;max-height: 80px;" />
+        </div>
+        <div class="col-md-9 right-align">
+            <span class="header-24">Fee Receipt</span>
+        </div>
+    </div>
+    <div class="hightlight-background pd-small" style="height:70px;">
+        <!-- Page Banner -->
+        <div class="row" style="margin-bottom: 2px;">
+            <div class="col-md-12 center-align header-18">
+                <!-- @Model.GetString("PrimaryBranding", "Title") -->
+                <!-- @Model.GetString("fnReceiptHeaderInfo", "OrganizationTitle") -->
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2px;">
+            <div class="col-md-12 center-align text-12">
+               Digiclove Demo
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2px;">
+            <div class="col-md-12 center-align text-12">
+               Opp. Bank Of India, S.R. Nagar , Main Road, S.R. Nagar
+            </div>
+        </div>
+
+    </div>
+    <!-- Address on banner -->
+
+    <!-- Student Header -->
+    <div class="row" style="height: 60px;margin-top: 4px;">
+		<div class="col-md-5">
+		    <span class="header-12 display-visible">Student Name</span>
+            <span class="text-12">CHINTHAPALLY VEDANTH
+            </span>
+        </div>
+        <div class="col-md-4">
+			
+		    <span class="header-12 display-visible">Admission No.</span>
+            <span class="text-12">22RWTS10425</span>            
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">Hall Ticket No:</span>
+            <span class="text-12">2455</span>
+        </div>
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Father Name</span>
+            <span class="text-12">CHANDRA SHEKAR</span>
+            </span>
+        </div>
+		<div class="col-md-4">
+		    <span class="header-12 display-visible">Class:</span>
+            <span class="text-12">  Class IV  </span>     
+        </div>
+        <div class="col-md-3">            
+        </div>       
+        
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Secon:</span>
+            <span class="text-12">SAPPHIRE</span>
+        </div>
+		<div class="col-md-4">
+            <span class="header-12 display-visible">Class</span>
+            <span class="text-12" style="white-space: nowrap;">@Model.GetString("fnReceiptHeaderInfo", "StudentClass")-
+                @Model.GetString("fnReceiptHeaderInfo", "Section")</span>
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">Mobile</span>
+            <span class="text-12">@Model.GetString("fnReceiptHeaderInfo", "MobileNumber")</span>
+        </div>
+    </div>
+
+    <!-- Payment Message -->
+    <div class="row" style="height: 30px;margin-top: 5px;">
+        <div class="col-md-12">
+            @Model.GetString("fnReceiptHeaderInfo", "Content")
+            <strong>@Model.GetString("fnReceiptHeaderInfo", "FormattedAmount")</strong>
+            @Model.GetString("fnReceiptHeaderInfo", "AmountInWords")
+        </div>
+    </div>
+
+    <!-- Payment Details -->
+    <div class="row" style="height: auto;margin-top: 10px;">
+        <div class="col-md-7">
+            <span class="header-12 display-visible">Mode</span>
+            <span class="text-12">@Model.GetString("fnReceiptHeaderInfo", "ModeOfPayment")</span>
+        </div>
+        <div class="col-md-3">
+            <span class="text-12">@Model.GetString("fnReceiptHeaderInfo", "ConcessionAmount")</span>
+        </div>
+        <div class="col-md-2">
+            <span class="header-12 display-visible">Amount:</span>
+            <span class="text-12">@Model.GetString("fnReceiptHeaderInfo", "Total")</span>
+        </div>
+    </div>
+
+    <!-- Paid Now -->
+    <div class="row" style="height: auto;">
+        @if(@Model.GetDecimal("IsAdvanced", "IsAdvancedAdmission") == 0)
+        {
+        <div class="col-md-12">
+            <table class="table pd-small table-line-height-16">
+                <thead>
+                    <tr class="hightlight-background header-12">
+                        <th style="width: 400px;">Title</th>
+                        <th style="width: 200px;">Total</th>
+                        @if( @Model.GetDecimal("fnReceiptHeaderInfo", "GSTAmount") > 0 )
+                        {
+                        <th style="width: 200px;">HSN/SAC</th>
+                        <th style="width: 200px;">Tax.Amount</th>
+                        <th style="width: 200px;">SGST</th>
+                        <th style="width: 200px;">GGST</th>
+                        }
+                        <th style="width: 200px;">Paid Now</th>
+
+                    </tr>
+                </thead>
+                <tbody class="text-12">
+                    @foreach(var dataRow in Model.ToDataRows("NowPaid"))
+                    {
+                    <tr>
+                        <td>@Model.DataRow_GetString(dataRow, "Title")</td>
+                        <td>@Model.DataRow_GetString(dataRow, "Total")</td>
+                        @if( @Model.GetDecimal("fnReceiptHeaderInfo", "GSTAmount") > 0 )
+                        {
+                        <td>@Model.DataRow_GetString(dataRow, "HSN")</td>
+                        <td>@Model.DataRow_GetString(dataRow, "TaxableAmount")</td>
+                        <td>@Model.DataRow_GetString(dataRow, "SGSTAmount")</td>
+                        <td>@Model.DataRow_GetString(dataRow, "CGSTAmount")</td>
+                        }
+                        <td>@Model.DataRow_GetString(dataRow, "NowPaid")</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+        else
+        {
+        <div class="col-md-12">
+
+        </div>
+        }
+    </div>
+
+    <!-- Audit -->
+    <div class="row" style="height: 36px;">
+        <div class="col-md-4">
+            <span class="header-12">Printed Date</span><br />
+            <span class="text-12"> <span class="text-12">28-Dec-2024 11:36:07 AM</span>
+            </span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 center-align">Created Date</span>
+            <span class="text-12 center-align">@Model.GetString("fnReceiptHeaderInfo", "CreatedDate")</span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 right-align">Collected By</span>
+            <span class="text-12 right-align">@Model.GetString("fnReceiptHeaderInfo", "CollectedBy")</span>
+        </div>
+    </div>
+
+    <!-- Payment Message -->
+    <div class="row" style="margin-top: 4px; margin-bottom: 4px;">
+        <span class="text-12">Note: All non-cash payments are subject to realization</span>
+    </div>
+
+    <div style="height: 80px;">
+        @if( @Model.GetDecimal("IsAdvanced", "IsAdvancedAdmission") == 0)
+        {
+        <div class="row">
+            <div class="col-md-12">
+                <span class="header-14 center">
+                    Information To Parent
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table pd-small table-line-height-16" style="margin-bottom: 0;">
+                    <thead>
+                        <tr class="hightlight-background header-12">
+                            <th style="width: 400px;">Title</th>
+                            <th style="width: 200px;">Total</th>
+                            <th style="width: 200px;">Paid Now</th>
+                            <th style="width: 200px;">Due</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-12">
+                        @foreach(var dataRow in Model.ToDataRows("ReceiptDetail"))
+                        {
+                        <tr>
+                            <td>45</td>
+                            <td>@Model.DataRow_GetString(dataRow, "Total")</td>
+                            <td>@Model.DataRow_GetString(dataRow, "NowPaid")</td>
+                            <td>@Model.DataRow_GetString(dataRow, "Due")</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        }
+        else{
+        <div class="row">
+
+        </div>
+        }
+    </div>
+</div>

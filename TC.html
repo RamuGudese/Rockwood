@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TC Form Replica</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 20px;
+    color: #000;
+  }
+  .container {
+    max-width: 900px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .main-table td {
+    vertical-align: top;
+    padding: 4px 8px;
+  }
+  .number-col {
+    width: 30px;
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+  }
+  .label-col {
+    width: 380px;
+    text-align: left;
+    padding-right: 5px;
+  }
+  .colon-col {
+    width: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .value-col {
+    border-bottom: 1px solid black;
+    padding-left: 5px;
+    min-width: 300px;
+  }
+  .value-col.nested-table {
+    border: none;
+    padding: 0;
+  }
+  .subjects-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+  .subjects-table td {
+    border: 1px solid black;
+    padding: 4px 6px;
+    text-align: center;
+  }
+  .bullet {
+    color: red;
+    font-weight: bold;
+    padding-right: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+ <table class="main-table">
+    <tr>
+       <td class="number-col">1.</td>
+       <td class="label-col">Name of the Pupil</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">SURAKARAM AARADHYA</td>
+      </tr>
+      <tr>
+        <td class="number-col">2.</td>
+        <td class="label-col">Father’s/ Guardian’s Name</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">SURAKARAM RAMESH</td>
+      </tr>
+      <tr>
+        <td class="number-col">3.</td>
+        <td class="label-col">Mother's Name</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">NOMULA ANITHA</td>
+      </tr>
+      <tr>
+        <td class="number-col">4.</td>
+        <td class="label-col">Nationality</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">Indian</td>
+      </tr>
+      <tr>
+        <td class="number-col">5.</td>
+        <td class="label-col">Whether the candidate belongs to SC/ST/OBC</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">BC -B</td>
+      </tr>
+      <tr>
+        <td class="number-col">6.</td>
+        <td class="label-col"><span class="bullet">•</span>Date of first admission in the school with class</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">24 Jun 2024 in VII</td>
+      </tr>
+      <tr>
+        <td class="number-col">7.</td>
+        <td class="label-col">
+          Date of Birth (in Christian Era) according to Admission &amp; Withdrawal Register(In Figures) and (In Words)
+        </td>
+        <td class="colon-col">:</td>
+        <td class="value-col">
+          21 Jun 2012 and<br />
+          Two One - Jun - Two Zero One Two
+        </td>
+      </tr>
+      <tr>
+        <td class="number-col">8.</td>
+        <td class="label-col">Class in which the pupil last studied</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">VII</td>
+      </tr>
+      <tr>
+        <td class="number-col">9.</td>
+        <td class="label-col">School / Board Annual Examination last taken with result</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">CBSE</td>
+      </tr>
+      <tr>
+        <td class="number-col">10.</td>
+        <td class="label-col">Whether failed, if so, once / twice in the same class</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">NA</td>
+      </tr>
+      <tr>
+        <td class="number-col">11.</td>
+        <td class="label-col">Subjects Studied</td>
+        <td class="colon-col">:</td>
+        <td class="value-col nested-table">
+          <table class="subjects-table">
+            <tr>
+              <td>1.English</td>
+              <td>2.Telugu</td>
+              <td>3.Maths</td>
+            </tr>
+            <tr>
+              <td>4.Science</td>
+              <td>5.Social</td>
+              <td>6.Computers</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="number-col">12.</td>
+        <td class="label-col">Whether qualified for promotion to the higher class If so, to which class (In Figures) (In words)</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">VIII</td>
+      </tr>
+      <tr>
+        <td class="number-col">13.</td>
+        <td class="label-col">Month up to which the pupil has paid school dues</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">01st December 2024</td>
+      </tr>
+      <tr>
+        <td class="number-col">14.</td>
+        <td class="label-col">Any fee concession availed of: If so, the nature of such concession</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">NA</td>
+      </tr>
+      <tr>
+        <td class="number-col">15.</td>
+        <td class="label-col">Total no. of Working Days</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">210</td>
+      </tr>
+      <tr>
+        <td class="number-col">16.</td>
+        <td class="label-col">Total no. of Present Days</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">200</td>
+      </tr>
+      <tr>
+        <td class="number-col">17.</td>
+        <td class="label-col">Whether NCC Cadet/ Boy Scout/ Girl Guide (details may be given)</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">NA</td>
+      </tr>
+      <tr>
+        <td class="number-col">18.</td>
+        <td class="label-col">Games played or extra-curricular activities in which the pupil usually took part</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">Basket Ball , Foot Ball</td>
+      </tr>
+      <tr>
+        <td class="number-col">19.</td>
+        <td class="label-col">General conduct</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">Good</td>
+      </tr>
+      <tr>
+        <td class="number-col">20.</td>
+        <td class="label-col">Date of application for certificate</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">11/06/2025</td>
+      </tr>
+      <tr>
+        <td class="number-col">21.</td>
+        <td class="label-col">Date of issue of certificate</td>
+        <td class="colon-col">:</td>
+        <td class="value-col">14/07/2025</td>
+      </tr>
+    </table>
+     <!-- <table class="main-table">
+                <tr>
+                <td class = "col-md-1">1.</td>
+                <td class="col-md-9">Name of the Pupil</td>
+                <td >:</td>
+                <td  >SURAKARAM AARADHYA</td>
+                </tr>
+                 <tr>
+                <td class="col-md-1">2.</td>
+                <td class="col-md-11">Father’s/ Guardian’s Name</td>
+                <td >:</td>
+                <td  >SURAKARAM RAMESH</td>
+                </tr>
+                <!-- <tr>
+                    <td class="number-col">2.</td>
+                    <td class="label-col">Father’s/ Guardian’s Name</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">SURAKARAM RAMESH</td>
+                </tr>
+                <tr>
+                    <td class="number-col">3.</td>
+                    <td class="label-col">Mother's Name</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">NOMULA ANITHA</td>
+                </tr>
+                <tr>
+                    <td class="number-col">4.</td>
+                    <td class="label-col">Nationality</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">Indian</td>
+                </tr>
+                <tr>
+                    <td class="number-col">5.</td>
+                    <td class="label-col">Whether the candidate belongs to SC/ST/OBC</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">BC -B</td>
+                </tr>
+                <tr>
+                    <td class="number-col">6.</td>
+                    <td class="label-col"><span class="bullet">•</span>Date of first admission in the school with class</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">24 Jun 2024 in VII</td>
+                </tr>
+                <tr>
+                    <td class="number-col">7.</td>
+                    <td class="label-col">
+                    Date of Birth (in Christian Era) according to Admission &amp; Withdrawal Register(In Figures) and (In Words)
+                    </td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">
+                    21 Jun 2012 and<br />
+                    Two One - Jun - Two Zero One Two
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number-col">8.</td>
+                    <td class="label-col">Class in which the pupil last studied</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">VII</td>
+                </tr>
+                <tr>
+                    <td class="number-col">9.</td>
+                    <td class="label-col">School / Board Annual Examination last taken with result</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">CBSE</td>
+                </tr>
+                <tr>
+                    <td class="number-col">10.</td>
+                    <td class="label-col">Whether failed, if so, once / twice in the same class</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">NA</td>
+                </tr>
+                <tr>
+                    <td class="number-col">11.</td>
+                    <td class="label-col">Subjects Studied</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col nested-table">
+                    <table class="subjects-table">
+                        <tr>
+                        <td>1.English</td>
+                        <td>2.Telugu</td>
+                        <td>3.Maths</td>
+                        </tr>
+                        <tr>
+                        <td>4.Science</td>
+                        <td>5.Social</td>
+                        <td>6.Computers</td>
+                        </tr>
+                    </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number-col">12.</td>
+                    <td class="label-col">Whether qualified for promotion to the higher class If so, to which class (In Figures) (In words)</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">VIII</td>
+                </tr>
+                <tr>
+                    <td class="number-col">13.</td>
+                    <td class="label-col">Month up to which the pupil has paid school dues</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">01st December 2024</td>
+                </tr>
+                <tr>
+                    <td class="number-col">14.</td>
+                    <td class="label-col">Any fee concession availed of: If so, the nature of such concession</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">NA</td>
+                </tr>
+                <tr>
+                    <td class="number-col">15.</td>
+                    <td class="label-col">Total no. of Working Days</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">210</td>
+                </tr>
+                <tr>
+                    <td class="number-col">16.</td>
+                    <td class="label-col">Total no. of Present Days</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">200</td>
+                </tr>
+                <tr>
+                    <td class="number-col">17.</td>
+                    <td class="label-col">Whether NCC Cadet/ Boy Scout/ Girl Guide (details may be given)</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">NA</td>
+                </tr>
+                <tr>
+                    <td class="number-col">18.</td>
+                    <td class="label-col">Games played or extra-curricular activities in which the pupil usually took part</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">Basket Ball , Foot Ball</td>
+                </tr>
+                <tr>
+                    <td class="number-col">19.</td>
+                    <td class="label-col">General conduct</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">Good</td>
+                </tr>
+                <tr>
+                    <td class="number-col">20.</td>
+                    <td class="label-col">Date of application for certificate</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">11/06/2025</td>
+                </tr>
+                <tr>
+                    <td class="number-col">21.</td>
+                    <td class="label-col">Date of issue of certificate</td>
+                    <td class="colon-col">:</td>
+                    <td class="value-col">14/07/2025</td>
+                </tr> -->
+            <!-- </table> --> 

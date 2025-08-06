@@ -1,0 +1,296 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://staticassets.digiclove.com/styles/invoice_print_v3.css">
+    <style>
+        
+        tr{
+            line-height: 15px;
+        }
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .student-record-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .student-record-table td {
+            border: 1px solid #d5d5d5;
+            padding: 8px;
+        }
+
+        .student-record-table .field-number {
+            width: 5%;
+            background-color: #f8f9fa;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .student-record-table .field-name {
+            width: 40%;
+            font-weight: 600;
+        }
+
+        .student-record-table .field-value {
+            width: 55%;
+        }
+
+        .subjects-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .subjects-table td {
+            border: 1px solid #d5d5d5;
+            padding: 4px 8px;
+            text-align: center;
+        }
+    
+         .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        
+        .signature-box {
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .signature-line {
+            /* border-bottom: 1px solid #000; */
+            height: 40px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        
+        .signature-text {
+            font-size: 24px;
+            font-family: cursive;
+            color: #333;
+        }
+        
+        .note-section {
+            margin-top: 10px;
+            font-size: 11px;
+            /* border-top: 1px solid #ccc; */
+            padding-top: 8px;
+        }
+        
+        .date-section {
+            font-size: 11px;
+            margin-top: 28px;
+        } 
+    </style>
+    <title></title>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1235.0" data-gr-ext-installed="">
+
+<div class="container">
+        <!-- Page Banner -->
+        <div class="row hightlight-background" style="    height: 60px;
+    margin-top: -6px;">
+            <div class="col-md-3">
+                <img src="images.png.png" style="max-width: 150px; max-height: 80px">
+            </div>
+            <div class="col-md-9 center-align">
+                <span class="header-24" style="   font-size: 28px;  position: relative;  right: 76px; top: -4px;">ROCKWOODS SCHOOL</span>
+            </div>
+        </div>
+
+        <!-- Address on banner -->
+        <div class="row hightlight-background text-18" style="    height: 60px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0px;
+    padding-bottom: 17px;">
+            <!-- <span class="text-18 center-align" style="width: 80%"> ROCKWOODS SCHOOL</span> -->
+            <span class="text-14 center-align" style="width: 80%">
+                Affiliated to CBSE, New Delhi, [Affiliation.No.3630272], Yamnampet
+            </span>
+            <span class="text-14 center-align" style="width: 80%"> Pocharam Municipality, Ghatkesar Mandal,
+                HYDERABAD  TELANGANA. 501301 </span>
+            <br>
+
+        </div>
+            <div class="row" style="margin-bottom: 2px;">
+                    <div class="col-md-12 center-align header-18" style="    padding-left: 28px; padding-bottom: 7px;">
+                       TRANSFER CERTIFICATE
+            </div>
+         </div>
+
+        <div class="row" style="height: 5px;margin-top: 10px;">
+		<div class="col-md-5">
+		    <span class="header-10 display-visible">ADMISSION No:</span>
+            <span class="text-12">2456
+            </span>
+        </div>
+        <div class="col-md-4">
+			
+		    <span class="header-10 display-visible">S.No:.</span>
+            <span class="text-12">0425</span>            
+        </div>
+        <div class="col-md-3">
+            <span class="header-10 display-visible">School Code:</span>
+            <span class="text-12">2455</span>
+        </div>
+         </div>
+
+
+         
+              <table class="student-record-table text-12" style="
+    margin-top: 22px;">
+            <tr>
+                <td class="field-number text-12">1.</td>
+                <td class="field-name text-12">Name of the Pupil</td>
+                <td class="field-value text-12">SURAKARAM AARADHYA</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">2.</td>
+                <td class="field-name text-12">Father's/ Guardian's Name</td>
+                <td class="field-value text-12">SURAKARAM RAMESH</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">3.</td>
+                <td class="field-name text-12">Mother's Name</td>
+                <td class="field-value text-12">NOMULA ANITHA</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">4.</td>
+                <td class="field-name text-12">Nationality</td>
+                <td class="field-value text-12">Indian</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">5.</td>
+                <td class="field-name text-12">Whether the candidate belongs to SC/ST/OBC</td>
+                <td class="field-value text-12">BC -B</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">6.</td>
+                <td class="field-name text-12">Date of first admission in the school with class</td>
+                <td class="field-value text-12">24 Jun 2024 in VII</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">7.</td>
+                <td class="field-name text-12">Date of Birth (in Christian Era) according to Admission & Withdrawal Register(In Figures)and (In Words)</td>
+                <td class="field-value text-12">21 Jun 2012 and<br>Two One - Jun - Two Zero One Two</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">8.</td>
+                <td class="field-name text-12">Class in which the pupil last studied</td>
+                <td class="field-value text-12">VII</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">9.</td>
+                <td class="field-name text-12">School / Board Annual Examination last taken with result</td>
+                <td class="field-value text-12">CBSE</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">10.</td>
+                <td class="field-name text-12">Whether failed, if so, once / twice in the same class</td>
+                <td class="field-value text-12">NA</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">11.</td>
+                <td class="field-name text-12">Subjects Studied</td>
+                <td class="field-value text-12">
+                    <table class="subjects-table">
+                        <tr>
+                            <td>1.English</td>
+                            <td>2.Telugu</td>
+                            <td>3.Maths</td>
+                        </tr>
+                        <tr>
+                            <td>4.Science</td>
+                            <td>5.Social</td>
+                            <td>6.Computers</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">12.</td>
+                <td class="field-name text-12">Whether qualified for promotion to the higher class If so, to which class (In Figures) (In words)</td>
+                <td class="field-value text-12">VIII</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">13.</td>
+                <td class="field-name text-12">Month up to which the pupil has paid school dues</td>
+                <td class="field-value text-12">01st December 2024</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">14.</td>
+                <td class="field-name text-12">Any fee concession availed of: If so, the nature of such concession</td>
+                <td class="field-value text-12">NA</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">15.</td>
+                <td class="field-name text-12">Total no. of Working Days</td>
+                <td class="field-value text-12">210</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">16.</td>
+                <td class="field-name text-12">Total no. of Present Days</td>
+                <td class="field-value text-12">200</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">17.</td>
+                <td class="field-name text-12">Whether NCC Cadet/ Boy Scout/ Girl Guide (details may be given)</td>
+                <td class="field-value text-12">NA</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">18.</td>
+                <td class="field-name text-12">Games played or extra-curricular activities in which the pupil usually took part</td>
+                <td class="field-value text-12">Basket Ball , Foot Ball</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">19.</td>
+                <td class="field-name text-12">General conduct</td>
+                <td class="field-value text-12">Good</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">20.</td>
+                <td class="field-name text-12">Date of application for certificate</td>
+                <td class="field-value text-12">11/06/2025</td>
+            </tr>
+            <tr>
+                <td class="field-number text-12">21.</td>
+                <td class="field-name text-12">Date of issue of certificate</td>
+                <td class="field-value text-12">14/07/2025</td>
+            </tr>
+        </table>
+        <div class="signature-section">
+            <div class="date-section">
+                <strong>Checked By</strong> <br>
+                (with Full name and designation)
+            </div>
+            <div class="signature-box">
+                <div class="signature-line">
+                    <span class="signature-text"></span>
+                </div>
+                <div><strong>Signature Of Principal with date
+                    <br>
+                    School SEAL
+                </strong></div>
+            </div>
+        </div>
+    </div>
+
+
+      

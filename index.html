@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://staticassets.digiclove.com/styles/invoice_print_v3.css">
+</head>
+<!-- <style>
+    .container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 15px;
+    vertical-align: top;
+}
+   .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex
+;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+.col-md-5 {
+    width: 42%;
+}
+.col-md-4 {
+    width: 33%;
+}
+.col-md-3 {
+    width: 25%;
+}
+.header-12 {
+    font-size: 12px;
+}
+.text-12 {
+    font-size: 12px;
+}
+</style> -->
+<body>
+    <div class="container">
+    <!-- Page Banner -->
+    <div class="row hightlight-background" style="height: 60px;margin-top: 24px;">
+        <div class="col-md-3">
+            <img src='@Model.GetString("PrimaryBranding", "LogoUrl")' style="max-width: 150px;max-height: 80px;" />
+        </div>
+        <div class="col-md-9 right-align">
+            <span class="header-24">Enquiry</span>
+        </div>
+    </div>
+
+    <!-- Address on banner -->
+    <div class="row hightlight-background" style="height: 60px;">
+        <span class="text-14 center-align" style="width: 80%;">
+            @Model.GetString("PrimaryBranding", "Title"),
+            @Model.GetString("LocationBranding", "Address"),
+            Mobile: @Model.GetString("LocationBranding", "Mobile")
+            Email: @Model.GetString("LocationBranding", "Email")
+            Website: @Model.GetString("LocationBranding", "Website")</span>
+    </div>
+
+    <div class="row" style="margin-bottom: 2px;margin-top: 15px;">
+        <div class="col-md-12 center-align header-18">
+            Enquiry Acknowledgement
+        </div>
+    </div> 
+
+    <div class="row" style="min-height: 50px;margin-top: 16px;">
+        <div class="col-md-12">
+            <p>
+                <span class="text-12">Hi, Thank you for reaching out to @Model.GetString("EnquiryDetails", "LocationName"). We appreciate your interest in our institution, and the opportunity to help you learn more about our programs and offerings.</span>
+            </p>
+        </div>
+    </div>
+    <!-- Enquiry
+    
+    <div class="row" style="height: 80px;margin-top: 4px;">
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Name:</span>
+            <span class="text-12">@Model.GetString("EnquiryDetails", "FullName")
+            </span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Date :</span>
+            <span class="text-12" style="white-space: nowrap;">@Model.GetDateString("EnquiryDetails", "EnquiryDate")</span>
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">Academic Year: </span>
+            <span class="text-12" style="white-space: nowrap;">@Model.GetString("EnquiryDetails", "AcademicYear")</span>
+        </div>
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Father Name: </span>
+            <span class="text-12">@Model.GetString("EnquiryDetails", "FatherName")</span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Class:</span>
+            <span class="text-12">@Model.GetString("EnquiryDetails", "StudentClass")</span>
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">StudentType: </span>
+            <span class="text-12" style="white-space: nowrap;">@Model.GetString("EnquiryDetails", "StudentType")</span>
+        </div>
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Location: </span>
+            <span class="text-12">@Model.GetString("EnquiryDetails", "LocationName")</span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Mobile: </span>
+            <span class="text-12">@Model.GetString("EnquiryDetails", "Mobile")</span>
+        </div>
+            
+    </div>
+
+    <!-- Enquiry table style -->
+    <div class="row" style="height: 80px;margin-top: 8px;">
+        <div class="col-md-12" style="height: 80px;">
+            <table class="table table-bordered table-line-height-14">
+                <thead>
+                    <tr>
+                        <th>EnquiryNumber</th>
+                        <th>EnquiryDate</th>
+                        <th>Student Name</th>
+                    </tr>
+                </thead>
+                <tbody class="text-14">
+                    <tr>
+                        <td>@Model.GetString("EnquiryDetails", "EnquiryNumber")</td>
+                        <td>@Model.GetDateString("EnquiryDetails", "EnquiryDate")</td>
+                        <td>@Model.GetString("EnquiryDetails", "FullName")</td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+
+        <div class="row" style="height: 80px;margin-top: 4px;">
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Name:</span>
+            <span class="text-12">-
+            </span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Date :</span>
+            <span class="text-12" style="white-space: nowrap;"></span>
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">Academic Year: </span>
+            <span class="text-12" style="white-space: nowrap;">-</span>
+        </div>
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Father Name: </span>
+            <span class="text-12">-</span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Class:</span>
+            <span class="text-12">-</span>
+        </div>
+        <div class="col-md-3">
+            <span class="header-12 display-visible">StudentType: </span>
+            <span class="text-12" style="white-space: nowrap;">-</span>
+        </div>
+        <div class="col-md-5">
+            <span class="header-12 display-visible">Location: </span>
+            <span class="text-12">-</span>
+        </div>
+        <div class="col-md-4">
+            <span class="header-12 display-visible">Mobile: </span>
+            <span class="text-12">-</span>
+        </div>
+            
+    </div>
+    </div>
+    <!-- LocationInfo table style -->
+    <!-- <div class="row" style="height: 80px;margin-top: 8px;">
+        <div class="col-md-12" style="height: 80px;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="hightlight-background header-12">
+                        <th style="width: 400px;">Location</th>
+                        <th style="width: 400px;">Class</th>
+                        <th style="width: 400px;">Student Type</th>
+                        <th style="width: 400px;">Academic Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.GetString("EnquiryDetails", "LocationName")</td>
+                        <td>@Model.GetString("EnquiryDetails", "StudentClass")</td>
+                        <td>@Model.GetString("EnquiryDetails", "StudentType")</td>
+                        <td>@Model.GetString("EnquiryDetails", "AcademicYear")</td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+    </div> -->
+
+
+</div>
+</body>
+</html>
