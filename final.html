@@ -1,0 +1,384 @@
+<div class="progress-card">
+    <div class="card-header">
+        <!-- School branding section -->
+        <div class="school-branding">
+            <!-- Left logo -->
+            <div class="right-logo">
+                <img src="https://www.cbse.gov.in/images//logo.png" alt="School Logo" />
+            </div>
+
+            <!-- School information -->
+            <div class="school-info">
+                <h1 class="school-name">ROCKWOODS INTERNATIONAL SCHOOL</h1>
+                <div class="school-address">
+                    Yamnampet, Pocharam Municipality, Ghatkesar Mandal, Medchal-Malkajgiri District,<br>
+                    Hyderabad - 501301
+                </div>
+                <div class="affiliation">
+                    Affiliated to CBSE, New Delhi | Aff.No[630272]
+                </div>
+            </div>
+
+            <!-- Right logo - placeholder for custom logo -->
+            <div class="right-logo">
+                <img src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png"
+                    alt="School Logo" />
+            </div>
+        </div>
+        <!-- School information -->
+
+        <!-- Student information section -->
+        <div class="student-info">
+            <div class="student-details">
+                <div class="info-row">
+                    <span class="info-label">Student's Name :</span>
+                    <span class="info-value">@Model.GetString("StudentHeader", "Name")</span>
+                    <span style="margin-left: 30px;">
+                        <span class="info-label">Adm.No :</span>
+                        <span class="info-value">@Model.GetString("StudentHeader", "AdmissionNumber")</span>
+                    </span>
+                </div>
+
+                <div class="info-row">
+                    <div class="grade-section">
+                        <div class="grade-item">
+                            <span class="info-label">Grade :</span>
+                            <span class="info-value">@Model.GetString("StudentHeader", "StudentClass")</span>
+                        </div>
+                        <div class="grade-item">
+                            <span class="info-label">Section :</span>
+                            <span class="info-value">@Model.GetString("StudentHeader", "Section")</span>
+                        </div>
+                        <div class="grade-item">
+                            <span class="info-label">Date of Birth :</span>
+                            <span class="info-value">@Model.GetDateString("StudentHeader", "DOB")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Father's Name :</span>
+                    <span class="info-value">@Model.GetString("StudentHeader", "FatherName")</span>
+                    <span style="margin-left: 40px;"></span>
+                    <span class="info-label">Mother's Name :</span>
+                    <span class="info-value">@Model.GetString("StudentHeader", "MotherName")</span>
+                </div>
+            </div>
+
+            <!-- Student photo placeholder -->
+            <div>
+                <img src='@Model.GetString("StudentHeader", "Photo")' alt="Student Photo" class="student-photo" />
+            </div>
+        </div>
+    </div>
+    <div class="academic-section">
+        <h2 class="section-title">PRIMARY PROGRESS CARD 25-26</h2>
+        <h2 class="center-align text-14" style="font-weight: 600; padding:1px ;">Session: 2025-26</h2>
+    </div>
+    @{
+    var socialSkills = Model.ToDataRows("HolisticArea");
+    }
+    <div class="container">
+
+
+        <table>
+            <tr>
+                <td colspan="3" class="subsection-header">AREAS OF DEVELOPMENT</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="subsection-header">Social & Emotional Skills</td>
+            </tr>
+
+            <tr>
+                <th style="width: 45%;" class="column-header">Self Regulation</th>
+                <th class="column-header">Grade</th>
+                <th style="width: 40%;" class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Social & Emotional Skills")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            <tr>
+                <td colspan="3" class="subsection-header">Sports & Motor Skills Development</td>
+            </tr>
+            <tr>
+                <td class="column-header">Body Balance Awareness</td>
+                <td class="column-header">Grade</td>
+                <td class="column-header">Observation</td>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Sports & Motor Skills Development")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            <tr>
+                <td colspan="3" class="subsection-header">Expression through Stories </td>
+            </tr>
+
+            <tr>
+                <th style="width: 45%;" class="column-header">Narative structure </th>
+                <th class="column-header">Grade</th>
+                <th style="width: 40%;" class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Expression through Stories")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+
+
+
+        </table>
+
+
+        <br>
+
+        <table>
+
+            <tr>
+                <td colspan="3" class="subsection-header">Music, Movement and Rhymes</td>
+            </tr>
+            <tr>
+                <th class="column-header">Melody in Motion</td>
+                <th class="column-header">Grade</td>
+                <th class="column-header">Observation</td>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Music, Movement and Rhymes")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            @if (@Model.GetString("StudentHeader", "StudentClass") == "LKG" || @Model.GetString("StudentHeader",
+            "StudentClass") == "Nursery")
+            {
+
+            <tr>
+                <td colspan="3" class="subsection-header">Early Literacy Skills</td>
+            </tr>
+            <tr>
+                <th class="column-header">Building Language</th>
+                <th class="column-header">Grade</th>
+                <th class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Early Literacy Skills")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            <tr>
+                <td colspan="3" class="subsection-header">Early Numeracy Skills</td>
+            </tr>
+            <tr>
+                <th class="column-header">Number Sence & Spatial Awareness</th>
+                <th class="column-header">Grade</th>
+                <th class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Early Numeracy Skills")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            }
+            @if(@Model.GetString("StudentHeader", "StudentClass") == "UKG"){
+            <tr>
+                <td colspan="3" class="subsection-header">Early Literacy - Language Development</td>
+            </tr>
+            <tr>
+                <th class="column-header">Building Language</th>
+                <th class="column-header">Grade</th>
+                <th class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Early Literacy - Language Development")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            <tr>
+                <td colspan="3" class="subsection-header">Cognitive Development and Early Numeracy</td>
+            </tr>
+            <tr>
+                <th class="column-header">Number Sence & Spatial Awareness</th>
+                <th class="column-header">Grade</th>
+                <th class="column-header">Observation</th>
+            </tr>
+            @foreach (var row in socialSkills)
+            {
+            var area = Model.DataRow_GetString(row, "Area");
+
+            if (!string.IsNullOrEmpty(area) && area.Trim() == "Cognitive Development and Early Numeracy")
+            {
+            <tr>
+                <td>@Model.DataRow_GetString(row, "Item")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Grade")</td>
+                <td class="grade">@Model.DataRow_GetString(row, "Observation")</td>
+            </tr>
+            }
+            }
+            }
+
+
+        </table>
+
+        <div class="remarks-section">
+            <h3>CLASS TEACHER'S REMARKS:<span style="font-weight: 100;"> @Model.GetString("Remarks", "Remarks")
+                </span></h3>
+            <h6><strong>Attendance:</strong><span style="font-weight: 100;"> @Model.GetString("Attendance", "Attended")
+                    / @Model.GetString("Attendance", "Total") </span></h6>
+            <div class="signature-container">
+
+                @if (Model.GetString("StudentHeader", "StudentClass") == "LKG")
+                {
+                <div class="signature-block">
+                    <img src="https://sdigilite.blob.core.windows.net/institution/4/LKG.png" alt="Signatures"
+                        class="signatures-img">
+                    <p>TEACHER'S SIGNATURE</p>
+                </div>
+                }
+                @if (Model.GetString("StudentHeader", "StudentClass") == "UKG")
+                {
+                <div class="signature-block">
+                    <img src="https://sdigilite.blob.core.windows.net/institution/4/ukg.jpg" alt="Signatures"
+                        class="signatures-img">
+                    <p>TEACHER'S SIGNATURE</p>
+                </div>
+
+                }
+                <div class="signature-block">
+                    <img src="https://sdigilite.blob.core.windows.net/institution/4/ce20595e_c735_4865_b457_68be88e1251f.png"
+                        alt="Signatures" class="signatures-img">
+                    <p>PRINCIPAL'S SIGNATURE</p>
+                </div>
+
+                <div class="signature-block">
+
+                    <p>PARENT'S SIGNATURE</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            @if (Model.GetString("StudentHeader", "StudentClass") == "UKG"){
+            <table>
+                <tr>
+                    <td colspan="2" class="subsection-header">Achievement indicator</td>
+                </tr>
+                <tr>
+                    <td class="grade">SL</td>
+                    <td class="observation">Scholar</td>
+                </tr>
+                <tr>
+                    <td class="grade">AD</td>
+                    <td class="observation">Advanced</td>
+                </tr>
+                <tr>
+                    <td class="grade">PF</td>
+                    <td class="observation">Proficient</td>
+                </tr>
+                <tr>
+                    <td class="grade">BG</td>
+                    <td class="observation">Beginner</td>
+                </tr>
+            </table>
+            }
+            @if (Model.GetString("StudentHeader", "StudentClass") == "LKG"){
+            <table>
+                <tr>
+                    <td colspan="2" class="subsection-header">Achievement indicator</td>
+                </tr>
+                <tr>
+                    <td class="grade">BL</td>
+                    <td class="observation">Blooming Learner</td>
+                </tr>
+                <tr>
+                    <td class="grade">AD</td>
+                    <td class="observation">Advanced</td>
+                </tr>
+                <tr>
+                    <td class="grade">GL</td>
+                    <td class="observation">Growing Learner</td>
+                </tr>
+                <tr>
+                    <td class="grade">EL</td>
+                    <td class="observation">Emerging Learner</td>
+                </tr>
+                <tr>
+                    <td class="grade">XL</td>
+                    <td class="observation">Exploring Learner</td>
+                </tr>
+            </table>
+            }
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td colspan="2" class="subsection-header">HEALTH</td>
+                </tr>
+                <tr>
+                    <td class="grade">Height(cm)</td>
+                    <td class="observation">@Model.GetDecimalString("Remarks", "HeightInCm")</td>
+                </tr>
+                <tr>
+                    <td class="grade">Weight(kg)</td>
+                    <td class="observation">@Model.GetDecimalString("Remarks", "WeightInKg")</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>

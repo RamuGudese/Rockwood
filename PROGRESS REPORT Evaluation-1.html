@@ -1,0 +1,956 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://staticassets.digiclove.com/styles/invoice_print_v3.css">
+
+    <title>Progress Card Header</title>
+    <style>
+        .progress-card {
+            width: 210mm;
+            max-width: 794px;
+            /* A4 width in pixels at 96 DPI */
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header section */
+        .card-header {
+            padding: 15px 20px;
+
+        }
+
+        /* School branding section */
+        .school-branding {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+
+        /* School info */
+        .school-info {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .school-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .school-address {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        .affiliation {
+            font-size: 11px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Right logo - placeholder for custom logo image */
+        .right-logo {
+            width: 80px;
+            height: 80px;
+
+            flex-shrink: 0;
+            /* border: 2px solid #ddd; */
+            border-radius: 8px;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .right-logo img {
+            width: 140%;
+            height: 140%;
+            object-fit: contain;
+        }
+
+        .logo-placeholder {
+            color: #999;
+            font-size: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Student information section */
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .student-details {
+            flex: 1;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 8px;
+            align-items: baseline;
+
+
+        }
+
+        .info-label {
+            font-weight: bold;
+            margin-right: 5px;
+            min-width: fit-content;
+
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        .grade-section {
+            display: flex;
+            gap: 30px;
+        }
+
+        .grade-item {
+            display: flex;
+            align-items: baseline;
+        }
+
+        /* Student photo */
+        .student-photo {
+            max-width: 110px;
+           max-height: 100px;
+            border: 2px solid #ccc;
+            background: #f0f0f0;
+            margin-left: 20px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            /* font-size: 12px;
+            text-align: center; */
+
+            background-size: cover;
+            background-position: center;
+
+            margin-right: 27px;
+        }
+
+        /* .academic-section {
+            padding: 10px 20px 20px 20px;
+        } */
+        .section-title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            /* width: 190mm;
+            margin: 0 auto;
+            background-color: white; */
+            /* border: 1px solid #333; */
+            width: 170mm;
+            /* Reduced from 170mm */
+            margin: 0 auto;
+
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px
+        }
+
+        .section-header {
+            background-color: #fdc18c;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 6px;
+            border: 1px solid #333;
+            display: flex;
+            
+        }
+
+        .subsection-header {
+            background-color: #bcdfec;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #333;
+        }
+
+        .column-header {
+            background-color: #fdc18c;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #333;
+            width: 33.33%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* Ensures uniform column widths */
+            margin-bottom: 20px;
+        }
+
+        .subsection-header {
+            background-color: #bcdfec;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #333;
+        }
+
+        td {
+            padding: 2px 5px;
+            border: 1px solid #333;
+            text-align: left;
+            line-height: 1.1;
+        }
+
+        .grade {
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            width: 50%;
+            /* Half the table */
+        }
+
+        .observation {
+            background-color: white;
+            text-align: center;
+            width: 50%;
+            /* Half the table */
+        }
+
+        .advanced {
+            color: black;
+        }
+
+        .scholar {
+            color: black;
+        }
+
+        .proficient {
+            color: black;
+        }
+
+        .remarks-section h3 {
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+        }
+
+
+        .signature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .signature-block {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .signatures-img {
+            display: block;
+            margin: 0 auto 10px;
+            max-height: 60px;
+        }
+
+        .health-table {
+            width: 50%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        .health-table th {
+            background-color: #cce0f5;
+            /* Light blue */
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+        }
+
+        .health-table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .progress-card {
+                box-shadow: none;
+                width: 100%;
+                max-width: none;
+            }
+
+            .card-header,
+            .academic-section {
+                page-break-inside: avoid;
+            }
+
+            .marks-table {
+                font-size: 11px;
+            }
+
+            .page-break {
+                page-break-before: always;
+                /* forces a page break before the element */
+                page-break-after: always;
+                /* forces a page break after the element */
+                page-break-inside: avoid;
+                /* prevents the element from being split */
+            }
+        }
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1235.0" data-gr-ext-installed="">
+
+    <div class="progress-card">
+        <div class="card-header">
+            <!-- School branding section -->
+            <div class="school-branding">
+                <!-- Left logo -->
+                <div class="right-logo">
+
+                    <img src="images.jpg" alt="School Logo" />
+
+                </div>
+
+                <!-- School information -->
+                <div class="school-info">
+                    <h1 class="school-name">ROCKWOODS INTERNATIONAL SCHOOL</h1>
+                    <div class="school-address">
+                        Yamnampet, Pocharam Municipality, Ghatkesar Mandal, Medchal-Malkajgiri District,<br>
+                        Hyderabad - 501301
+                    </div>
+                    <div class="affiliation">
+                        Affiliated to CBSE, New Delhi | Aff.No[630272]
+                    </div>
+                </div>
+
+                <!-- Right logo - placeholder for custom logo -->
+                <div class="right-logo">
+
+                    <img src="images.jpg" alt="School Logo" />
+
+                </div>
+            </div>
+
+            <!-- Student information section -->
+            <div class="student-info">
+                <div class="student-details">
+                    <div class="info-row">
+                        <span class="info-label">Student's Name :</span>
+                        <span class="info-value">VIBHANSHU SHIVA SAI PATEL</span>
+                        <span style="margin-left: 30px;">
+                            <span class="info-label">Adm.No :</span>
+                            <span class="info-value">13/2021</span>
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <div class="grade-section">
+                            <div class="grade-item">
+                                <span class="info-label">Grade :</span>
+                                <span class="info-value">U.K.G</span>
+                            </div>
+                            <div class="grade-item">
+                                <span class="info-label">Section :</span>
+                                <span class="info-value">OLYMPIAD I</span>
+                            </div>
+                            <div class="grade-item">
+                                <span style="margin-left: 30px;"></span>
+                                <span class="info-label">Date of Birth :</span>
+                                <span class="info-value">23 Dec 2009</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Father's Name :</span>
+                        <span class="info-value">VINOD KUMAR PATEL</span>
+                        <span style="margin-left: 84px;"></span>
+                        <span class="info-label">Mother's Name :</span>
+                        <span class="info-value">INDIRA PATEL</span>
+                    </div>
+                </div>
+
+                <!-- Student photo placeholder -->
+                <div>
+                    <img src="—Pngtree—portrait of a young male_19532775.png" alt="Student Photo"
+                        class="student-photo" />
+                </div>
+            </div>
+        </div>
+
+        <div class="academic-section ">
+            <h2 class="section-title">Periodic Test 1 - 2023-24</h2>
+            <h2 class="center-align text-14" style="font-weight: 600; padding:1px ;">Session: 2025-26</h2>
+        </div>
+        @{
+        var socialSkills = Model.ToDataRows("HolisticArea");
+        }
+        <div class="container">
+
+            <!-- <table>
+                    <tr>
+                        <td colspan="3" class="section-header">AREAS OF DEVELOPMENT</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="subsection-header">Social & Emotional Skills</td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Self Regulation</td>
+                        <td class="column-header">Grade</td>
+                        <td class="column-header">Observation</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Demonstrates emotional awareness</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Listens actively and Cooperate with Others</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Displays respect and empathy towards peers</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Actively participates in collaborative learning</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Demonstrates self Is Cheerful and Happy In Class</td>
+                        <td class="grade proficient">PF</td>
+                        <td class="observation proficient">Proficient</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Shows autonomy in completing tasks</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Takes responsibility for homework</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Adjust well to group tasks</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" class="subsection-header">Sports & Motor Skills Development</td>
+                    </tr>
+                    <tr>
+                        <td class="column-header">Body Balance Awareness</td>
+                        <td class="column-header">Grade</td>
+                        <td class="column-header">Observation</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Participation in Free Play</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Follows Games rules and instructions</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Social Interaction</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Body Awareness (Stretching)</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Endurance and Stamina</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Safety Awareness</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Accepts both success and failure gracefully</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Tries new activities with interest</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Holds writing tools using a steady pincer grip</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Uses crayons with control and precision</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Colors neatly within outlines</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Shapes clay creatively using fingers</td>
+                        <td class="grade advanced">AD</td>
+                        <td class="observation advanced">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-description">Demonstrates focus and effort</td>
+                        <td class="grade scholar">SL</td>
+                        <td class="observation scholar">Scholar</td>
+                    </tr>
+                </table> -->
+            <table>
+                 <tr>
+                    <td colspan="3" class="subsection-header">AREAS OF DEVELOPMENT</td>
+                </tr> 
+                    <tr>
+                    <td colspan="3" class="subsection-header">Social & Emotional Skills</td>
+                </tr>
+
+                <tr>
+                    <th class="column-header">Self Regulation</th>
+                    <th class="column-header">Grade</th>
+                    <th class="column-header">Observation</th>
+                </tr>
+                @foreach (var row in socialSkills)
+                {
+                var area = Model.DataRow_GetString(row, "Area");
+
+                if (!string.IsNullOrEmpty(area) && area.Trim() == "Social & Emotional Skills")
+                {
+                <tr>
+                    <td>@Model.DataRow_GetString(row, "Item")</td>
+                    <td>@Model.DataRow_GetString(row, "Grade")</td>
+                    <td>@Model.DataRow_GetString(row, "Observation")</td>
+                </tr>
+                }
+                }
+                <tr>
+                    <td colspan="3" class="subsection-header">Sports & Motor Skills Development</td>
+                </tr>
+                <tr>
+                    <td class="column-header">Body Balance Awareness</td>
+                    <td class="column-header">Grade</td>
+                    <td class="column-header">Observation</td>
+                </tr>
+                @foreach (var row in socialSkills)
+                {
+                var area = Model.DataRow_GetString(row, "Area");
+
+                if (!string.IsNullOrEmpty(area) && area.Trim() == "Sports & Motor Skills Development")
+                {
+                <tr>
+                    <td>@Model.DataRow_GetString(row, "Item")</td>
+                    <td>@Model.DataRow_GetString(row, "Grade")</td>
+                    <td>@Model.DataRow_GetString(row, "Observation")</td>
+                </tr>
+                }
+                }
+
+
+
+            </table>
+
+            <div class="page-break">
+                <!-- <table>
+                        <tr>
+                            <td colspan="3" class="subsection-header">Expression through Stories</td>
+                        </tr>
+                        <tr>
+                            <td class="column-header">Narrative Structure</td>
+                            <td class="column-header">Grade</td>
+                            <td class="column-header">Observation</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Speaks clearly and confidently </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses expressions and gestures</td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Follows chronological sequence while narrating a story </td>
+                            <td class="grade advanced">PF </td>
+                            <td class="observation proficient">Proficient</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses age</td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Delivers with proper voice modulation </td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Includes beginning, middle, and end </td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="subsection-header">Music , Movement and Rhymes</td>
+                        </tr>
+                        <tr>
+                            <td class="column-header">Melody in motion </td>
+                            <td class="column-header">Grade</td>
+                            <td class="column-header">Observation</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Speaks clearly and confidently </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses expressions and gestures</td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Follows chronological sequence while narrating a story </td>
+                            <td class="grade advanced">PF </td>
+                            <td class="observation proficient">Proficient</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses age</td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Delivers with proper voice modulation </td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Includes beginning, middle, and end </td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="subsection-header">Early Literacy - Language Development</td>
+                        </tr>
+                        <tr>
+                            <td class="column-header">Building Language </td>
+                            <td class="column-header">Grade</td>
+                            <td class="column-header">Observation</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Recognizes and writes letters with their sounds</td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses four-line format accurately </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Maintains alignment and spacing in
+                                writing</td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Describes pictures using appropriate vocabulary </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Communicate in simple English</td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Attempt to write three letter words independently</td>
+                            <td class="grade advanced">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Enjoys Reading aloud with peer or Teachers</td>
+                            <td class="grade advanced">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses picture cues to read simple words</td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Engages with phonics based readers and picture books </td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="subsection-header">Cognitive Development and Early Numeracy</td>
+                        </tr>
+                        <tr>
+                            <td class="column-header">Building Language </td>
+                            <td class="column-header">Grade</td>
+                            <td class="column-header">Observation</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Recognizes and writes letters with their sounds</td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced </td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses four-line format accurately </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Maintains alignment and spacing in
+                                writing</td>
+                            <td class="grade advanced">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Describes pictures using appropriate vocabulary </td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Communicate in simple English</td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Attempt to write three letter words independently</td>
+                            <td class="grade advanced">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Enjoys Reading aloud with peer or Teachers</td>
+                            <td class="grade advanced">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Uses picture cues to read simple words</td>
+                            <td class="grade scholar">AD</td>
+                            <td class="observation advanced">Advanced</td>
+                        </tr>
+                        <tr>
+                            <td class="skill-description">Engages with phonics based readers and picture books </td>
+                            <td class="grade scholar">SL</td>
+                            <td class="observation scholar">Scholar</td>
+                        </tr>
+                    </table> -->
+                <table>
+                    <tr>
+                        <td colspan="3" class="section-header">Expression throught Stories </td>
+                    </tr>
+
+                    <tr>
+                        <th class="column-header">Narative structure </th>
+                        <th class="column-header">Grade</th>
+                        <th class="column-header">Observation</th>
+                    </tr>
+                    @foreach (var row in socialSkills)
+                    {
+                    var area = Model.DataRow_GetString(row, "Area");
+
+                    if (!string.IsNullOrEmpty(area) && area.Trim() == "Expression through Stories")
+                    {
+                    <tr>
+                        <td>@Model.DataRow_GetString(row, "Item")</td>
+                        <td>@Model.DataRow_GetString(row, "Grade")</td>
+                        <td>@Model.DataRow_GetString(row, "Observation")</td>
+                    </tr>
+                    }
+                    }
+                    <tr>
+                        <td colspan="3" class="subsection-header">Music, Movement and Rhymes</td>
+                    </tr>
+                    <tr>
+                        <th class="column-header">Melody in Motion</td>
+                        <th class="column-header">Grade</td>
+                        <th class="column-header">Observation</td>
+                    </tr>
+                    @foreach (var row in socialSkills)
+                    {
+                    var area = Model.DataRow_GetString(row, "Area");
+
+                    if (!string.IsNullOrEmpty(area) && area.Trim() == "Music, Movement and Rhymes")
+                    {
+                    <tr>
+                        <td>@Model.DataRow_GetString(row, "Item")</td>
+                        <td>@Model.DataRow_GetString(row, "Grade")</td>
+                        <td>@Model.DataRow_GetString(row, "Observation")</td>
+                    </tr>
+                    }
+                    }
+                    <tr>
+                        <td colspan="3" class="subsection-header">Early Literacy Skills</td>
+                    </tr>
+                    <tr>
+                        <th class="column-header">Building Language</th>
+                        <th class="column-header">Grade</th>
+                        <thclass="column-header">Observation</th>
+                    </tr>
+                    @foreach (var row in socialSkills)
+                    {
+                    var area = Model.DataRow_GetString(row, "Area");
+
+                    if (!string.IsNullOrEmpty(area) && area.Trim() == "Early Literacy Skills")
+                    {
+                    <tr>
+                        <td>@Model.DataRow_GetString(row, "Item")</td>
+                        <td>@Model.DataRow_GetString(row, "Grade")</td>
+                        <td>@Model.DataRow_GetString(row, "Observation")</td>
+                    </tr>
+                    }
+                    }
+                    <tr>
+                        <td colspan="3" class="subsection-header">Early Numeracy Skills</td>
+                    </tr>
+                    <tr>
+                        <th class="column-header">Number Sence & Spatial Awareness</th>
+                        <th class="column-header">Grade</th>
+                        <th class="column-header">Observation</th>
+                    </tr>
+                    @foreach (var row in socialSkills)
+                    {
+                    var area = Model.DataRow_GetString(row, "Area");
+
+                    if (!string.IsNullOrEmpty(area) && area.Trim() == "Early Numeracy Skills")
+                    {
+                    <tr>
+                        <td>@Model.DataRow_GetString(row, "Item")</td>
+                        <td>@Model.DataRow_GetString(row, "Grade")</td>
+                        <td>@Model.DataRow_GetString(row, "Observation")</td>
+                    </tr>
+                    }
+                    }
+
+                </table>
+            </div>
+
+            <div class="remarks-section">
+                <h3>CLASS TEACHER'S REMARKS:<span style="font-weight: 100;"> Nirvika is a happy child who loves coming
+                        to
+                        school every day. She is good at mathematics and enjoys learning through
+                        collaboration. A confident communicator and engaged learner, she would
+                        benefit from focusing more during class activities to reach her full potential.
+                    </span></h3>
+                <h6><strong>Attendance:</strong></h6>
+                <div class="signature-container">
+                    <div class="signature-block">
+                        <p>TEACHER'S SIGNATURE</p>
+                    </div>
+                    <div class="signature-block">
+                        <img src="images.jpg" alt="Signatures" class="signatures-img">
+                        <p>PRINCIPAL'S SIGNATURE</p>
+                    </div>
+                    <div class="signature-block">
+                        <img src="images.jpg" alt="Signatures" class="signatures-img">
+                        <p>PARENT'S SIGNATURE</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td colspan="2" class="subsection-header">Achievement indicator</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">SL</td>
+                        <td class="observation">Scholar</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">AD</td>
+                        <td class="observation">Advanced</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">PF</td>
+                        <td class="observation">Proficient</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">BG</td>
+                        <td class="observation">Beginner</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <table>
+                    <tr>
+                        <td colspan="2" class="subsection-header">HEALTH</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">Height(cm)</td>
+                        <td class="observation">115</td>
+                    </tr>
+                    <tr>
+                        <td class="grade">Weight(kg)</td>
+                        <td class="observation">19.70</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

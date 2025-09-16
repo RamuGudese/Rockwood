@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payslip - September 2025</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .payslip-container {
+      width: 800px;
+      margin: 20px auto;
+      /* border: 1px solid #ddd; */
+      padding: 20px 30px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #e63946;
+      font-size: 20px;
+    }
+
+    .company {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .month {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .employee-summary {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 200px auto;
+      row-gap: 8px;
+      /* border-bottom: 1px solid #ccc;
+       padding-bottom: 20px */
+    }
+    .netpay-box-container {
+        float: right;
+      margin-top: -90px;
+      width: 250px;
+      /* border: 1px solid #ddd; */
+      border-radius: 8px;
+    
+      padding: 5px;
+      text-align: center;
+      
+    }
+    .netpay-box {
+        background: #eec9c4;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0,0, 0.1);
+        /* margin-bottom: 10px; */
+        margin: 0px;
+        border-left:#e41e2e solid 6px;
+    }
+
+    .netpay-box .amount {
+      font-size: 22px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .netpay-box small {
+      display: block;
+      margin-top: 5px;
+      color: #555;
+    }
+    .salary_details {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .details-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .details-table th,
+    .details-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .details-table th {
+      text-align: left;
+      background: #f9f9f9;
+    }
+
+    .total-row {
+      font-weight: bold;
+      background: #f9f9f9;
+    }
+
+    .netpay-final {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .netpay-final span {
+      font-size: 18px;
+      color: #2e7d32;
+    }
+
+    .amount-words {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="payslip-container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <div class="logo">
+            <img src="digiclove-logo.png" alt="Company Logo" style="height:40px; vertical-align:middle;">
+           
+        </div>
+        <!-- <div class="company">hyd, India</div> -->
+      </div>
+      <div class="month">
+        Payslip For the Month<br>
+        <strong>September 2025</strong>
+      </div>
+    </div>
+
+    <!-- Employee Summary -->
+    <div class="employee-summary">
+      <div>Employee Name</div><div>: ramu</div>
+      <div>Employee ID</div><div>: 1234</div>
+      <div>Pay Period</div><div>: September 2025</div>
+      <div>Pay Date</div><div>: 01/09/2025</div>
+    </div>
+
+    <!-- Net Pay Box -->
+     <div class = "netpay-box-container">
+    <div class="netpay-box">
+      <div class="amount">Rs.15,000.00</div>
+      <small>Total Net Pay</small>
+      </div>
+      <!-- <hr> -->
+     
+    
+    </div> 
+    <!-- salary details -->
+     <div class = "salary_details">
+      <small>Salary Details </small>
+        
+
+     </div>
+
+    <!-- Earnings and Deductions -->
+    <table class="details-table">
+      <tr>
+        <th>EARNINGS</th>
+        <th>AMOUNT</th>
+        <th>DEDUCTIONS</th>
+        <th>AMOUNT</th>
+      </tr>
+      <tr>
+        <td>Basic</td>
+        <td>Rs.8,000.00</td>
+        <td>Income Tax</td>
+        <td>Rs.0.00</td>
+      </tr>
+      <tr>
+        <td>House Rent Allowance</td>
+        <td>Rs.7,000.00</td>
+        <td>Provident Fund</td>
+        <td>Rs.0.00</td>
+      </tr>
+      <tr class="total-row">
+        <td>Gross Earnings</td>
+        <td>Rs.15,000.00</td>
+        <td>Total Deductions</td>
+        <td>Rs.0.00</td>
+      </tr>
+    </table>
+
+    <!-- Net Payable -->
+    <div class="netpay-final">
+      <div>TOTAL NET PAYABLE<br><small>Gross Earnings - Total Deductions</small></div>
+      <span>Rs.15,000.00</span>
+    </div>
+
+    <div class="amount-words">Amount In Words : Indian Rupee Fifteen Thousand Only</div>
+
+    <!-- Footer -->
+    <div class="footer">-- This is a system-generated document. --</div>
+  </div>
+</body>
+</html>
