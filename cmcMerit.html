@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A4 Printable Area Example</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #e0e0e0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .a4-page {
+            width: 21cm;
+            height: 29.7cm;
+            margin: 20px auto;
+            background: url('Certificate Of Merit Green_CMC.jpeg') no-repeat center center;
+            background-size: cover;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            box-sizing: border-box;
+            /* Remove padding to avoid overflow */
+            overflow: hidden;
+        }
+        @media print {
+            html, body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                height: auto !important;
+            }
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .a4-page {
+                margin: 0 !important;
+                box-shadow: none !important;
+                width: 21cm !important;
+                height: 29.7cm !important;
+                min-height: 0 !important;
+                max-height: none !important;
+                page-break-after: avoid !important;
+                background: url('Certificate Of Merit Green_CMC.jpeg') no-repeat center center !important;
+                background-size: cover !important;
+                overflow: hidden !important;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <!-- You can add your content here if needed, but avoid large padding/margins -->
+    </div>
+</body>
+</html>

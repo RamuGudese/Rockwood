@@ -1,0 +1,1465 @@
+<style>body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.3;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-size: 11px;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 794px;
+            /* A4 width in pixels at 96 DPI */
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+
+        .header-logo {
+            max-width: 80px;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+
+        .header-logo img {
+            max-width: 80px;
+        }
+
+        .header,
+        .header-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header-title h1,
+        .header h1 {
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: underline;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .header p {
+            font-size: 12px;
+            margin: 2px 0;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #555;
+            margin-right: 6px;
+            min-width: 100px;
+            flex-shrink: 0;
+        }
+
+        .highlight-cell {
+            background-color: #d3dce6;
+        }
+
+        .header-logo-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-note {
+            text-align: right;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            text-align: center;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .tm_text_right {
+            text-align: right;
+        }
+
+        .subsection {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .executor,
+        .bank,
+        .note {
+            margin: 5px 0;
+        }
+
+        .main-text,
+        .letter-body {
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        .subject {
+            margin-top: 10px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .branch-details {
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            margin-top: 5px;
+        }
+
+        .letter-head {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 10px;
+        }
+
+        th,
+        td {
+            border: 0.2px solid lightgrey;
+            padding: 12px 14px;
+            vertical-align: top;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .table-bordered td {
+            border: 0.2px solid lightgrey;
+        }
+
+        .td-padding {
+            padding: 5px;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #4d4d4d;
+        }
+
+        .highlight-red {
+            color: red;
+            font-style: italic;
+        }
+
+        .blue-highlight {
+            background-color: #c9cfd3;
+        }
+
+        .bold-heading {
+            font-weight: bold;
+        }
+
+        .section-label {
+            font-weight: bold;
+            background-color: #f2f2f2;
+            width: 30px;
+        }
+
+        .label-paddingleft {
+            padding-left: 1px;
+            display: inline-block;
+        }
+
+        .doc-list {
+            padding-left: 15px;
+            margin: 0;
+        }
+
+        .doc-list li {
+            margin-bottom: 2px;
+        }
+
+        .footer-note {
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .footer-info {
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        .info-table,
+        .facility-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+
+
+        }
+
+        .info-table td {
+            padding: 2px;
+            border: none;
+            font-size: 12px;
+        }
+
+        .facility-table {
+            border: 0.2px solid #ddd;
+            margin-top: 5px;
+        }
+
+
+        .facility-table th {
+            background-color: #eeeeee;
+        }
+
+        .facility-table th,
+        .facility-table td {
+            border: 0.2px solid #ddd;
+            padding: 8px 14px;
+            font-size: 12px;
+        }
+
+        .flex,
+        .address-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        .address-item {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .info-item {
+            flex: 0 0 50%;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        /* Checkbox and label alignment */
+        .checkbox-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .checkbox-group {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+            transform: scale(1.1);
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 400;
+        }
+
+        .roman-list {
+            list-style-type: lower-roman;
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+
+        .alpha-list {
+            list-style-type: lower-alpha;
+            margin-left: 15px;
+            margin: 5px 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .slno {
+            width: 40px;
+        }
+
+        .data-cell {
+            height: 25px;
+        }
+
+        .row-number {
+            width: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .section-header {
+            background-color: #e6e6e6;
+            font-weight: bold;
+        }
+
+        .amount-table {
+            width: 250px;
+            margin: 0 auto 15px auto;
+        }
+
+        .amount-table .amount-col {
+            width: 30%;
+        }
+
+        .amount-table .rs-col {
+            width: 70%;
+        }
+
+        .sub-row {
+            font-size: 12px;
+            padding-left: 15px;
+        }
+
+        .digital-version {
+            text-align: right;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .line-space {
+            line-height: 1.5;
+        }
+
+        /* Page numbering styles */
+        .page-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: white;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            /* left + right */
+            align-items: center;
+            font-size: 10px;
+            color: #666;
+            padding: 0 15px;
+            z-index: 1000;
+        }
+
+        .footer-left {
+            text-align: left;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .page-content {
+            padding-bottom: 35px;
+            /* Space for footer */
+        }
+
+        /* Print-specific page numbering */
+        body {
+            counter-reset: page-num;
+        }
+
+        .page-break {
+            page-break-before: always;
+            counter-increment: page-num;
+        }
+
+        .page-break:first-child {
+            counter-increment: none;
+        }
+
+        .auto-page-number {
+            position: fixed;
+            bottom: 10mm;
+            right: 50%;
+            transform: translateX(50%);
+            font-size: 10px;
+            color: #666;
+            background: white;
+            padding: 2px 8px;
+            display: none;
+        }
+
+        /* Print optimizations for 3 pages */
+        @media print {
+            @page {
+                /* margin: 0 ;*/
+                size: A4;
+            }
+
+
+
+            .container {
+                padding: 10px;
+                margin: 15px;
+            }
+
+            .header-logo {
+                max-width: 60px;
+                margin: 5px 0 0 10px;
+            }
+
+            .header-logo img {
+                max-width: 60px;
+            }
+
+
+            .page-break {
+                page-break-before: always;
+            }
+
+            .page-footer {
+                display: none !important;
+            }
+
+            .auto-page-number {
+                display: block;
+                position: fixed;
+                bottom: 5mm;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .page-content {
+                padding-bottom: 0;
+            }
+
+            /* Alternative print page numbering using CSS */
+            @page {
+                @bottom-center {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-size: 9px;
+                    color: #666;
+                }
+            }
+        }</style>
+<body>
+  <div class="header-logo">
+    <img src='@Model.GetString("Logo", "Logo")' />
+  </div>
+
+  <div class="header">
+    <h1>THE SOUTH INDIAN BANK LIMITED</h1>
+    <p>(REGD. OFFICE: THRISSUR)</p>
+       <table class="full-width table-bordered">
+        <tbody>
+            <tr>
+                <td colspan="2" class="td-padding">Branch: @Model.GetString("Application","Branch")</td>
+                <td colspan="2" class="td-padding">Date: @Model.GetDateString("Application","PrintDate")</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div class="letter-body">
+    <p>Ref. No. : @Model.GetString("Application","ApplicationNumber") </p>
+
+    <p>
+      To<br>
+      @Model.GetString("Application","CustomerName","CustomerType = 'Applicant'")<br>
+      @{
+      var coApplicantName = Model.GetString("Application", "CustomerName", "CustomerType = 'Co Applicant'");
+      }
+
+      @if (!string.IsNullOrWhiteSpace(coApplicantName))
+      @coApplicantName
+      @Model.GetString("Address","PermanentAddress"),@Model.GetString("Address","PermanentCity"),@Model.GetString("Address","PermanentPIN"),@Model.GetString("Address","PermanentState")
+    </p>
+
+    <p>Dear Sir/s</p>
+
+    <div class="content-block">
+      <p style="text-align: center; text-decoration: underline;">
+        <strong>Sub: Sanction/ Renewal of credit facilities.</strong>
+      </p>
+      <p>
+        With reference to your Application dated @Model.GetDateString("Application","ApplicationDate")
+        and subsequent discussions/ details provided
+        from time to time on the subject matter, we are glad to inform you that the following credit facilities
+        have been sanctioned in your account.
+      </p>
+    </div>
+
+    <p style="text-decoration: underline;" class="padding"><strong>1. A. FUND BASED FACILITIES</strong></p>
+    <p class="padding"><strong>a) Details of Credit Facilities sanctioned/renewed, Margin requirements and
+        Purpose.</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <td class="td-padding" rowspan="2">Sl. No</td>
+          <td class="td-padding" >DETAILS OF CREDIT FACILITIES SANCTIONED/RENEWED</td>
+          <td class="td-padding">Without Insurance</td>
+          <td class="td-padding">Insurance Premium Amount</td>
+
+          <td class="td-padding" rowspan="2">Margin%</td>
+          <td class="td-padding" rowspan="2">Purpose of the Credit Facility.</td>
+        </tr>
+        <tr>
+          <td class="td-padding">Nature</td>
+          <td class="td-padding">Amount</td>
+          <td class="td-padding">
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+         @{
+    var homeLoanData = Model.ToDataRows("HomeLoan");
+    var i = 1;
+    }
+    @if (homeLoanData != null && homeLoanData.Length > 0){
+     @foreach (var dataRow in homeLoanData){
+        <tr>
+          <td class="td-padding">@i.</td>
+          <td class="td-padding">Power CONSOL HL BT</td>
+          <td class="td-padding tm_text_right">@Model.DataRow_GetString(dataRow,"WithoutInsu")</td>
+          <td class="td-padding tm_text_right">
+            @Model.DataRow_GetString(dataRow,"InsuranceAmountFormatted")
+          </td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding">Balance transfer of Housing Loan</td>
+        </tr>
+         i++;
+      }
+     
+      }
+      @{
+        var consoleLoanData = Model.ToDataRows("ConsolLoanAmount");
+        var conIn = homeLoanData.Length + 1;
+      }
+      @if(consoleLoanData != null && consoleLoanData.Length > 0){
+        <tr>
+          <td class="td-padding">@conIn.</td>
+          <td class="td-padding">Power CONSOL TL</td>
+          <td class="td-padding tm_text_right">
+            @Model.GetString("ConsolLoanAmount","ConsolLoanTotal")
+          </td>
+          <td class="td-padding tm_text_right">
+            @{
+            var insuranceAmount = Model.GetString("ConsolLoanAmount", "WithInsuranceAmount");
+            }
+
+            @if (!string.IsNullOrWhiteSpace(insuranceAmount))
+            {
+            @insuranceAmount<br>
+            }
+          </td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding">Consolidation of debts</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+
+    <p class="padding"><strong>b) Rate of Interest</strong><br>
+
+      i. Applicable for SIB Power CONSOL – Home Loan BT</p>
+
+   <table border="1" cellspacing="0" cellpadding="4" style=" border-collapse:collapse;text-align:center;">
+  <tr>
+    <td class="td-padding" colspan="6">Interest rate (%) and type (fixed or floating or hybrid)</td>
+    <td class="td-padding" colspan="4">Floating</td>
+  </tr>
+  <tr>
+   <td colspan="9" style="text-align:left; ">
+      7 Additional Information in case of Floating rate of interest
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2" >Reference Benchmark</td>
+    <td rowspan="2" >Benchmark rate (%) (B)</td>
+    <td rowspan="2" >Spread (%) (S)</td>
+    <td rowspan="2" >Final rate (%) R = (B) + (S)</td>
+    <td rowspan="2" >Reset periodicity</td>
+    <td colspan="3" >Impact of change in the reference benchmark (for 25 bps change in 'R')</td>
+  </tr>
+  <tr>
+    <td >EPI %</td>
+    <td >EPI AMOUNT</td>
+    <td >No. of EPIs</td>
+  </tr>
+  <tr>
+    <td rowspan="2" >Repo Linked Lending Rate</td>
+    <td rowspan="2" >@Model.GetString("ConsolLoanAmount","REPO")</td>
+    <td rowspan="2" >@Model.GetString("ConsolLoanAmount","Spread")</td>
+    <td rowspan="2" >@Model.GetString("ConsolLoanAmount","Bs")</td>
+    <td rowspan="2" >**</td>
+    <td >9.34</td>
+    <td >60405.88</td>
+    <td >120</td>
+  </tr>
+  <tr>
+    <td >9.84</td>
+    <td >61695.17</td>
+    <td >120</td>
+  </tr>
+</table>
+
+<p style="margin-top:4px;">
+  **The applicable Repo rate is RBI Repo Rate prevailing as on the previous day. The Repo Rate shall be reset on the next day after the Repo rate is revised by RBI**
+</p>
+
+    <p>ii. Applicable for SIB Power CONSOL – CONSOL LOAN </p>
+
+    <table>
+      <tr>
+        <td class="td-padding" colspan="6">Interest rate (%) and type (fixed or floating or hybrid)</td>
+        <td class="td-padding" colspan="3">Floating</td>
+      </tr>
+      <tr>
+        <td class="td-padding" colspan="9">Additional Information in case of Floating rate of interest</td>
+      </tr>
+      <tr>
+        <td class="td-padding" rowspan="2">Reference Benchmark</td>
+        <td class="td-padding" rowspan="2">Benchmark rate (%) (B)</td>
+        <td class="td-padding" rowspan="2">Spread (%) (S)</td>
+        <td class="td-padding" rowspan="2">Final rate (%) R = (B) + (S)</td>
+        <td class="td-padding" colspan="3">Reset periodicity (Months)</td>
+        <td class="td-padding" colspan="3">Impact of change in the reference benchmark (for 25 bps change in 'R')</td>
+      </tr>
+      <tr>
+        <td class="td-padding" colspan="1">B</td>
+        <td class="td-padding" colspan="2">S</td>
+        <td class="td-padding">EPI (₹)</td>
+        <td class="td-padding">No. of EPIs</td>
+      </tr>
+      <tr>
+        <td class="data-cell" rowspan="2" class="data-cell">REPO</td>
+        <td class="data-cell" rowspan="2">@Model.GetString("ConsolLoanAmount","REPO")</td>
+        <td class="data-cell" rowspan="2">@Model.GetString("ConsolLoanAmount","Spread")</td>
+        <td class="data-cell" rowspan="2">@Model.GetString("ConsolLoanAmount","Bs")</td>
+        <td class="data-cell" rowspan="2" colspan="1"></td>
+        <td class="data-cell" rowspan="2" colspan="2"></td>
+        <td class="data-cell">@Model.GetString("ConsolLoanAmount","FormattedFinalEmiAmount")</td>
+        <td class="data-cell">@Model.GetString("ConsolLoanAmount","LoanTenureInMonths") Months</td>
+      </tr>
+
+    </table>
+    <!-- Terms and Conditions Section -->
+    <p>
+      • The Bank reserves the right to modify the Spread at any time upon change in the Borrower's credit assessment
+      and/ or on account of deterioration in the credit risk profile and/ or on account of regulatory changes etc.
+    </p>
+
+    <p><strong>2. Other Terms and Conditions (Facility wise)</strong></p>
+
+   @{
+    var applicationData = Model.ToDataRows("HomeLoan");
+    }
+
+    @if (applicationData.Length > 0)
+    {
+    <p><strong>a.SIB Power CONOL- HOME LOAN BT</strong></p>
+    <table>
+        <tr>
+            <td class="td-padding"><strong>Particulars</strong></td>
+            <td class="td-padding"><strong>Terms and conditions applicable<br>
+                    (Select only applicable conditions)</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-padding">
+                Terms and Conditions to be complied by Branches/ Business verticals
+            </td>
+            <td class="td-padding">
+                <ul>
+                    <li>Loan shall be disbursed directly to the loan a/c with the existing bank/FI, to the
+                        extent of the amount declared at the time of application.</li>
+                    <li>Loan to be extended against Agreement to mortgage (Takeover).</li>
+                    <li>EM/MOD shall be immediately created on receipt of Reg. Primary sale deed post take over
+                    </li>
+                    <li>Takeover account should be Standard Asset before disbursement of loan.</li>
+                </ul>
+            </td>
+
+        </tr>
+        <tr>
+            <td class="td-padding">Terms and Conditions be complied by Applicants/ Co-applicants/ Guarantors</td>
+            <td class="td-padding">
+                <ul>
+                    <li>Property documents (title deeds) are to be collected directly from the existing bank
+                        for which proper authorization are to be submitted at the time of documentation.</li>
+                    <li>Occupancy certificate or utility bill to be submitted</li>
+                    <li>No due certificate to be obtained from the existing bank/FI after the process of
+                        takeover is completed.</li>
+                    <li>The mutation of land & Building has to effect in the name of the title holder, if not
+                        already effected.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p><strong>Special conditions prescribed by Central Review Team</strong></p>
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    }
+    <p><strong>SIB Power CONSOL- CONSOL LOAN</strong></p>
+    <table>
+        <tr>
+            <td class="td-padding">Terms and Conditions to be complied by Branches/Business verticals </td>
+            <td class="td-padding">
+                <ul>
+                    <li>If Borrower opts for Mortgage Loan (With Insurance), during disbursement, branch
+                        should debit the loan component and directly pay the premium towards Insurance Policies.
+                    </li>
+                    <li>Top up loan (If any) - To be disbursed only after complying with all takeover
+                        formalities and creation of EM.</li>
+                    <li>The consolidation process to be completed within 60 days from loan account opening.
+                    </li>
+                    <li>Additional amount if available based on eligibility and LTV, may be allowed according
+                        to customer request, (subject to max 10% of the consolidated debt). In such case,
+                        account to be opened for the entire amount and disbursement of top up amount to be done
+                        only after closing all loans and creation of EM.</li>
+                    <li><em> As a general rule, disbursement is done by issuing DD favouring the FI. The
+                            disbursement amount to be set as per the fore-closure letter or latest
+                            statement, as the best practice. In exceptional cases, disbursement may be made
+                            against the amount stated in the application. In all cases, the disbursement
+                            against closure of different loans under consolidation to be restricted to the
+                            amount declared at the time of application. Short amount if any, to be paid by
+                            the customer.</em></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-padding">Terms and Conditions be complied by Applicants/ Co-applicants/ Guarantors</td>
+            <td class="td-padding">
+                <ul>
+                    <li>The disbursement against closure of different loans under consolidation to be
+                        restricted to the amount declared at the time of application. Short amount if any, to be
+                        paid by the customer.</li>
+                    <li><em>Closure letter/ Account statement after closure to be obtained
+                            post-disbursement. In case of credit cards, closure letter only can be
+                            accepted.</em></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p><strong>Special conditions prescribed by Central Review Team</strong></p>
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <div class="page-break"></div>
+    <p><strong>Borrower undertakings:</strong></p>
+    <p><strong>(Product wise)</strong></p>
+    <table>
+        <tr>
+            <td class="td-padding">For all loans</td>
+            <td class="td-padding">
+                <ul>
+                    <li>Branch must obtain borrower undertaking stating that the Borrower(s) / Guarantors have
+                        no IT/ GST/ Statutory Tax arrears</li>
+                    <li>Branch should get undertakings from the borrower that they will not resort to trading
+                        in real estate by the finance availed from our bank and that they are agreeable to the
+                        bank exercising its right to withhold or withdraw the facility if found so and to charge
+                        a higher rate of interest than the existing rate on the balance outstanding.</li>
+                    <li>Branches should obtain the following undertaking from the parties to the loan.
+                        <br>
+                        <em>“I/We hereby authorize and give consent to the Bank to disclose, without notice to
+                            me/us, information furnished by me/us in application form(s)/related documents
+                            executed / to be executed in relation to the facilities availed from the Bank, ,
+                            containing Financial and Personal data, to the Bank's other
+                            branches/Subsidiaries/affiliates/Credit bureau/Rating Agencies, Service Providers,
+                            governmental/ regulatory authorities or third parties for KYC information
+                            verification, credit risk analysis, or for other related purposes that the Bank may
+                            deem fit. We hereby specifically waive the privilege of privacy and privity of
+                            contract”</em>
+                    </li>
+                    <li>In the case of NRIs, loan shall not be granted for the purpose of investment in
+                        non-banking business or in agriculture or Plantation or Real Estate business or
+                        construction of Farm House or for trading in Transferable Development Rights (TDRs).
+                        Branches to obtain an undertaking also to this effect from the NRI borrowers.</li>
+                    <li>An affidavit / undertaking that, in case the loan proceeds are not utilized for the
+                        purpose for which the loan is sanctioned the loan can be treated as Commercial Loan and
+                        rate of interest with maximum spread can be charged from the date of first disbursement
+                        of the loan</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p><strong>Disbursement Instructions:</strong>
+        The top up amount to be disbursed post take over of all loans as per sanction, post mortgage cretion and obtaining the insurance if applicable
+    </p><br><br>
+    <p><strong>Post Disbursement Conditions: As per norms.</strong></p><br>
+
+    <p>
+      Applicable for all loans in Term Loan nature - Borrower/s shall agree to link the credit facility availed/ to be
+      availed hereinabove to all the operative accounts under their respective Customer ID. Borrower/s shall also allow
+      Bank to automatically debit all the dues, including installment and charges, from their operative account(s), as
+      and when a demand for installment and/or charges arises and/or installment / repayment is due in the credit
+      facility availed by Borrower/s.
+    </p>
+
+    <!-- Insurance Funding Details -->
+    <p><strong>2. Insurance Funding Details</strong></p>
+
+    <table>
+      <tr>
+        <td class="td-padding letter-head">Name of the Insurance</td>
+        <td class="td-padding letter-head">Premium </td>
+      </tr>
+      <tr>
+        <td class="td-padding"></td>
+        <td class="td-padding">Rs.________________</td>
+      </tr>
+    </table>
+    <br>
+
+    <p><strong>3. Security (ies) to be furnished</strong></p>
+
+    <table>
+      <tr>
+        <td class="td-padding" class="center">Nature of facility</td>
+        <td class="td-padding" class="center">Collateral security</td>
+      </tr>
+      <tr>
+        <td class="td-padding">Power CONSOL HL BT</td>
+        <td class="td-padding" rowspan="3">EM of Property</td>
+      </tr>
+      <tr>
+        <td class="td-padding">Power CONSOL TL</td>
+      </tr>
+
+    </table>
+    @{
+    var GuarantorData = Model.ToDataRows("Guarantor");
+    var index = 1;
+    }
+    @if (GuarantorData != null && GuarantorData.Length > 0)
+    {
+    <p><strong>4. Name of Guarantor(s)</strong></p>
+    <table>
+      <tr>
+        <td class="td-padding letter-head">SL.No.</td>
+        <td class="td-padding letter-head">Name</td>
+        <td class="td-padding letter-head">Address</td>
+      </tr>
+      @foreach (var dataRow in GuarantorData)
+      {
+      <tr>
+        <td class="td-padding">@index.</td>
+        <td class="td-padding">@Model.DataRow_GetString(dataRow,"CustomerName")</td>
+        <td class="td-padding">
+          @Model.DataRow_GetString(dataRow,"PermanentAddress"),@Model.DataRow_GetString(dataRow,"PermanentCity"),@Model.DataRow_GetString(dataRow,"PermanentPIN"),@Model.DataRow_GetString(dataRow,"PermanentState")
+        </td>
+
+      </tr>
+      index++;
+      }
+    </table>
+    }
+    <p><strong>5. Charges Payable</strong></p>
+    <table>
+      <thead>
+        <tr>
+          <td class="td-padding" rowspan="2"> No. </td>
+          <td class="td-padding" class="center" rowspan="2">Item</td>
+          <td class="td-padding" rowspan="2"> Concession<br>%</td>
+          <td class="td-padding" colspan="2"> Amount*<br><span class="sub-column"><i>(in Rupees)</i></span></td>
+          <td class="td-padding" rowspan="2"> Frequency </strong></td>
+        </tr>
+        <tr>
+          <td class="td-padding">Normal</td>
+          <td class="td-padding">Allowed</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-padding">1</td>
+          <td class="td-padding">Upfront Fee</td>
+          <td class="td-padding"></td>
+          <td class="td-padding">@Model.GetString("PropertyUpfront","UpfrontFee")</td>
+          <td class="td-padding">@Model.GetString("PropertyUpfront","UpfrontFee")</td>
+          <td class="td-padding"></td>
+        </tr>
+        <tr>
+          <td class="td-padding">2</td>
+          <td class="td-padding">
+            Processing Fee**<br>
+            <span><i>Processing fee to be collected for next ....months </i></span>
+          </td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding">NIL</td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding">NA</td>
+        </tr>
+        <tr>
+          <td class="td-padding">3</td>
+          <td class="td-padding">Property Valuation Charges</td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding">NIL</td>
+          <td class="td-padding">NIL</td>
+          <td class="td-padding">NA</td>
+        </tr>
+        <tr>
+          <td class="td-padding">4</td>
+          <td class="td-padding">Documentation Charges </td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+        </tr>
+        <tr>
+          <td class="td-padding">5</td>
+          <td class="td-padding">Inspection Charges for stock/book debts</td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+        </tr>
+        <tr>
+          <td class="td-padding">6</td>
+          <td class="td-padding">Inspection Charges for machinery/fixed assets</td>
+          <td class="td-padding">NA</td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+          <td class="td-padding"></td>
+        </tr>
+        @{
+        var consolLoanData = Model.ToDataRows("BasisLoan");
+        decimal inspectionCharge = 0;
+
+        if (consolLoanData != null && consolLoanData.Length > 0)
+        {
+        decimal totalLoanAmount = Model.DataRow_GetDecimal(consolLoanData[0], "BasisLoanAmount");
+
+        if (totalLoanAmount >= 1000000 && totalLoanAmount <= 2500000) { inspectionCharge=300.00M; } else if
+          (totalLoanAmount> 2500000 && totalLoanAmount <= 5000000) { inspectionCharge=400.00M; } else if
+            (totalLoanAmount> 5000000 && totalLoanAmount <= 10000000) { inspectionCharge=600.00M; } else if
+              (totalLoanAmount> 10000000 && totalLoanAmount <= 30000000) { inspectionCharge=800.00M; } } } <tr>
+                <td class="td-padding">7</td>
+                <td class="td-padding">Inspection Charges for property</td>
+                <td class="td-padding"></td>
+                <td class="td-padding">Rs. @inspectionCharge</td>
+                <td class="td-padding">Rs. @inspectionCharge</td>
+                <td class="td-padding"></td>
+                </tr>
+                <tr>
+                  <td class="td-padding">8</td>
+                  <td class="td-padding">Bureau report charges</td>
+                  <td class="td-padding">NA</td>
+                  <td class="td-padding"></td>
+                  <td class="td-padding"></td>
+                  <td class="td-padding"></td>
+                </tr>
+                <tr>
+                  <td class="td-padding">9</td>
+                  <td class="td-padding">Other charges advised from time to time</td>
+                  <td class="td-padding"></td>
+                  <td class="td-padding"></td>
+                  <td class="td-padding"></td>
+                  <td class="td-padding"></td>
+                </tr>
+                <tr>
+                  <td class="td-padding">10</td>
+                  <td class="td-padding" colspan="5">Penal Charges
+                    The <i>“material terms and conditions”</i> of the facility sanctioned is classified into financial
+                    and non-
+                    financial covenants and the non- compliance of “material terms and conditions” will attract the
+                    penal
+                    charges as stipulated in Annexure A given below.
+                  </td>
+                </tr>
+
+      </tbody>
+    </table>
+    <table>
+      <tr>
+        <td class="td-padding">11</td>
+        <td class="td-padding">Switch over Options /charges (Applicable to individuals availing term loans under
+          floating rate of
+          interest)</td>
+        <td class="td-padding">Borrower is allowed to switch from floating interest rate to fixed interest rate to the
+          maximum of two
+          times during the tenor of the loan.
+
+          At the time of exercising the option to switch, an amount equal to 1% of outstanding amount for
+          every full year of residual maturity shall be collected as upfront charges for switching of interest rate for
+          the loan. A minimum of 5% of outstanding amount and a maximum of 10% of outstanding amount shall be charged
+          irrespective of the number of years of residual maturity.
+
+          If you opt for fixed rate loan, then ROI shall be priced higher than the existing floating rate loan based on
+          the remaining tenure as follows:
+          <table>
+            <tr>
+              <td class="td-padding">Remaining tenure</td>
+              <td class="td-padding">Offset rate</td>
+            </tr>
+            <tr>
+              <td class="td-padding">&lt; 5 years</td>
+              <td class="td-padding">50 bps</td>
+            </tr>
+            <tr>
+              <td class="td-padding">5 &lt; 10 years</td>
+              <td class="td-padding">100 bps</td>
+            </tr>
+            <tr>
+              <td class="td-padding">10 &lt; 15 years</td>
+              <td class="td-padding">200 bps</td>
+            </tr>
+            <tr>
+              <td class="td-padding">15 years and above</td>
+              <td class="td-padding">250 bps</td>
+            </tr>
+          </table>
+
+        </td>
+
+      </tr>
+    </table>
+    <p><i>* GST on the above charges to be borne by the borrower</i></p>
+
+
+    <p><strong>6. Rates applicable for Pre-payment / Pre – Closure/ Closure of loans and other credit facilities
+      </strong><br>
+      The borrower shall not, (i) Pre-pay the outstanding principal amounts of the facilities in full or in part and/or
+      (ii)
+      Pre-close/Foreclose the Facility/ies by way of takeover or balance transfer or through own source, without payment
+      of Pre-Payment penalty and/or Pre-Closure charges (as the case may be) as mentioned below and further on such
+      terms
+      and conditions as may be stipulated by the bank, including payment of any charges, plus applicable taxes or other
+      statutory levy.
+    </p>
+
+    <p><strong>Payment / Closure by own funds or Takeover by other Banks/FIs</strong></p>
+    <ul>
+      <li>For Loans/limits upto 1.00 Cr., its 4% plus GST</li>
+      <li>For Loans/ Limits above 1.00 Cr., its 3 % plus GST</li>
+    </ul>
+
+    <p><strong>Note: </strong></p>
+    <ol>
+      <li>
+        Pre-Closure charges shall be charged as follows:
+        <ul>
+          <li>For Operative limits - On sanctioned limits</li>
+          <li>For Drop line OD - On Drawing Power</li>
+          <li>For Term Loans - Balance Outstanding + Any undisbursed loan amount</li>
+        </ul>
+      </li>
+      <li>
+        Pre-payment penalty shall be levied on Term Loans, if pre-paid amount exceeds the least of the following:
+        <ul>
+          <li>Amount equaling to 6 EMIs.</li>
+          <li>2 Quarterly installments</li>
+          <li>1 half year installment</li>
+          <li>10% of the loan amount.</li>
+        </ul>
+      </li>
+      <li>
+        In respect of operative limits (fund based and non-fund based facilities), pre-payment/pre-closure charges will
+        be
+        applicable during the validity of sanction as well as upon renewal/non-renewal of limits.
+      </li>
+    </ol>
+    <p> <strong>7. Cash Handling Charges: As per norms<br>
+        8. Any other charges as may be specified from time to time.</strong>
+    </p>
+
+    <p>
+      In addition to the above mentioned charges, Goods and Services Tax (GST) / other taxes if any, payable
+      shall be borne by the Borrower. Above charges may be revised by the Bank as and when deemed necessary.
+    </p>
+
+    <p>
+      All other expenses such as
+      (i) Fees payable to Advocate for title deed scrutiny & Legal Audit,
+      (ii) Fee payable to the Expert Valuer of secured assets,
+      (iii) Charges incurred for obtaining Search Reports/EC,
+      (iv) CERSAI charges,
+      (v) Reporting charges etc. shall be reimbursed to the Bank on actual basis.
+    </p>
+
+    <p><strong>9. Repayment Terms</strong><br>
+      Term Loans availed shall be repaid as under:
+    </p>
+
+
+    <table>
+      @if(homeLoanData != null && homeLoanData.Length > 0){
+        @foreach(var dataRow in homeLoanData)
+        {
+      <tr>
+        <td class="td-padding">HL BT</td>
+        <td class="td-padding">
+          Equated Monthly  installment of @Model.DataRow_GetString(dataRow,"FinalEmiAmountFormatted"),
+          to be paid on 5th day of every Month 
+        </td>
+      </tr>
+    }
+    }
+    @if (consolLoanData != null && consolLoanData.Length > 0)
+    {
+     
+      <tr>
+        <td class="td-padding">CONSOL TL</td>
+        <td class="td-padding">
+          Equated Monthly  installment of @Model.GetString("ConsolLoanAmount","FormattedFinalEmiAmount"),
+          to be paid on 5th day of every Month 
+        </td>
+      </tr>
+    }
+    </table>
+
+    <p>10. Due Date for Payment of Principal and / or Interest: 5th of the every month</p>
+   
+    <p><strong>11. Information Utility</strong></p>
+    <p>
+      The Borrower shall confirm and agree that the Lender shall also be entitled to disclose information,
+      to any person as may be required/ specified by applicable laws including but not limited to consent
+      for disclosure of information to Information Utilities set up pursuant to the Insolvency and Bankruptcy
+      Code, 2016. The disclosure as stated above may be made/ released in any form (including electronic, media)
+      with such details (including photographs) as may be deemed fit by Lender. The Charges as applicable shall be borne
+      by the Borrowers.
+    </p>
+
+    <p> <strong>12. General Terms and Conditions</strong></p>
+    <ol>
+      <li>
+        For the purposes of this Sanction/Renewal letter, in addition to the terms defined elsewhere herein,
+        the words and terms set forth below shall have the following meaning and application:
+        <ol class="roman-list">
+          <li>
+            Sanction date means “@Model.GetDateString("ApplicationAndProduct","SanctionDate")” (date) which is the date on which the proposal has been sanctioned
+            by the Bank for all its intents and purposes.
+          </li>
+          <li>
+            For floating rate loans, MCLR prevailing on the date of first disbursement shall be applicable and will
+            remain unchanged until the date of next reset, irrespective of interim changes in MCLR. Spread is also
+            subject to variation on the date of reset and also at any point in time, on deterioration in the credit risk
+            profile of the customer. Rate of Interest at each reset will be calculated based on the MCLR prevailing on
+            that date plus existing spread or revised spread, as the case may be.
+          </li>
+          <li>
+            RBI Repo Rate prevailing as on the day, immediately preceding the day on which disbursement is made
+            shall be applicable and the Bank’s operating cost as on the date of disbursement shall be applicable. The
+            Repo Rate will be reset on the next day after the Repo rate is revised by the Reserve Bank of India (RBI)
+            and accordingly the effective rate of interest may vary. Further the effective rate of interest may also
+            vary due to change in other components of ROI, i.e., Operating Cost, Business Strategy Spread and Credit
+            Risk Premium. Spread may undergo change upon change in the borrower's credit risk profile and/or on account
+            of regulatory changes etc. as agreed upon in loan contract.
+          </li>
+          <li>
+            Concessions: * The Effective Rate of Interest is arrived at by applying the concession at
+            @{
+              var hli = 1;
+            }
+            @if(homeLoanData != null && homeLoanData.Length > 0){
+              @foreach(var dataRow in homeLoanData)
+              {
+                @Model.DataRow_GetString(dataRow,"Concession") <span>at HL BT @hli,</span>
+                hli++;
+              }
+              
+            }
+            @if (consolLoanData != null && consolLoanData.Length > 0)
+            {
+               <span>@Model.GetString("ConsolLoanAmount","Concession") at CONSOL TL</span>
+              }
+              
+            
+            %. The
+            concession offered in interest rate / processing fee/other charges (wherever applicable) mentioned in the
+            Sanction/Renewal letter or modifications/ concessions allowed subsequent to sanction/renewal, shall be
+            withdrawn with RETROSPECTIVE EFFECT w.e.f @Model.GetDateString("ApplicationAndProduct","SanctionDate") (date of internal sanction in case of
+            continuance/reduction/modification and date of CAL/LD2100/ LD 2100 A in case of fresh), in the event of
+            takeover by other Banks/ Financial institutions.
+          </li>
+          <li>
+            Review date means “__________________” (date).
+          </li>
+        </ol>
+      <li>
+        The Borrower shall have the option of collecting the originals of movable/ immovable property documents from
+        the loan emanating branch/ office where such originals are kept within a period of 30 days from the date of full
+        repayment/ settlement of loan account(s) provided that there is/ are no other lien/charges/cross claims/court
+        order(s)/ attachments which restricts the Bank from releasing the property documents.
+      </li>
+      <li>
+        The change in the benchmark interest rate due to the change in the policy/directives of Reserve Bank of India
+        will lead to changes in the EMI and/or tenor or both.
+        <span class="highlight-red">(Applicable for term loans under floating rate of interest)</span>
+      </li>
+      <li>
+        The Bank shall have the right of set-off / net off on the deposits of any kind and nature (including Fixed
+        Deposits) held/balances lying in any account of the borrower and on any monies, securities, bonds and all other
+        assets, documents, deeds and properties held by /under the control of the bank/their trustees or Agents (whether
+        by way of security or otherwise pursuant to any contract entered /to be entered in to by the borrower in any
+        capacity) to the extent of all outstanding dues, whatsoever, arising as a result of any of the Bank's services
+        extended to and/or used by the Borrower and / or as a result of any other facilities that may be granted by the
+        Bank to the borrower. The borrower also notes the banker's lien available to the Bank on the aforesaid assets.
+      </li>
+      <li>
+        Assets financed by the Bank, if any, to be insured for full value with bank clause against all risks and the
+        same should be periodically renewed and charges to be borne by the borrower. Copies of the insurance policy
+        should be submitted.
+      </li>
+      </li>
+    </ol>
+    <p><strong><i>(Branch/ Offices to enter other terms and conditions as applicable)</i></strong></p>
+    <p>4. <br></p>
+    <p>5.<br></p>
+    <p>6.</p>
+    <p><strong>13. Special Conditions applicable for SIB Power Consol – Home Loan BT </strong></p>
+    <ol class="alpha-list">
+      <li>
+        Borrower/s agree to link the credit facility availed hereunder to the operative account/s of the Customer.
+        Borrower/s also allow Bank to automatically debit all the dues, including installment and charges, from the
+        aforementioned operative account, as and when a demand for installment or charges arises in the credit facility
+        availed by Borrower.
+      </li>
+      <li>
+        In case if the Borrower/ Co-Borrowers is an Individual and has Transaction Banking with Other Bank/ FI then,
+        such Borrower/ Co-Borrower must provide NACH Debit or ECS mandate from Personal Savings Bank Accounts or Current
+        Accounts held in their Individual names.
+      </li>
+      <li>
+        In case if Borrower/ Co-Borrower is a salaried person and where the salary is getting credit to his/ her account
+        directly, the salary credit date will be checked by verifying past 3 months salary statement of the borrower.
+        Upon verifying, branch will obtain a debit mandate to debit his/her salary account held with any other bank
+        within 5 days from the date of salary credit & credit such proceeds to our banks loan account. While forwarding
+        the debit mandate to borrower’s salary account holding bank, branch should ensure that the utility code is same
+        as generated by NPCI.
+      </li>
+
+      <li>
+        In case the Borrower belong to SIB then, Standing Instructions for Servicing the EMI/Interest from the Operative
+        Account of the borrower to be registered.
+      </li>
+      <br>
+      <br>
+      <li>
+        Submit latest Land Tax or Property Tax paid receipt of the Properties mentioned in the INW statement to ensure
+        that the stated items are genuine.
+      </li>
+      <li>
+        Before Disbursement Borrowers/Guarantors to submit the following at the branch:
+        <br> a. Self-attested copy of KYC & other documents/statements submitted to the loan processing team or copy of
+        tax paid receipts or updated entries included in INW.
+        <br> b. An affidavit / undertaking that, In case the loan proceeds are not utilized for the purpose for which
+        the loan is sanctioned the loan can be treated as Commercial Loan and rate of interest with maximum spread can
+        be charged from the date of first disbursement of the loan.
+        <br> c. Undertaking that the Borrower(s) / Guarantors have no IT/ GST/ Statutory Tax arrears
+        <br>d. NRI Borrowers - Copy of the Employment contract, salary certificate / pay slip, current work permit, copy
+        of identity card, copy of stamped visa, relevant pages of passport, name and full address of the employer /
+        sponsor abroad, contact number of the NRI applicant, name, address and contact phone number of a close relative
+        in India for local contacts etc. to be submitted.
+      </li>
+      <li>
+        Further Borrower(s) and Guarantor(s) shall also be bound by the Terms and Conditions in the link
+        <a href="https://www.southindianbank.com/UserFiles/file/Housing_loan_Terms_and_Conditions.pdf" target="_blank">
+          https://www.southindianbank.com/UserFiles/file/Housing_loan_Terms_and_Conditions.pdf
+        </a>,
+        which have been read and understood by the Borrower/Guarantor/s (as the case may be) and shall be deemed to be
+        part and parcel of this Sanction Letter.
+      </li>
+    </ol>
+     <p> <strong>Mandatory Covenants</strong>
+            <br>
+        <ol>
+            <li>In case of default in repayment of the loan / advances or in the payment of the interest thereon or any
+                of the agreed installments of the loan on due date(s) by the borrower, the Bank and / or the RBI will
+                have an unqualified right to disclose or publish the borrower's name or the name of the borrower / unit
+                and its directors / partners / proprietors as defaulters / willful defaulters in such manner and through
+                such medium as the Bank or RBI in their absolute discretion may think fit.</li>
+
+            <li>The Bank will have the right to share credit information as deemed appropriate with Credit Information
+                Companies (CICs) or any other institution as approved by RBI from time to time.</li>
+
+            <li>If borrower uses the borrowed funds for any illegal/ prohibited purpose, then Bank reserves right to
+                recall the loan without any prior notice.</li>
+
+            <li>The borrower will utilize the funds for the purpose they have been lent. Any deviation will be dealt
+                with as per RBI guidelines.</li>
+
+            <li>After provision for tax and other statutory liabilities, unless expressly permitted otherwise, the Bank
+                will have a first right on the profits of the borrower for repayment of amounts due to the Bank.</li>
+        </ol>
+        </p>
+        <p><strong>Mandatory Negative Covenants </strong><br>
+        <ol>
+            <li>Create any charge, lien or encumbrance over its undertaking or any part thereof in favour of any
+                financial institution, bank, company, firm or persons.</li>
+
+            <li>In the event of default, or where signs of inherent weakness are apparent, the Bank shall have the right
+                to securitise the assets charged and in the event of such securitisation, the Bank will suitably inform
+                the Borrower(s) and guarantor(s).</li>
+
+            <li>No commission to be paid by the borrowers to the guarantors for guaranteeing the credit facilities
+                sanctioned by the Bank to the borrowers.</li>
+
+            <li>Enter into borrowing arrangement either secured or unsecured with any other bank, financial institution,
+                company or otherwise or accept deposits which increases indebtness beyond permitted limits, stipulated
+                if any at the time of sanction.</li>
+
+            <li>The above said covenants will be subject to prior notice being given by the borrower and being agreed to
+                by the Bank. If the Bank turns down the borrower's request but the latter still goes ahead, the Bank
+                shall have the right to call up the facilities sanctioned.</li>
+        </ol>
+        </p>
+
+    <br>
+    <p><strong>15. Other terms and conditions: </strong></p>
+
+    <br>
+    <p>This offer is valid up to @Model.GetDateString("ApplicationAndProduct","NewDate") unless extended by the bank in its absolute discretion</p>
+    <p>
+      The aforesaid credit facilities are renewed/ allowed for the existing sanctioned limits as per the terms and
+      conditions stated above. However, for availing the enhanced credit facility / fresh credit facilities (as detailed
+      above), we request you and the guarantors to call on us at your earliest convenience and execute necessary loan /
+      security documents in order to enable us to extend the above mentioned credit facilities to you.
+    </p>
+    <br>
+    <p>Yours faithfully,</p>
+    <br>
+    <p>AUTHORISED SIGNATORY.</p>
+    <br>
+    <p>Copy to:</p>
+
+     @if (GuarantorData != null && GuarantorData.Length > 0)
+    {
+    <p><strong>4. Name of Guarantor(s)</strong></p>
+    <table>
+      <tr>
+        <td class="td-padding letter-head">SL.No.</td>
+        <td class="td-padding letter-head">Name</td>
+        <td class="td-padding letter-head">Address</td>
+      </tr>
+      @{
+        var guaraIn = 1;
+      }
+      @foreach (var dataRow in GuarantorData)
+      {
+      <tr>
+        <td class="td-padding letter-head">@guaraIn.</td>
+        <td class="td-padding">@Model.DataRow_GetString(dataRow,"CustomerName")</td>
+        <td class="td-padding">
+          @Model.DataRow_GetString(dataRow,"PermanentAddress"),@Model.DataRow_GetString(dataRow,"PermanentCity"),@Model.DataRow_GetString(dataRow,"PermanentPIN"),@Model.DataRow_GetString(dataRow,"PermanentState")
+        </td>
+
+      </tr>
+      guaraIn++;
+      }
+    </table>
+    }
+     @{
+    var coApp = Model.ToDataRows("Co-Applicant");
+
+    var guarantor = Model.ToDataRows("Guarantor");
+    }
+    <table class="facility-table">
+    <thead>
+        <tr>
+            <td colspan="4" class="td-padding bold-heading">Terms and conditions accepted</td>
+        </tr>
+        <tr>
+            <td><strong>Applicant</strong></td>
+            <td><strong>Name(s)</strong></td>
+            <td><strong>Signature</strong></td>
+            <td><strong>Date of Acceptance</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Borrower -->
+        <tr>
+            <td>Borrower</td>
+            <td>@Model.GetString("Application","CustomerName")</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <!-- Co-Borrower(s) -->
+        @if (coApp != null && coApp.Length > 0)
+        {
+            foreach (var dataRow in coApp)
+            {
+                <tr>
+                    <td>Co-Borrower</td>
+                    <td>@Model.DataRow_GetString(dataRow,"CustomerName")</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        }
+        <!-- Guarantor(s) -->
+        @if (guarantor != null && guarantor.Length > 0)
+        {
+            foreach (var dataRow in guarantor)
+            {
+                <tr>
+                    <td>Guarantor</td>
+                    <td>@Model.DataRow_GetString(dataRow,"CustomerName")</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+  <!-- Screen display page counter -->
+  <div class="page-footer">
+    <!-- <div class="footer-left">
+            @Model.GetDateString("Application","PrintDate")
+        </div> -->
+    <div class="footer-right">
+      <span id="pageDisplay"></span>
+    </div>
+  </div>
+
+  <!-- Auto page number for print -->
+
+  @section Scripts {
+  <script>
+    function calculatePages() {
+      const pageHeight = 1056;
+      const content = document.querySelector('.page-content') || document.querySelector('.container');
+      if (!content) return 1;
+      return Math.ceil(content.scrollHeight / pageHeight);
+    }
+
+    function getCurrentPage() {
+      const pageHeight = 1056;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return Math.floor(scrollTop / pageHeight) + 1;
+    }
+
+    function updatePageDisplay() {
+      const totalPages = calculatePages();
+      const currentPage = getCurrentPage();
+      const maxPage = Math.min(currentPage, totalPages);
+      document.getElementById('pageDisplay').textContent = `Page ${maxPage} of ${totalPages}`;
+    }
+
+    window.addEventListener('scroll', updatePageDisplay);
+    window.addEventListener('resize', updatePageDisplay);
+    window.addEventListener('load', () => setTimeout(updatePageDisplay, 200));
+    window.addEventListener('beforeprint', () => {
+      const totalPages = calculatePages();
+      document.getElementById('printPageNumber').textContent = `Page 1 of ${totalPages}`;
+    });
+  </script>
+  }
+</body>

@@ -1,0 +1,467 @@
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" >
+<style>
+  
+
+@page { 
+    size: A4; 
+    margin: 15mm 12mm !important;
+}
+
+* { box-sizing: border-box; }
+
+body { 
+    margin: 0; 
+    background: #fff; 
+    font-family: 'Roboto', Arial, sans-serif; 
+    color: #111; 
+}
+
+.page { 
+    width: 100%;
+    max-width: 210mm;
+    padding: 6mm; /* reduced padding to prevent overflow */
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: none;
+    height: auto; /* remove min-height */
+    overflow: hidden; /* prevent small overflow from creating extra page */
+    /* page-break-after: always; each template ends cleanly */
+}
+
+.page:last-child {
+    page-break-after: avoid !important; /* ensures no extra page at end */
+}
+
+/* Header */
+.school-header { 
+    border: 1px solid #D3D3D3; 
+    padding: 5px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+.school-title { flex: 1; text-align: center; }
+.school-title h1 { font-size: 24px; margin: 0; font-weight: 700; line-height: 1.2; }
+.school-title p { margin: 0; font-size: 11px; line-height: 1.3; }
+.header-logo { width: 70px; height: auto; }
+
+h2.session { font-size: 18px; text-align: center; margin: 8px 0 10px; font-weight: 700; }
+
+/* Student info */
+.student-info { 
+    display: grid; 
+    grid-template-columns: 1fr 140px;
+    gap: 8px;
+    align-items: start; 
+    margin-bottom: 10px;
+}
+.info-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.info-table td { padding: 4px 6px; vertical-align: top; line-height: 1.3; }
+.info-table td.label { font-weight: 700; width: 140px; }
+.photo-box { text-align: center; }
+.photo-box img { width: 95px; height: 115px; object-fit: cover; border: 1px solid #ddd; }
+
+/* Academic Tables */
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    font-size: 10px;
+    border: 1px solid #D3D3D3;
+    table-layout: fixed;
+}
+.grades-table th,
+.grades-table td {
+    border: 1px solid #D3D3D3;
+    padding: 4px 6px;
+    text-align: left;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.grades-table th {
+    background-color:#fff;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+}
+.section-header {
+    background-color: #fff;
+    font-weight: 700;
+    text-align: left !important;
+    padding: 4px 6px;
+    vertical-align: middle;
+}
+.section-header-term {
+    background-color: #fff;
+    font-weight: 700;
+    text-align: center !important;
+    padding: 4px 6px;
+    vertical-align: middle;
+}
+.grade-center {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+.subject-name {
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Academic Tables - Complete restructure */
+.academic-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+    font-size: 12px !important;
+}
+.academic-table th,
+.academic-table td {
+    border: 1px solid #D3D3D3 !important;
+    padding: 3px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    word-wrap: break-word !important;
+}
+.academic-table .subject-col { width: 15% !important; text-align: left !important; }
+.academic-table .score-col { width: 8% !important; }
+.academic-table .marks-col { width: 12% !important; }
+.academic-table .total-col { width: 10% !important; }
+.academic-table .grade-col { width: 8% !important; }
+
+.two-column-table th:first-child,
+.two-column-table td:first-child { width: 75%; }
+.two-column-table th:nth-child(2),
+.two-column-table td:nth-child(2) { width: 25%; }
+
+/* Attendance Table */
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+    font-size: 11px;
+    border: 1px solid #222;
+}
+.attendance-table th,
+.attendance-table td {
+    border: 1px solid #222;
+    padding: 6px 8px;
+    text-align: center;
+    vertical-align: middle;
+}
+.attendance-table th { background-color: #f5f5f5; font-weight: 700; }
+
+/* Teacher's Remarks */
+.teacher-remarks {
+    padding: 1px;
+    margin-bottom: 18px;
+}
+.teacher-remarks h3 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+.teacher-remarks p {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Grading Scale */
+.grading-scale {
+    padding: 10px;
+}
+.grading-scale h3 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+.scale-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+.scale-table th,
+.scale-table td {
+    border: 1px solid #222;
+    padding: 4px;
+    text-align: center;
+}
+.scale-table th { background-color: #f5f5f5; font-weight: 700; }
+
+/* Force page breaks */
+.page-2-content {
+    /* page-break-before: always; second page always starts new page */
+    page-break-before: always;
+    page-break-after: avoid;
+}
+
+/* Avoid breaking inside tables or important blocks */
+.avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Print-specific styles */
+@media print {
+    @page { size: A4; margin: 15mm 12mm !important; }
+    html, body {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 12px !important;
+    }
+    .page {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 6mm !important; /* reduced padding for print */
+        box-shadow: none !important;
+        height: auto !important;
+        overflow: hidden !important;
+        page-break-after: always !important;
+    }
+    .page:last-child { page-break-after: avoid !important; }
+    .page-2-content {
+    page-break-before: always !important;
+    page-break-after: avoid !important; /* Prevent extra page after last content */
+  }
+
+    /* Prevent orphaned content */
+    h2, h3 { page-break-after: avoid; break-after: avoid; }
+    table, tr { page-break-inside: auto; break-inside: auto; } /* changed to auto to prevent extra page */
+
+    /* Adjust table fonts for print */
+    .academic-table { font-size: 9px !important; }
+    .grades-table { font-size: 10px !important; margin-bottom: 8px !important; }
+    .attendance-table { font-size: 9px !important; margin-bottom: 8px !important; }
+
+    .teacher-remarks { font-size: 10px !important; padding: 8px !important; margin-bottom: 8px !important; }
+    .grading-scale { font-size: 9px !important; padding: 8px !important; }
+}
+</style>
+
+ <!-- PAGE -->
+  <div class="page">
+    <header class="school-header">
+      <img class="header-logo" src="https://www.cbse.gov.in/images//logo.png" alt="left logo" />
+      <div class="school-title">
+        <h1>ROCKWOODS INTERNATIONAL SCHOOL</h1>
+        <p>@Model.GetString("StudentHeader", "Address") <br>
+ @Model.GetString("StudentHeader", "City") - @Model.GetString("StudentHeader", "PIN")</p>
+     <!--     <p>Affiliated to CBSE, New Delhi [Affl.No#3630272]</p> -->
+      </div>
+      <img class="header-logo" src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png" alt="right logo" />
+    </header>
+    <h2 class="session">Academic Session :  @Model.GetString("Exam", "AcademicYear")</h2>
+    
+    <!-- Student Info -->
+    <div class="student-info">
+      <div class="info-left">
+        <table class="info-table">
+          <tr><td class="label">Roll No</td><td>:</td><td>@Model.GetString("StudentHeader", "AdmissionNumber")</td></tr>
+          <tr><td class="label">Student's Name</td><td>:</td><td>@Model.GetString("StudentHeader", "Name")</td></tr>
+          <tr><td class="label">Mother's/Father's/Guardian's Name</td><td>:</td><td>@Model.GetString("StudentHeader", "MotherName") / @Model.GetString("StudentHeader", "FatherName")</td></tr>
+          <tr><td class="label">Date Of Birth</td><td>:</td><td>@Model.GetDateString("StudentHeader", "DOB")</td></tr>
+          <tr><td class="label">Class / Section</td><td>:</td><td>@Model.GetString("StudentHeader", "StudentClass") / @Model.GetString("StudentHeader", "Section")</td></tr>
+        </table>
+      </div>
+      <div class="photo-box">
+        <img src='@Model.GetString("StudentHeader", "Photo")' alt="student photo"  />
+      </div>
+    </div>
+
+    <!-- Academic Grades -->
+   <table class="academic-table">
+      <thead>
+        <tr>
+          <th rowspan="2" class="subject-col">Subject</th>
+          <th colspan="5">Term1</th>
+          <th rowspan="2" class="grade-col">Grade</th>
+        </tr>
+        <tr>
+          <th class="score-col">PP<br>(5)</th>
+          <th class="score-col">PO<br>(5)</th>
+          <th class="score-col">MA<br>(5)</th>
+          <th class="score-col">SE<br>(5)</th>  
+          <th class="score-col">SA#1</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="subject-col">English</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Multiple Assessment(MA)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Subject Enrichment(SE)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Term 1' and PaperType='External'")</td>
+          <td class="grade-col">@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='English'")</td>
+        </tr>
+        <tr>
+          <td class="subject-col">II Language</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Multiple Assessment(MA)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Subject Enrichment(SE)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Term 1' and PaperType='External'")</td>
+          <td class="grade-col">@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='II Language'")</td>
+        </tr>
+        <tr>
+          <td class="subject-col">Mathematics</td>
+         <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Multiple Assessment(MA)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Subject Enrichment(SE)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Term 1' and PaperType='External'")</td>
+          <td class="grade-col">@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='Mathematics'")</td>
+        </tr>
+        <tr>
+          <td class="subject-col">Science</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Science' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Science' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Science' and ExamType='Periodic Test 1' and PaperType='Multiple Assessment(MA)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Science' and ExamType='Periodic Test 1' and PaperType='Subject Enrichment(SE)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Science' and ExamType='Term 1' and PaperType='External'")</td>
+          <td class="grade-col">@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='Science'")</td>
+        </tr>
+        <tr>
+          <td class="subject-col">Social</td>
+           <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Social' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Social' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Social' and ExamType='Periodic Test 1' and PaperType='Multiple Assessment(MA)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Social' and ExamType='Periodic Test 1' and PaperType='Subject Enrichment(SE)'")</td>
+          <td class="score-col">@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Social' and ExamType='Term 1' and PaperType='External'")</td>
+          <td class="grade-col">@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='Social'")</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Life Skills -->
+    <table class="grades-table two-column-table">
+      <thead>
+        <tr>
+          <th class="section-header" style="vertical-align: middle;">Life Skills : [on a 3-point (A-C) grading scale]</th>
+          <th class="section-header" style="vertical-align: middle; text-align: center;">Term1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="subject-name">Communication Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Communication Skills'")</td></tr>
+        <tr><td class="subject-name">Speaking Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Speaking Skills'")</td></tr>
+        <tr><td class="subject-name">Reading Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Reading Skills'")</td></tr>
+        <tr><td class="subject-name">Empathy 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Empathy'")</td></tr>
+        <tr><td class="subject-name">Emotional Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Emotional Skills'")</td></tr>
+        <tr><td class="subject-name">Scientific Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Scientific Skills'")</td></tr>
+        <tr><td class="subject-name">Organisational & Leadership Skills 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Organisational & Leadership Skills'")</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Art Education -->
+    <table class="grades-table two-column-table">
+      <thead>
+        <tr>
+          <th class="section-header" style="vertical-align: middle;">Art Education : [on a 3-point (A-C) grading scale]</th>
+          <th class="section-header" style="vertical-align: middle; text-align: center;">Term1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="subject-name">Music & Dance 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Music & Dance'")</td></tr>
+        <tr><td class="subject-name">Painting 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Painting'")</td></tr>
+        <tr><td class="subject-name">Club Activities 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Club Activities'")</td></tr>
+        <tr><td class="subject-name">Quiz 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Quiz'")</td></tr>
+        <tr><td class="subject-name">Story Telling 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Story Telling'")</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Discipline -->
+    <table class="grades-table two-column-table">
+      <thead>
+        <tr>
+          <th class="section-header" style="vertical-align: middle;">Discipline : [on a 3-point (A-C) grading scale]</th>
+          <th class="section-header" style="vertical-align: middle; text-align: center;">Term1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="subject-name">Regularity and Punctuality 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Regularity and Punctuality'")</td></tr>
+        <tr><td class="subject-name">Sincerity 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Sincerity'")</td></tr>
+        <tr><td class="subject-name">Behaviour and Values 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Behaviour and Values'")</td></tr>
+        <tr><td class="subject-name">Respectfulness 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Respectfulness'")</td></tr>
+        <tr><td class="subject-name">Abides to School rules and Regulations 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Abides to School rules and Regulations'")</td></tr>
+        <tr><td class="subject-name">Attitude towards teachers 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Attitude towards teachers'")</td></tr>
+        <tr><td class="subject-name">Attitude towards school mates 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Attitude towards school mates'")</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Computer -->
+    <table class="grades-table two-column-table">
+      <thead>
+        <tr>
+          <th class="section-header" style="vertical-align: middle;">Computer : [on a 3-point (A-C) grading scale]</th>
+          <th class="section-header" style="vertical-align: middle; text-align: center;">Term1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="subject-name">Computer 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='Computer 2'")</td></tr>
+      </tbody>
+    </table>
+
+    <!-- III Language -->
+    <table class="grades-table two-column-table">
+      <thead>
+        <tr>
+          <th class="section-header" style="vertical-align: middle;">III Language : [on a 3-point (A-C) grading scale]</th>
+          <th class="section-header" style="vertical-align: middle; text-align: center;">Term1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="subject-name">III Language 2</td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='III Language 2'")</td></tr>
+      </tbody>
+    </table>
+
+   
+   
+  
+    <!-- Teacher's Remarks -->
+   
+    <!-- PAGE 2 CONTENT STARTS HERE -->
+    <div class="page-2-content">
+     <table class="attendance-table">
+      <tr><th  style="vertical-align: middle;">Attendance</th><th  style="vertical-align: middle;">Total</th><th  style="vertical-align: middle;">%</th></tr>
+      <tr><td class="grade-center">Working Days</td><td>@Model.GetString("Attendance", "Total")</td><td rowspan="2">@Model.GetString("Attendance", "Per")</td></tr>
+      <tr><td class="grade-center"> Present Days</td><td >@Model.GetString("Attendance", "Attended")</td></tr>
+    </table>
+    <!-- Grading Scale -->
+    <div class="grading-scale avoid-break page-2-start">
+      <div class="teacher-remarks">
+      <h3>Class Teacher's Remarks :</h3>
+     
+<p>   @Model.GetString("Remarks","Remarks" )</p>
+    </div>
+      <h3>Instructions</h3>
+      <h3>Grading Scale for Scholastic Areas : Grades are awarded on a 8 - point grading scale as follows</h3>
+      <table class="scale-table">
+        <tr>
+          <th>A1</th>
+          <th>A2</th>
+          <th>B1</th>
+          <th>B2</th>
+          <th>C1</th>
+          <th>C2</th>
+          <th>D</th>
+          <th>E</th>
+        </tr>
+        <tr>
+          <td>90 - 100</td>
+          <td>80 - 89</td>
+          <td>70 - 79</td>
+          <td>60 - 69</td>
+          <td>50 - 59</td>
+          <td>40 - 49</td>
+          <td>30 - 39</td>
+          <td>0 - 29</td>
+        </tr>
+      </table>
+    </div>
+    </div>
+  </div>

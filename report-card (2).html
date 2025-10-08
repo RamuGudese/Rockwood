@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Report Card - Grade I & II (Term)</title>
+
+  <!-- Roboto font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    @page { 
+      size: A4; 
+      margin: 12mm !important; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff;
+       font-family: 'Roboto', Arial, sans-serif; color: #111; }
+
+    .page { 
+      width: 100%;
+      max-width: 210mm;
+      padding: 6mm;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: none;
+      page-break-inside: avoid;
+      min-height: 260mm;
+      height: auto;
+    }
+    
+
+    /* Header - more compact */
+    .school-header { 
+      border: 2px solid #222; 
+      padding: 4px;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+    }
+    .school-title { flex: 1; text-align: center; }
+    .school-title h1 { font-size: 22px; margin: 0; font-weight: 700; line-height: 1.1; }
+    .school-title p { margin: 0; font-size: 10px; line-height: 1.2; }
+    .header-logo { width: 60px; height: auto; }
+
+    h2.session { font-size: 16px; text-align: center; margin: 6px 0 8px; font-weight: 700; }
+
+    /* Student info - better spacing */
+    .student-info { 
+      display: grid; 
+      grid-template-columns: 1fr 120px;
+      gap: 6px;
+      align-items: start; 
+      margin-bottom: 8px;
+    }
+    .info-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .info-table td { padding: 3px 5px; vertical-align: top; line-height: 1.2; }
+    .info-table td.label { font-weight: 700; width: 130px; }
+    .photo-box { text-align: center; }
+    .photo-box img { width: 85px; height: 100px; object-fit: cover; border: 1px solid #ddd; }
+
+    /* Grades table - better readability */
+    .grades { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 10px; 
+      margin-bottom: 8px;
+      table-layout: fixed;
+    }
+    .grades th, .grades td {
+      border: 1px solid #5f5959;
+      padding: 3px 2px;
+      text-align: center;
+      vertical-align: middle;
+      height: 24px !important;
+      line-height: 1.1;
+          font-size: 10px;
+    /* font-weight: 500; */
+    }
+    .grades tr {
+      height: 24px !important;
+    }
+
+    /* Section blocks - better spacing */
+    .section { 
+      margin-top: 6px; 
+      /* border: 1px solid #222;  */
+      page-break-inside: avoid;
+      
+    }
+    .section .sec-head { 
+      background: #fff; 
+      font-weight: 700; 
+      padding: 3px 5px;
+      /* border-bottom: 1px solid #222;  */
+      font-size: 10px;
+      line-height: 1.2;
+    }
+    .section table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 9px;
+      table-layout: fixed;
+     
+    }
+    .section td, .section th { 
+      border: 1px solid #978f8f; 
+      padding: 2px 4px; 
+      vertical-align: middle;
+      height: 20px !important;
+      line-height: 1.1;
+      overflow: hidden;
+      font-size: 10px;
+    /* font-weight: 500; */
+    }
+    .section table td:last-child,
+    .section table th:last-child {
+      text-align: center !important;
+      vertical-align: middle !important;
+      width: 45px;
+    }
+    .section table tr {
+      height: 20px !important;
+    }
+    .section table td.bold,
+    .section table .bold {
+      height: 20px !important;
+      vertical-align: middle;
+    }
+
+    .bold { font-weight: 700; }
+    .small { font-size: 8px; }
+
+    /* Attendance - better spacing */
+    .attendance { 
+      margin-top: 8px; 
+      width: 60%; 
+      border-collapse: collapse; 
+      font-size: 10px; 
+      margin-left: 147px;
+    }
+    .attendance td, .attendance th { 
+      border: 1px solid #5f5959; 
+      padding: 3px 5px; 
+      text-align: center;
+      height: 20px;
+      line-height: 1.1;
+    }
+    .attendance tr {
+      height: 20px;
+    }
+
+    /* Remarks - better spacing */
+    .remarks { 
+      margin-top: 8px; 
+      font-size: 10px; 
+    }
+    .remarks p { 
+      margin: 3px 0; 
+      line-height: 1.3;
+    }
+
+    /* Grading tables - more compact */
+    .grading { 
+      margin-top: 6px; 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 8px; 
+    }
+    .grading td, .grading th { 
+      border: 1px solid #5f5959; 
+      padding: 1px 2px;
+      height: 16px;
+      vertical-align: middle;
+    }
+    .grading tr {
+      height: 16px;
+    }
+    .co-scholastic {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 8px;
+      text-align: left;
+    }
+
+    .co-scholastic th, 
+    .co-scholastic td {
+      border: 1px solid #5f5959;
+      padding: 2px 4px;
+      vertical-align: top;
+      line-height: 1.1;
+    }
+
+    .co-scholastic th {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Page break control */
+    .page-2 { 
+      page-break-before: always;
+      page-break-inside: avoid;
+      min-height: 260mm;
+    }
+
+    /* Specific height controls for page 1 sections */
+    .page-1-section {
+      margin-top: 5px;
+    }
+
+    .page-1-section .sec-head {
+      padding: 2px 4px;
+      font-size: 11px;
+    }
+
+    .page-1-section table {
+      font-size: 8px;
+    }
+
+    .page-1-section td,
+    .page-1-section th {
+      height: 18px !important;
+      padding: 1px 3px;
+          font-size: 10px;
+       /* font-weight: 500; */
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm !important;
+      }
+      
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 12px !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .page {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 6mm !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        min-height: 260mm !important;
+        height: auto !important;
+      }
+      
+      .page-2 {
+        page-break-before: always !important;
+        page-break-inside: avoid !important;
+        min-height: 260mm !important;
+      }
+      
+      /* Force smaller sizes for print consistency */
+      .school-title h1 {
+        font-size: 20px !important;
+      }
+      
+      .school-title p {
+        font-size: 9px !important;
+      }
+      
+      h2.session {
+        font-size: 14px !important;
+        margin: 5px 0 6px !important;
+      }
+      
+      .header-logo {
+        width: 55px !important;
+      }
+      
+      .photo-box img {
+        width: 80px !important;
+        height: 95px !important;
+      }
+      
+      .info-table {
+        font-size: 10px !important;
+      }
+      
+      .grades {
+        font-size: 9px !important;
+        margin-bottom: 6px !important;
+      }
+      
+      .grades th, .grades td {
+        height: 22px !important;
+        padding: 2px 1px !important;
+      }
+      
+      .section {
+        margin-top: 4px !important;
+      }
+      
+      .section .sec-head {
+        font-size: 9px !important;
+        padding: 2px 4px !important;
+      }
+      
+      .section table {
+        font-size: 8px !important;
+      }
+      
+      .section td, .section th {
+        height: 18px !important;
+        padding: 1px 3px !important;
+        font-size: 10px;
+       font-weight: 500;
+      }
+      
+      .page-1-section {
+        margin-top: 3px !important;
+      }
+      
+      .page-1-section td,
+      .page-1-section th {
+        height: 16px !important;
+        padding: 1px 2px !important;
+      }
+      
+      .attendance {
+        font-size: 9px !important;
+        margin-top: 6px !important;
+      }
+      
+      .attendance td, .attendance th {
+        height: 18px !important;
+        padding: 2px 4px !important;
+      }
+      
+      .remarks {
+        font-size: 9px !important;
+        margin-top: 6px !important;
+      }
+      
+      .remarks p {
+        margin: 2px 0 !important;
+        line-height: 1.2 !important;
+      }
+      
+      .co-scholastic {
+        font-size: 7px !important;
+      }
+      
+      .co-scholastic th, 
+      .co-scholastic td {
+        padding: 1px 3px !important;
+      }
+      
+      .grading {
+        margin-top: 4px !important;
+      }
+      
+      .grading td, .grading th {
+        height: 14px !important;
+        padding: 1px !important;
+      }
+      
+      /* Force page breaks */
+      table, .section {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      
+      /* Prevent orphaned content */
+      h1, h2, h3 {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page">
+    <header class="school-header">
+      <img class="header-logo" src="https://www.cbse.gov.in/images//logo.png" alt="left logo" />
+      <div class="school-title">
+        <h1>ROCKWOODS INTERNATIONAL SCHOOL</h1>
+        <p>(Opp) Sreenidhi Institute of Science and Technology, Yamnampet, Hyderabad - 501301</p>
+        <p>Affiliated to CBSE, New Delhi [Affl.No#3630272]</p>
+      </div>
+      <img class="header-logo" src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png" alt="right logo" />
+    </header>
+
+    <h2 class="session">Academic Session : 2024-25</h2>
+
+    <!-- Student Info -->
+    <div class="student-info">
+      <div class="info-left">
+        <table class="info-table">
+          <tr><td class="label">Roll No</td><td>:</td><td>21</td></tr>
+          <tr><td class="label">Student's Name</td><td>:</td><td>Kanishka</td></tr>
+          <tr><td class="label">Mother's/Father's/Guardian's Name</td><td>:</td><td>Anusha / Venkata Rao</td></tr>
+          <tr><td class="label">Date Of Birth</td><td>:</td><td>04 May 2018</td></tr>
+          <tr><td class="label">Class / Section</td><td>:</td><td>Class I / Sapphire</td></tr>
+        </table>
+      </div>
+      <div class="photo-box">
+        <img src="—Pngtree—portrait of a young male_19532775.png" alt="student photo" />
+      </div>
+    </div>
+
+    <!-- Scholastic Areas -->
+    <table class="grades">
+      <thead>
+        <th colspan="7">Term1</th>
+        <tr>
+          <th>Subject</th><th>PP</th><th>PO</th><th>OR</th><th>AC</th><th>SA#1</th><th>Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>English</td><td>A1</td><td>A1</td><td>A2</td><td>A1</td><td>A1</td><td>A1</td></tr>
+        <tr><td>Hindi</td><td>A1</td><td>A1</td><td>A1</td><td>A1</td><td>A1</td><td>A1</td></tr>
+        <tr><td>Mathematics</td><td>A1</td><td>A2</td><td>A1</td><td>A1</td><td>A1</td><td>A1</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Co-Scholastic Sections (Page 1) - Reduced content -->
+    <div class="section page-1-section">
+      <div class="sec-head">Physical Development : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td class="bold">Children develop habits that keep them healthy and safe</td><td>Term1</td></tr>
+          <tr><td>Practices basic self care and hygiene</td><td>A</td></tr>
+          <tr><td>Shows a liking for and understanding of nutritious food</td><td>A</td></tr>
+          <tr><td>Understands unsafe situations and asks for help</td><td>A</td></tr>
+          <tr><td class="bold">Children develop sharpness in sensorial perceptions</td><td></td></tr>
+          <tr><td>Begins integrating sensorial perceptions</td><td>A</td></tr>
+          <tr><td>Develops discrimination in the sense of touch</td><td>A</td></tr>
+          <tr><td>Differentiates between shapes, colours and their shades</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section page-1-section">
+      <div class="sec-head">Social, Emotional and Ethical Development : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td class="bold">Children develop emotional intelligence</td><td>Term1</td></tr>
+          <tr><td>Interacts comfortably with other children and adults</td><td>A</td></tr>
+          <tr><td>Recognises different emotions and regulates them</td><td>A</td></tr>
+          <tr><td>Shows kindness and helpfulness to others</td><td>A</td></tr>
+          <tr><td>Recognises 'self' as individual belonging to family</td><td>A</td></tr>
+          <tr><td class="bold">Develops positive attitude towards work and service</td><td></td></tr>
+          <tr><td>Demonstrates willingness in age appropriate work</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section page-1-section">
+      <div class="sec-head">Cognitive Development : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td>Makes sense of world through observation and logical thinking</td><td>A</td></tr>
+          <tr><td>Develops mathematical understanding and abilities</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section page-1-section">
+      <div class="sec-head">Language and Literacy Development : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td class="bold">Develops effective communication skills</td><td>Term1</td></tr>
+          <tr><td>Comprehends narrated or read content</td><td>A</td></tr>
+          <tr><td>Converses fluently and holds meaningful conversation</td><td>A</td></tr>
+          <tr><td>Listens to and appreciates songs, rhymes and poems</td><td>A</td></tr>
+          <tr><td>Understands oral instructions for complex tasks</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section page-1-section">
+      <div class="sec-head">Children develop fluency in reading and writing in Language 1</div>
+      <table>
+        <tbody>
+          <tr><td>Reads and comprehends meaning of short news items instructions and recipes and publicity material</td><td>A</td></tr>
+          <tr><td>Reads short poems and begins to appreciate the poem for its choice of words and imagination</td><td>A</td></tr>
+          <tr><td>Reads short stories and comprehends its meaning by identifying characters storyline</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section page-1-section">
+      <div class="sec-head">Children begin to read and write in language 2</div>
+      <table>
+        <tbody>
+          <tr><td>Recognises most frequently occurring letters of the alphabet forms of akshara of the script</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page page-2">
+
+    <div class="section">
+      <div class="sec-head">Reads stories and passages in Language 1 with accuracy and fluency</div>
+      <table>
+        <tbody>
+          <tr><td>Reads stories and passages in Language 1 with accuracy and fluency with appropriate pauses and voice modulation</td><td>A</td></tr>
+          <tr><td>Recognises all the letters of the alphabet forms of akshara of the script Language 1 and uses this knowledge to read and write words</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">Computer : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td>Computer</td><td>Term1</td></tr>
+          <tr><td>Computer</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">Aesthetic and cultural development : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td class="bold">Children develop abilities and sensibilities in visual and performing arts and express their emotions through art in meaningful and joyful ways</td><td>Term1</td></tr>
+          <tr><td>Explores and plays with a variety of materials and tools to create two dimensional and three dimensional artworks in varying sizes</td><td>A</td></tr>
+          <tr><td>Explores and plays with own voice body spaces and a variety of objects to create music roleplay dance and movement</td><td>A</td></tr>
+          <tr><td>Innovates and works imaginatively to express ideas and emotions through the arts</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">Positive learning habits : [on a 3-point (A-C) grading scale]</div>
+      <table>
+        <tbody>
+          <tr><td class="bold">Children develop habits of learning that allow them to engage actively in formal learning environments like a school classroom</td><td>Term1</td></tr>
+          <tr><td>Attention and intentional action Acquires skills to plan focus attention and direct activities to achieve specific goals</td><td>A</td></tr>
+          <tr><td>Observation wonder curiosity and exploration observes minute details of objects wonders and explores using various senses tinkers with objects asks questions</td><td>A</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Attendance -->
+    <table class="attendance">
+      <tr><th>Attendance</th><th>Term1</th><th>Total</th><th>%</th></tr>
+      <tr><td>Working Days</td><td>130</td><td>130</td><td>100</td></tr>
+      <tr><td>Present Days</td><td>94</td><td>94</td><td>72.31</td></tr>
+    </table>
+
+    <!-- Remarks -->
+    <div class="remarks">
+      <p class="bold">Class Teacher's Remarks :</p>
+      <p>Kanishka needs to enhance her skills as a communicator and collaborator. She demonstrates social responsibilityKanishka needs to enhance 
+        her skills as a communicator and collaborator. She demonstrates social responsibilityKanishka needs to enhance her skills as a 
+        communicator and collaborator. She demonstrates social responsibility and is encouraged to build more confidence in her interactions 
+        with others. Reading for at least 15 minutes each night will expand her knowledge and boost her confidence in discussions.</p>
+    </div>
+
+    <!-- Grading Scales -->
+    
+<div class="section" style="margin-top:6px;text-align: center;">
+  <div class="sec-head small">Grading Scale for Co-Scholastic Areas</div>
+  <table class="grading small co-scholastic">
+    <thead>
+      <tr>
+        <th style="width:60px; text-align: center;">Grade</th>
+        <th style="width:100px; text-align: center;">Level</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center; vertical-align: middle;">A</td>
+        <td style="text-align: center; vertical-align: middle;">Proficient</td>
+        <td>Achieves the Competency and associated Learning Outcomes on his/her own.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; vertical-align: middle;">B</td>
+        <td style="text-align: center; vertical-align: middle;">Progressing</td>
+        <td>Achieves the Competency and associated Learning Outcomes with occasional/some support from teachers.</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; vertical-align: middle;">C</td>
+        <td style="text-align: center; vertical-align: middle;">Beginner</td>
+        <td>Tries to achieve the Competency and associated Learning Outcomes with lot of support from teachers.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</body>
+</html>

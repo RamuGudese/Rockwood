@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Letter Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" >
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', Arial, sans-serif;
+           
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            line-height: 1.4;
+        }   
+        
+
+        .page {
+            width: 21cm;
+            min-height: 29.7cm;
+            background-color: white;
+            padding-top: 1.28cm;
+            padding-left: 1.75cm;
+            padding-right: 1.72cm;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page .container {
+            flex: 1 0 auto;
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+        }
+
+        .row {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .col-md-3,
+        .col-md-9,
+        .col-md-12 {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .col-md-3 {
+            width: 25%;
+        }
+
+        .col-md-9 {
+            width: 75%;
+        }
+
+        .col-md-12 {
+            width: 100%;
+        }
+
+        .hightlight-background {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .header-24 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .header-16 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .header-12 {
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .text-12 {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .text-14 {
+            font-size: 12px;
+            color: #333;
+            line-height: 1.5;
+        }
+         .text-16 {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+         .text-18 {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .center-align {
+            text-align: center;
+        }
+
+        .right-align {
+            text-align: right;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        .no-border-table {
+            border: none;
+        }
+
+        .table-line-height-24 {
+            line-height: 24px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .table thead th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            font-size: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            /* Remove padding-top: 307px; */
+            /* Remove align-content: end; */
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                box-sizing: border-box;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html,
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                height: auto !important;
+                overflow: visible !important;
+                font-size: 12px !important;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            .page {
+                width: 21cm !important;
+                height: auto !important;
+                min-height: 29.7cm !important;
+                margin: 0 !important;
+                /* padding-top: 1.28cm !important; */
+                /* padding-bottom: 1.28cm !important; */
+                padding-left: 1.75cm !important;
+                padding-right: 1.72cm !important;
+                page-break-inside: avoid !important;
+                page-break-after: auto !important;
+                overflow: visible !important;
+            }
+
+            .page:not(:last-child) {
+                page-break-after: always !important;
+            }
+
+            /* .footer {
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                height: 1.28cm !important;
+                z-index: 1000 !important;
+                background-color: #f5f5f5 !important;
+                border-top: 1px solid #ddd !important;
+            } */
+
+            /* Force page breaks at specific elements */
+            .page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            /* Prevent orphaned content */
+            .row {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .table {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            /* Keep sections together */
+            .header-12+p {
+                page-break-inside: avoid !important;
+            }
+
+            ul {
+                page-break-inside: avoid !important;
+            }
+
+            /* Ensure proper spacing */
+            .hightlight-background {
+                background-color: #f8f9fa !important;
+            }
+        }
+        
+        
+        .salary_container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .salary-table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: dedbd2;
+            /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .salary-table th {
+            background-color: #fcfcfc;
+            border-bottom: 1px solid black;
+            color: black;
+            padding: 12px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .salary-table th:first-child {
+            text-align: left;
+        }
+
+        .salary-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e9e9e9;
+            font-size: 13px;
+        }
+
+        .salary-table .particulars {
+            text-align: left;
+            color: #333;
+        }
+
+        .salary-table .amount {
+            text-align: right;
+            color: #000;
+        }
+
+        .salary-table .gross-salary {
+            background-color: #f8f8f8;
+            color: white;
+            font-weight: bold;
+        }
+
+        .salary-table .net-pay {
+            background-color: #fcfcfc;
+            color: black;
+            font-weight: bold;
+        }
+
+        .salary-table .total-deductions {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .salary-table .empty-cell {
+            color: black;
+            font-style: italic;
+        }
+
+        @media print {
+            body { background-color: white; margin: 0; }
+            .salary-table { box-shadow: none; border: 1px solid #ffffff; }
+            .salary-table th, .gross-salary, .net-pay { 
+                -webkit-print-color-adjust: exact !important; 
+                color-adjust: exact !important; 
+            }
+        }
+        /* Screen styles */
+        @media screen {
+            body {
+                background-color: #fff;
+                padding: 20px 0;
+            }
+
+            .page {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <!-- Page Banner -->
+            <div class="row" style="min-height: 60px;margin-top: 24px;">
+                <div class="col-md-3">
+                    <img src="https://staticassets.digiclove.com/logos/digiclove-logo.png"
+                        style="max-width: 150px;max-height: 80px;" />
+                </div>
+                <div class="right-align">Date:18-09-25</div>
+                <div class="center-align">
+                    <span class="header-24">Offer Letter</span>
+                </div>
+            </div>
+            <!-- Offer Letter Content -->
+            <div class="row" style="min-height: 120px;margin-top: 16px;">
+                <div class="col-md-16">
+                    <p>
+                        <span class="text-18">Dear </span><span class="header-16">Ram</span>,
+                    </p>
+                    <p class="text-18" style="padding-top: 14px;">
+                        Congratulations! We are pleased to confirm that you have been selected to work for Digiclove
+                        Technologies Private Limited. We are delighted to make you the following job offer.
+                    </p>
+                    <p class="text-18" style="padding-top: 14px;">
+                        The position we are offering you is that of <strong>Software Engineer</strong> with an annual cost to company of
+                        INR. <strong>1,20,000</strong>. This position reports to <strong>Vinod Jonadula</strong>.
+                    </p>
+                    <p class="text-18" style="padding-top: 14px;">
+                        We would like you to start work on <strong>1st Dec 2023</strong>. Please report to <strong>Vinod
+                            Jonadula</strong> for documentation and orientation. If this date is not acceptable, please
+                        contact me immediately. On joining, you will be invited to our HR tool in which you may be
+                        required to upload your documents.
+                    </p>
+
+                    <p class="text-18" style="padding-top: 14px;">
+                        Please sign the enclosed copy of this letter and return it to us by <strong>29th Nov
+                            2023</strong> to indicate your acceptance of this offer.
+                    </p>
+
+                    <p class="text-18" style="padding-top: 14px;">
+                        We are confident that you will be able to make a significant contribution to the success of
+                        Digiclove Technologies Private Limited and look forward to working with you.
+                    </p>
+
+                    <p class="text-18" style="padding-top: 70px;">
+                        Sincerely,
+                    </p>
+                    <p class="text-18">
+                        Human Resources Team<br />
+                        Digiclove Technologies Private Limited,<br />
+                        2nd Floor Vyshnavi's cynosure, Gachibowli, <br />
+                        Hyderabad, Telangana 500032
+                    </p>
+                    <p class="text-18" style="padding-top: 16px;">
+                        Accepted by,
+                    </p>
+                    <p class="text-16">
+                        <strong>Name: </strong> Morla Jyothi<br />
+                        <strong>Date: </strong> <br />
+                        <strong>Place: </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>Digiclove Technologies Private Limited</div>
+                <div># -102, Plot-344, Avantikas Sarayu, Matrusri Nagar, Chandanagar, Hyderabad – 500049</div>
+                <div>www.digiclove.com | info@digiclove.com | +91 99 1234 1611</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Annexure A -->
+    <div class="page page-break">
+        <div class="container">
+            <div class="row" style="min-height: 78px;margin-top: 16px;">
+                <div class="col-md-3">
+                    <img src="https://staticassets.digiclove.com/logos/digiclove-logo.png"
+                        style="max-width: 150px;max-height: 80px;" />
+                </div>
+                
+            </div>
+            <div class="row" style="min-height: 120px;margin-top: 16px;">
+                <div class="col-md-12">
+                    <p>
+                        <span class="header-16">Annexure A </span>
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        1. Posting and Transfer
+                    </p>
+                    <p class="text-16">
+                        Your services are liable to be transferred, at the sole discretion of Management, in such other
+                        capacity as the company may determine, to any department / section, location, associate, sister
+                        concern or subsidiary, at any place in India or abroad, whether existing today or which may come
+                        up in future. In such a case, you will be governed by the terms and conditions of the service
+                        applicable at the new placement location.
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        2. Probation
+                    </p>
+                    <p class="text-16">
+                        That you will be on probation for a period of six months. The period of probation can be
+                        extended at the discretion of the Management and you will continue to be on probation till an
+                        order of confirmation has been issued in writing.
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        3. Full time employment
+                    </p>
+                    <p class="text-16">
+                        Your position is a whole-time employment with the Company and you shall devote yourself
+                        exclusively to the business and interests of the company. You will not take up any other work
+                        for remuneration (part time or otherwise) or work in an advisory capacity, or be interested
+                        directly or indirectly (except as shareholder / debenture holder), in any other trade or
+                        business during your employment with the company, without permission in writing of the
+                        Management of the Company. You will also not seek membership of any local or public bodies
+                        without first obtaining specific permission from the Management.
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        4. Confidentiality
+                    </p>
+                    <p class="text-16">
+                        You will not, at any time, during the employment or after, without the consent of the Management
+                        disclose or divulge or make public, except on legal obligations, any information regarding the
+                        Company's affairs or administration or research carried out, whether the same is confided to you
+                        or becomes known to you in the course of your service or otherwise.
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        5. Intellectual Property
+                    </p>
+                    <p class="text-16">
+                        If you conceive any new or advanced method of improving designs/ processes/ formulae/ systems,
+                        etc. in relation to the business/ operations of the Company, such developments will be fully
+                        communicated to the company and will be, and remain, the sole right/ property of the Company.
+                    </p>
+                    <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                        6. Responsibilities & Duties
+                    </p>
+                    <p class="text-16">
+                        Your work in the organization will be subject to the rules and regulations of the organization
+                        as laid down in relation to conduct, discipline and other matters. You will always be alive to
+                        responsibilities and duties attached to your office and conduct yourself accordingly. You must
+                        effectively perform to ensure results.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <div>Digiclove Technologies Private Limited</div>
+                <div># -102, Plot-344, Avantikas Sarayu, Matrusri Nagar, Chandanagar, Hyderabad – 500049</div>
+                <div>www.digiclove.com | info@digiclove.com | +91 99 1234 1611</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page page-break">
+        <div class="container">
+             <div class="row" style="min-height: 78px;margin-top: 16px;">
+                <div class="col-md-3 header">
+                    <img src="https://staticassets.digiclove.com/logos/digiclove-logo.png"
+                        style="max-width: 150px;max-height: 80px;" />
+                </div>
+             
+            </div>
+            <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                7. Past Records
+            </p>
+            <p class="text-16">
+                This letter of appointment is based on the information furnished in your application for
+                employment and during the interviews you had with us. If any declaration given, or information
+                furnished by you, to the company proves to be false, or if you are found to have willfully
+                suppressed any material information, in such cases, you will be liable to removal from services
+                without any notice.
+            </p>
+            <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                8. Termination of employment
+            </p>
+            <p class="text-16">
+                During the probationary period and any extension thereof, your services may be terminated
+                without giving any notice or salary in lieu thereof. However, on confirmation the services can
+                be terminated from company side by giving one month (30 days) notice or salary in lieu thereof
+                and employee side by giving three months (90 days) notice.
+            </p>
+            <p class="text-16">
+                Upon resignation/termination of employment, you will immediately hand over to the Company all
+                correspondence, specifications, formulae, books, documents, market data, cost data, drawings,
+                affects or records belonging to the Company or relating to its business and shall not retain or
+                make copies of these items.
+            </p>
+            <p class="text-16">
+                Upon resignation/termination of employment, you will also return all company property, which may
+                be in your possession.
+            </p>
+            <p class="text-16">
+                Notwithstanding the above condition, the contract of service may also be terminated because of
+                under mentioned stipulations. This will be without payment of any compensation.
+            </p>
+            <ul class="text-16" style="padding-top: 7px;font-weight: bold;">
+                <li>If you fail, refuse or neglect to carry out and perform your duties assigned to you by the
+                    company.</li>
+                <li>For loss of confidence in you by the company for any of the act committed by you.</li>
+                <li>If you are found to be guilty of fraud, insubordination or misconduct whether in course of
+                    performance of duties entrusted to you or otherwise.</li>
+                <li>If you are found unfit for being entrusted with the responsible work commensurate with your
+                    position in consequences of any misconduct, moral turpitude.</li>
+                <li>If you commit any act prejudicial to the continuing good relationship between you and the
+                    company.</li>
+                <li>If you commit breach of any of the terms of this letter of appointment.</li>
+            </ul>
+            <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                9. Authority
+            </p>
+            <p class="text-16">
+                No authority is vested upon you to make any financial commitment and enter into agreements /
+                contracts / understandings of any nature with any second party and third party without seeking
+                the prior permission / approval of the management. Any violation to exceed your specified
+                authority as mentioned will be seriously viewed and disciplinary/appropriate legal action will
+                be taken.
+            </p>
+        </div>
+
+        <div class="footer">
+            <div>
+                <div>Digiclove Technologies Private Limited</div>
+                <div># -102, Plot-344, Avantikas Sarayu, Matrusri Nagar, Chandanagar, Hyderabad – 500049</div>
+                <div>www.digiclove.com | info@digiclove.com | +91 99 1234 1611</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    <!-- Annexure B -->
+    <div class="page page-break">
+        <div class="container">
+
+            <div class="row" style="min-height: 78px;margin-top: 16px;">
+                <div class="col-md-3">
+                    <img src="https://staticassets.digiclove.com/logos/digiclove-logo.png"
+                        style="max-width: 150px;max-height: 80px;" />
+                </div>
+
+            </div>
+            <div class="col-md-12">
+                <p>
+                    <span class="header-16">Annexure B </span>
+                </p>
+
+                <p class="header-16 " style="padding-top: 7px;font-weight: bold;">
+                    Expected salary structure.
+                </p>
+
+               <div class="table_container">
+        <table class="salary-table">
+            <thead>
+                <tr>
+                    <th>Particulars</th>
+                    <th>Amount<br>Per Month</th>
+                    <th>Per Annum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="particulars">Basic Salary</td>
+                    <td class="amount">₹15,000</td>
+                    <td class="amount">₹1,80,000</td>
+                </tr>
+                <tr>
+                    <td class="particulars">House Rent Allowance (HRA)</td>
+                    <td class="amount">₹7,500</td>
+                    <td class="amount">₹90,000</td>
+                </tr>
+                <tr>
+                    <td class="particulars">Conveyance Reimbursement</td>
+                    <td class="amount">₹1,200</td>
+                    <td class="amount">₹14,400</td>
+                </tr>
+                <tr>
+                    <td class="particulars">Mobile / Internet Reimbursement</td>
+                    <td class="amount empty-cell">—</td>
+                    <td class="amount empty-cell">—</td>
+                </tr>
+                <tr>
+                    <td class="particulars">Advance Bonus / Ex-gratia</td>
+                    <td class="amount empty-cell">—</td>
+                    <td class="amount empty-cell">—</td>
+                </tr>
+                <tr>
+                    <td class="particulars">Special Allowance</td>
+                    <td class="amount">₹6,300</td>
+                    <td class="amount">₹75,600</td>
+                </tr>
+                <tr class="gross-salary">
+                    <td class="particulars">A. Gross Salary</td>
+                    <td class="amount">₹30,000</td>
+                    <td class="amount">₹3,60,000</td>
+                </tr>
+                <tr>
+                    <td class="particulars">B. Provident Fund Contribution</td>
+                    <td class="amount">₹0</td>
+                    <td class="amount">₹0</td>
+                </tr>
+                <tr>
+                    <td class="particulars">C. Professional Tax</td>
+                    <td class="amount">₹200</td>
+                    <td class="amount">₹2,400</td>
+                </tr>
+                <tr class="total-deductions">
+                    <td class="particulars">D. Total Deductions</td>
+                    <td class="amount">₹200</td>
+                    <td class="amount">₹2,400</td>
+                </tr>
+                <tr class="net-pay">
+                    <td class="particulars">Net Pay (A-D)</td>
+                    <td class="amount">₹29,800</td>
+                    <td class="amount">₹3,57,600</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+                <p class="text-16" style="padding-top: 25px;">
+                    Note: You will receive salary, and all other benefits forming part of your remuneration
+                    package subject to, and after, deduction of TDS, PF, ESI and professional taxes in
+                    accordance with applicable law.
+                </p>
+
+                <p class="text-16 center-align" style="padding-top: 25px;">
+                    ***End of Document***
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <div>Digiclove Technologies Private Limited</div>
+                <div># -102, Plot-344, Avantikas Sarayu, Matrusri Nagar, Chandanagar, Hyderabad – 500049</div>
+                <div>www.digiclove.com | info@digiclove.com | +91 99 1234 1611</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+</body>
+
+</html>
