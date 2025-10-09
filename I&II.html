@@ -1,550 +1,864 @@
 <style>
-    @page { 
-      size: A4; 
-      margin: 12mm !important; 
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #fff;
-       font-family: 'Roboto', Arial, sans-serif; color: #111; }
+  @page {
+    size: A4;
+    margin: 12mm !important;
+  }
 
-    .page { 
-      width: 100%;
-      max-width: 210mm;
-      padding: 6mm;
-      margin: 0 auto;
-      background: #fff;
-      box-shadow: none;
-      page-break-inside: avoid;
-      min-height: 260mm;
-      height: auto;
-    }
-    
+  * {
+    box-sizing: border-box;
+  }
 
-    /* Header - more compact */
-    .school-header { 
-      border: 2px solid #222; 
-      padding: 4px;
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-    }
-    .school-title { flex: 1; text-align: center; }
-    .school-title h1 { font-size: 22px; margin: 0; font-weight: 700; line-height: 1.1; }
-    .school-title p { margin: 0; font-size: 10px; line-height: 1.2; }
-    .header-logo { width: 60px; height: auto; }
+  body {
+    margin: 0;
+    background: #fff;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #111;
+  }
 
-    h2.session { font-size: 16px; text-align: center; margin: 6px 0 8px; font-weight: 700; }
+  .page {
+    width: 100%;
+    max-width: 210mm;
+    padding: 6mm;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: none;
+    page-break-inside: avoid;
+    min-height: 260mm;
+    height: auto;
+  }
 
-    /* Student info - better spacing */
-    .student-info { 
-      display: grid; 
-      grid-template-columns: 1fr 120px;
-      gap: 6px;
-      align-items: start; 
-      margin-bottom: 8px;
-    }
-    .info-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-    .info-table td { padding: 3px 5px; vertical-align: top; line-height: 1.2; }
-    .info-table td.label { font-weight: 700; width: 130px; }
-    .photo-box { text-align: center; }
-    .photo-box img { width: 85px; height: 100px; object-fit: cover; border: 1px solid #ddd; }
 
-    /* Grades table - better readability */
-    .grades { 
-      width: 100%; 
-      border-collapse: collapse; 
-      font-size: 10px; 
-      margin-bottom: 8px;
-      table-layout: fixed;
-    }
-    .grades th, .grades td {
-      border: 1px solid #5f5959;
-      padding: 3px 5px;
-      text-align: center;
-      vertical-align: middle;
-      height: 24px !important;
-      line-height: 1.1;
-          font-size: 12px;
+  /* Header - more compact */
+  .school-header {
+    border: 2px solid #222;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .school-title {
+    flex: 1;
+    text-align: center;
+  }
+
+  .school-title h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .school-title p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .header-logo {
+    width: 60px;
+    height: auto;
+  }
+
+  h2.session {
+    font-size: 16px;
+    text-align: center;
+    margin: 6px 0 8px;
+    font-weight: 700;
+  }
+
+  /* Student info - better spacing */
+  .student-info {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 6px;
+    align-items: start;
+    margin-bottom: 8px;
+  }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+
+  .info-table td {
+    padding: 3px 5px;
+    vertical-align: top;
+    line-height: 1.2;
+  }
+
+  .info-table td.label {
+    font-weight: 700;
+    width: 130px;
+  }
+
+  .photo-box {
+    text-align: center;
+  }
+
+  .photo-box img {
+    width: 85px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+  }
+
+  /* Grades table - better readability */
+  .grades {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+    margin-bottom: 8px;
+    table-layout: fixed;
+  }
+
+  .grades th,
+  .grades td {
+    border: 1px solid #5f5959;
+    padding: 3px 5px;
+    text-align: center;
+    vertical-align: middle;
+    height: 24px !important;
+    line-height: 1.1;
+    font-size: 12px;
     /* font-weight: 500; */
-    }
-    .grades tr {
-      height: 24px !important;
+  }
+
+  .grades tr {
+    height: 24px !important;
+  }
+
+  /* Section blocks - better spacing */
+  .section {
+    margin-top: 6px;
+    /* border: 1px solid #222;  */
+    page-break-inside: avoid;
+
+  }
+
+  .section .sec-head {
+    background: #fff;
+    font-weight: 700;
+    padding: 3px 5px;
+    /* border-bottom: 1px solid #222;  */
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .section table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+    table-layout: fixed;
+
+  }
+
+  .section td,
+  .section th {
+    border: 1px solid #978f8f;
+    padding: 2px 4px;
+    vertical-align: middle;
+    height: 20px !important;
+    line-height: 1.1;
+    overflow: hidden;
+    font-size: 10px;
+    /* font-weight: 500; */
+  }
+
+  .section table td:last-child,
+  .section table th:last-child {
+    text-align: center !important;
+    vertical-align: middle !important;
+    width: 45px;
+  }
+
+  .section table tr {
+    height: 20px !important;
+  }
+
+  .section table td.bold,
+  .section table .bold {
+    height: 20px !important;
+    vertical-align: middle;
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  .small {
+    font-size: 8px;
+  }
+
+  /* Attendance - better spacing */
+  .attendance {
+    margin-top: 8px;
+    width: 60%;
+    border-collapse: collapse;
+    font-size: 10px;
+    margin-left: 147px;
+  }
+
+  .attendance td,
+  .attendance th {
+    border: 1px solid #5f5959;
+    padding: 3px 5px;
+    text-align: center;
+    height: 20px;
+    line-height: 1.1;
+  }
+
+  .attendance tr {
+    height: 20px;
+  }
+
+  /* Remarks - better spacing */
+  .remarks {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+
+  .remarks p {
+    margin: 3px 0;
+    line-height: 1.3;
+  }
+
+  /* Grading tables - more compact */
+  .grading {
+    margin-top: 6px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8px;
+  }
+
+  .grading td,
+  .grading th {
+    border: 1px solid #5f5959;
+    padding: 1px 2px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .grading tr {
+    height: 16px;
+  }
+
+  .co-scholastic {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 8px;
+    text-align: left;
+  }
+
+  .co-scholastic th,
+  .co-scholastic td {
+    border: 1px solid #5f5959;
+    padding: 2px 4px;
+    vertical-align: top;
+    line-height: 1.1;
+  }
+
+  .co-scholastic th {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* Page break control */
+  .page-2 {
+    page-break-before: always;
+    page-break-inside: avoid;
+    min-height: 260mm;
+  }
+
+  /* Specific height controls for page 1 sections */
+  .page-1-section {
+    margin-top: 5px;
+  }
+
+  .page-1-section .sec-head {
+    padding: 2px 4px;
+    font-size: 11px;
+  }
+
+  .page-1-section table {
+    font-size: 8px;
+  }
+
+  .page-1-section td,
+  .page-1-section th {
+    height: 18px !important;
+    padding: 1px 3px;
+    font-size: 10px;
+    /* font-weight: 500; */
+  }
+
+  .signature-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .signature-block {
+    flex: 1;
+    padding: 34PX 20px;
+  }
+
+  .signatures-img {
+    display: block;
+    margin: 0 auto 10px;
+    max-height: 60px;
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 12mm !important;
     }
 
-    /* Section blocks - better spacing */
-    .section { 
-      margin-top: 6px; 
-      /* border: 1px solid #222;  */
-      page-break-inside: avoid;
-      
+    html,
+    body {
+      margin: 0 !important;
+      padding: 3px 11px !important;
+      font-size: 12px !important;
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
-    .section .sec-head { 
-      background: #fff; 
-      font-weight: 700; 
-      padding: 3px 5px;
-      /* border-bottom: 1px solid #222;  */
+
+    .page {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 6mm !important;
+      box-shadow: none !important;
+      page-break-inside: avoid !important;
+      min-height: 260mm !important;
+      height: auto !important;
+    }
+
+    .page-2 {
+      page-break-before: always !important;
+      page-break-inside: avoid !important;
+      min-height: 260mm !important;
+    }
+
+    /* Force smaller sizes for print consistency */
+    .school-title h1 {
+      font-size: 20px !important;
+    }
+
+    .school-title p {
+      font-size: 9px !important;
+    }
+
+    h2.session {
+      font-size: 14px !important;
+      margin: 5px 0 6px !important;
+    }
+
+    .header-logo {
+      width: 55px !important;
+    }
+
+    .photo-box img {
+      width: 80px !important;
+      height: 95px !important;
+    }
+
+    .info-table {
+      font-size: 10px !important;
+    }
+
+    .grades {
+      font-size: 9px !important;
+      margin-bottom: 6px !important;
+    }
+
+    .grades th,
+    .grades td {
+      height: 22px !important;
+      padding: 3px 15px !important;
+
+    }
+
+    .section {
+      margin-top: 4px !important;
+    }
+
+    .section .sec-head {
+      font-size: 9px !important;
+      padding: 2px 4px !important;
+    }
+
+    .section table {
+      font-size: 8px !important;
+    }
+
+    .section td,
+    .section th {
+      height: 18px !important;
+      padding: 1px 3px !important;
       font-size: 10px;
-      line-height: 1.2;
+      font-weight: 500;
     }
-    .section table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      font-size: 9px;
-      table-layout: fixed;
-     
-    }
-    .section td, .section th { 
-      border: 1px solid #978f8f; 
-      padding: 2px 4px; 
-      vertical-align: middle;
-      height: 20px !important;
-      line-height: 1.1;
-      overflow: hidden;
-      font-size: 10px;
-    /* font-weight: 500; */
-    }
-    .section table td:last-child,
-    .section table th:last-child {
-      text-align: center !important;
-      vertical-align: middle !important;
-      width: 45px;
-    }
-    .section table tr {
-      height: 20px !important;
-    }
+
     .section table td.bold,
     .section table .bold {
       height: 20px !important;
       vertical-align: middle;
     }
 
-    .bold { font-weight: 700; }
-    .small { font-size: 8px; }
-
-    /* Attendance - better spacing */
-    .attendance { 
-      margin-top: 8px; 
-      width: 60%; 
-      border-collapse: collapse; 
-      font-size: 10px; 
-      margin-left: 147px;
-    }
-    .attendance td, .attendance th { 
-      border: 1px solid #5f5959; 
-      padding: 3px 5px; 
-      text-align: center;
-      height: 20px;
-      line-height: 1.1;
-    }
-    .attendance tr {
-      height: 20px;
+    .bold {
+      font-weight: 700;
     }
 
-    /* Remarks - better spacing */
-    .remarks { 
-      margin-top: 8px; 
-      font-size: 10px; 
-    }
-    .remarks p { 
-      margin: 3px 0; 
-      line-height: 1.3;
-    }
-
-    /* Grading tables - more compact */
-    .grading { 
-      margin-top: 6px; 
-      width: 100%; 
-      border-collapse: collapse; 
-      font-size: 8px; 
-    }
-    .grading td, .grading th { 
-      border: 1px solid #5f5959; 
-      padding: 1px 2px;
-      height: 16px;
-      vertical-align: middle;
-    }
-    .grading tr {
-      height: 16px;
-    }
-    .co-scholastic {
-      border-collapse: collapse;
-      width: 100%;
+    .small {
       font-size: 8px;
-      text-align: left;
     }
 
-    .co-scholastic th, 
-    .co-scholastic td {
-      border: 1px solid #5f5959;
-      padding: 2px 4px;
-      vertical-align: top;
-      line-height: 1.1;
-    }
-
-    .co-scholastic th {
-      text-align: center;
-      font-weight: bold;
-    }
-
-    /* Page break control */
-    .page-2 { 
-      page-break-before: always;
-      page-break-inside: avoid;
-      min-height: 260mm;
-    }
-
-    /* Specific height controls for page 1 sections */
     .page-1-section {
-      margin-top: 5px;
-    }
-
-    .page-1-section .sec-head {
-      padding: 2px 4px;
-      font-size: 11px;
-    }
-
-    .page-1-section table {
-      font-size: 8px;
+      margin-top: 3px !important;
     }
 
     .page-1-section td,
     .page-1-section th {
+      height: 16px !important;
+      padding: 1px 2px !important;
+    }
+
+    .attendance {
+      font-size: 9px !important;
+      margin-top: 6px !important;
+    }
+
+    .attendance td,
+    .attendance th {
       height: 18px !important;
-      padding: 1px 3px;
-          font-size: 10px;
-       /* font-weight: 500; */
+      padding: 2px 4px !important;
     }
 
-    @media print {
-      @page {
-        size: A4;
-        margin: 12mm !important;
-      }
-      
-      html, body {
-        margin: 0 !important;
-        padding: 3px  11px!important;
-        font-size: 12px !important;
-        -webkit-print-color-adjust: exact !important;
-        color-adjust: exact !important;
-        print-color-adjust: exact !important;
-      }
-      
-      .page {
-        width: 100% !important;
-        max-width: none !important;
-        margin: 0 !important;
-        padding: 6mm !important;
-        box-shadow: none !important;
-        page-break-inside: avoid !important;
-        min-height: 260mm !important;
-        height: auto !important;
-      }
-      
-      .page-2 {
-        page-break-before: always !important;
-        page-break-inside: avoid !important;
-        min-height: 260mm !important;
-      }
-      
-      /* Force smaller sizes for print consistency */
-      .school-title h1 {
-        font-size: 20px !important;
-      }
-      
-      .school-title p {
-        font-size: 9px !important;
-      }
-      
-      h2.session {
-        font-size: 14px !important;
-        margin: 5px 0 6px !important;
-      }
-      
-      .header-logo {
-        width: 55px !important;
-      }
-      
-      .photo-box img {
-        width: 80px !important;
-        height: 95px !important;
-      }
-      
-      .info-table {
-        font-size: 10px !important;
-      }
-      
-      .grades {
-        font-size: 9px !important;
-        margin-bottom: 6px !important;
-      }
-      
-      .grades th, .grades td {
-        height: 22px !important;
-        padding: 3px 15px !important;
-
-      }
-      
-      .section {
-        margin-top: 4px !important;
-      }
-      
-      .section .sec-head {
-        font-size: 9px !important;
-        padding: 2px 4px !important;
-      }
-      
-      .section table {
-        font-size: 8px !important;
-      }
-      
-      .section td, .section th {
-        height: 18px !important;
-        padding: 1px 3px !important;
-        font-size: 10px;
-       font-weight: 500;
-      }
-      
-      .page-1-section {
-        margin-top: 3px !important;
-      }
-      
-      .page-1-section td,
-      .page-1-section th {
-        height: 16px !important;
-        padding: 1px 2px !important;
-      }
-      
-      .attendance {
-        font-size: 9px !important;
-        margin-top: 6px !important;
-      }
-      
-      .attendance td, .attendance th {
-        height: 18px !important;
-        padding: 2px 4px !important;
-      }
-      
-      .remarks {
-        font-size: 9px !important;
-        margin-top: 6px !important;
-      }
-      
-      .remarks p {
-        margin: 2px 0 !important;
-        line-height: 1.2 !important;
-      }
-      
-      .co-scholastic {
-        font-size: 7px !important;
-      }
-      
-      .co-scholastic th, 
-      .co-scholastic td {
-        padding: 1px 3px !important;
-      }
-      
-      .grading {
-        margin-top: 4px !important;
-      }
-      
-      .grading td, .grading th {
-        height: 14px !important;
-        padding: 3px 11px !important;
-      }
-      
-      /* Force page breaks */
-      table, .section {
-        page-break-inside: avoid !important;
-        break-inside: avoid !important;
-      }
-      
-      /* Prevent orphaned content */
-      h1, h2, h3 {
-        page-break-after: avoid !important;
-        break-after: avoid !important;
-      }
-       .grades th:first-child,
-  .grades td:first-child {
-    padding-left: 18px !important; /* Increase as needed */
-    text-align: left !important;
-  }
-  .section.page-1-section table td:first-child,
-  .section.page-1-section table th:first-child {
-    padding-left: 18px !important; /* Adjust as needed */
-    text-align: left !important;
-  }
-     
+    .remarks {
+      font-size: 9px !important;
+      margin-top: 6px !important;
     }
 
-  </style>
-  
-  <!-- PAGE 1 -->
-  <div class="page">
-    <header class="school-header">
-      <img class="header-logo" src="https://www.cbse.gov.in/images//logo.png" alt="left logo" />
-      <div class="school-title">
-        <h1>ROCKWOODS INTERNATIONAL SCHOOL</h1>
-        <p>@Model.GetString("StudentHeader", "Address")<br>
-          @Model.GetString("StudentHeader", "City") - @Model.GetString("StudentHeader", "PIN")</p>
-       <!-- <p>(Opp) Sreenidhi Institute of Science and Technology, Yamnampet, Hyderabad - 501301</p>
+    .remarks p {
+      margin: 2px 0 !important;
+      line-height: 1.2 !important;
+    }
+
+    .co-scholastic {
+      font-size: 7px !important;
+    }
+
+    .co-scholastic th,
+    .co-scholastic td {
+      padding: 1px 3px !important;
+    }
+
+    .grading {
+      margin-top: 4px !important;
+    }
+
+    .grading td,
+    .grading th {
+      height: 14px !important;
+      padding: 3px 11px !important;
+    }
+
+    /* Force page breaks */
+    table,
+    .section {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    /* Prevent orphaned content */
+    h1,
+    h2,
+    h3 {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+
+    .grades th:first-child,
+    .grades td:first-child {
+      padding-left: 18px !important;
+      /* Increase as needed */
+      text-align: left !important;
+    }
+
+    .section.page-1-section table td:first-child,
+    .section.page-1-section table th:first-child {
+      padding-left: 18px !important;
+      /* Adjust as needed */
+      text-align: left !important;
+    }
+    .signature-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .signature-block {
+    flex: 1;
+    padding: 34PX 20px;
+  }
+
+  .signatures-img {
+    display: block;
+    margin: 0 auto 10px;
+    max-height: 60px;
+  }
+  }
+</style>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <header class="school-header">
+    <img class="header-logo" src="https://www.cbse.gov.in/images//logo.png" alt="left logo" />
+    <div class="school-title">
+      <h1>ROCKWOODS INTERNATIONAL SCHOOL</h1>
+      <p>@Model.GetString("StudentHeader", "Address")<br>
+        @Model.GetString("StudentHeader", "City") - @Model.GetString("StudentHeader", "PIN")</p>
+      <!-- <p>(Opp) Sreenidhi Institute of Science and Technology, Yamnampet, Hyderabad - 501301</p>
         <p>Affiliated to CBSE, New Delhi [Affl.No#3630272]</p>-->
-      </div>
-      <img class="header-logo" src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png" alt="right logo" />
-    </header>
-
-    <h2 class="session">Academic Session : @Model.GetString("Exam", "AcademicYear")</h2>
-
-    <!-- Student Info -->
-    <div class="student-info">
-      <div class="info-left">
-        <table class="info-table">
-          <tr><td class="label">Adm.No :</td><td>:</td><td>@Model.GetString("StudentHeader", "AdmissionNumber")</td></tr>
-          <tr><td class="label">Student's Name</td><td>:</td><td>@Model.GetString("StudentHeader", "Name")</td></tr>
-          <tr><td class="label">Mother's/Father's/Guardian's Name</td><td>:</td><td>@Model.GetString("StudentHeader", "MotherName") / @Model.GetString("StudentHeader", "FatherName")</td></tr>
-          <tr><td class="label">Date Of Birth</td><td>:</td><td>@Model.GetDateString("StudentHeader", "DOB")</td></tr>
-          <tr><td class="label">Class / Section</td><td>:</td><td>@Model.GetString("StudentHeader", "StudentClass") / @Model.GetString("StudentHeader", "Section")</td></tr>
-        </table>
-      </div>
-      <div class="photo-box">
-        <img src='@Model.GetString("StudentHeader", "Photo")' alt="student photo" />
-      </div>
     </div>
+    <img class="header-logo" src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png"
+      alt="right logo" />
+  </header>
 
-    <!-- Scholastic Areas -->
-    <table class="grades">
-      <thead>
-        <th colspan="1"></th>
-        <th colspan="4">Periodic Test 1</th>
-        <th colspan="2">@Model.GetString("Exam", "Title")</th>
+  <h2 class="session">Academic Session : @Model.GetString("Exam", "AcademicYear")</h2>
+
+  <!-- Student Info -->
+  <div class="student-info">
+    <div class="info-left">
+      <table class="info-table">
         <tr>
-          <th style="text-align:left">Subject</th>
-          <th>PP</th>
-          <th>PO</th>
-          <th>OR</th>
-          <th>AC</th>
-          <th>SA#1</th>
-          <th>Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align:left">English</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Oral(OR)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1' and PaperType='Activity(AC)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Term 1' and PaperType='External'")</td>
-          <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='English'")</td>
+          <td class="label">Adm.No :</td>
+          <td>:</td>
+          <td>@Model.GetString("StudentHeader", "AdmissionNumber")</td>
         </tr>
         <tr>
-          <td style="text-align:left">II Language</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Oral(OR)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test 1' and PaperType='Activity(AC)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Lang' and ExamType='Term 1' and PaperType='External'")</td>
-          <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='II Lang'")</td>
+          <td class="label">Student's Name</td>
+          <td>:</td>
+          <td>@Model.GetString("StudentHeader", "Name")</td>
         </tr>
         <tr>
-          <td style="text-align:left">Mathematics</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Pen and Paper(PP)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Portfolio(PO)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Oral(OR)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test 1' and PaperType='Activity(AC)'")</td>
-          <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Term 1' and PaperType='External'")</td>
-          <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='Mathematics'")</td>
+          <td class="label">Mother's/Father's/Guardian's Name</td>
+          <td>:</td>
+          <td>@Model.GetString("StudentHeader", "MotherName") / @Model.GetString("StudentHeader", "FatherName")</td>
         </tr>
-        
-      </tbody>
-    </table>
-
-    <!-- Co-Scholastic Sections (Page 1) - Reduced content -->
-    <div class="section page-1-section">
-      <div class="sec-head">Physical Development : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td class="bold">Children develop habits that keep them healthy and safe</td><td>Term1</td></tr>
-          <tr><td>Practices basic self care and hygiene</td><td>@Model.GetString("HolisticArea", "Grade", "Item='Practices basic self care and hygiene'")</td></td></tr>
-          <tr><td>Shows a liking for and understanding of nutritious food<td>@Model.GetString("HolisticArea", "Grade", "Item='Shows a liking for and understanding of nutritious food and does not waste food'")</td></td></tr>
-          <tr><td>Understands unsafe situations and asks for help<td>@Model.GetString("HolisticArea", "Grade", "Item='Understands unsafe situations and asks for help'")</td></td></tr>
-          <tr><td class="bold">Children develop sharpness in sensorial perceptions</td><td></td></tr>
-          <tr><td>Begins integrating sensorial perceptions<td>@Model.GetString("HolisticArea", "Grade", "Item='Begins integrating sensorial perceptions to get a holistic awareness of experiences'")</td></td></tr>
-          <tr><td>Develops discrimination in the sense of touch<td>@Model.GetString("HolisticArea", "Grade", "Item='Develops discrimination in the sense of touch'")</td></td></tr>
-          <tr><td>Differentiates between shapes, colours and their shades<td>@Model.GetString("HolisticArea", "Grade", "Item='Differentiates between shapes colours and their shades'")</td></td></tr>
-        </tbody>
+        <tr>
+          <td class="label">Date Of Birth</td>
+          <td>:</td>
+          <td>@Model.GetDateString("StudentHeader", "DOB")</td>
+        </tr>
+        <tr>
+          <td class="label">Class / Section</td>
+          <td>:</td>
+          <td>@Model.GetString("StudentHeader", "StudentClass") / @Model.GetString("StudentHeader", "Section")</td>
+        </tr>
       </table>
     </div>
-
-    <div class="section page-1-section">
-      <div class="sec-head">Social, Emotional and Ethical Development : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td class="bold">Children develop emotional intelligence</td><td>Term1</td></tr>
-          <tr><td>Interacts comfortably with other children and adults<td>@Model.GetString("HolisticArea", "Grade", "Item='Interacts comfortably with other children and adults'")</td></td></tr>
-          <tr><td>Recognises different emotions and makes deliberate effort to regulate them appropriately<td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises different emotions and makes deliberate effort to regulate them appropriately'")</td></td></tr>
-          <tr><td>Shows kindness and helpfulness to others<td>@Model.GetString("HolisticArea", "Grade", "Item='Shows kindness and helpfulness to others including animals plants when they are in need'")</td></td></tr>
-          <tr><td>Starts recognising 'self' as an individual belong to a family and community<td>@Model.GetString("HolisticArea", "Grade", "Item='Starts recognising self as an individual belong to a family and community'")</td></td></tr>
-          <tr><td class="bold">Chidren develop a positive attitude towards productive work and service or seva</td><td></td></tr>
-          <tr><td>Demonstrates willingness and participation in age appropriate physical work towards helping others<td>@Model.GetString("HolisticArea", "Grade", "Item='Demonstrates willingness and participation in age appropriate physical work towards helping others'")</td></td></tr>
-          <tr><td class="bold">Children develop a positive regard for the natural environment around them</td><td></td></tr>
-          <tr><td>Shows care for and joy in engaging with all life forms <td>@Model.GetString("HolisticArea", "Grade", "Item='Shows care for and joy in engaging with all life forms '")</td></td></tr>
-        </tbody>
-      </table>
+    <div class="photo-box">
+      <img src='@Model.GetString("StudentHeader", "Photo")' alt="student photo" />
     </div>
-
-    <div class="section page-1-section">
-      <div class="sec-head">Cognitive Development : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td>Children Makes sense of world through observation and logical thinking<td>@Model.GetString("HolisticArea", "Grade", "Item='Children make sense of world around through observation and logical thinking'")</td></td></tr>
-          <tr><td>Children Develops mathematical understanding and abilities<td>@Model.GetString("HolisticArea", "Grade", "Item='Children develop mathematical understanding and abilities to recognise the world through quantities'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="section page-1-section">
-      <div class="sec-head">Language and Literacy Development : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td class="bold">Children develop effective communication skills for a day today interactions in two languages</td><td>Term1</td></tr>
-          <tr><td>Comprehends narrated or read<td>@Model.GetString("HolisticArea", "Grade", "Item='Comprehends narrated or read'")</td></td></tr>
-          <tr><td>Converses fluently and can hold a meaningful conversation<td>@Model.GetString("HolisticArea", "Grade", "Item='Converses fluently and can hold a meaningful conversation'")</td></td></tr>
-          <tr><td>Listens to and appreciates simple songs rhymes and poems<td>@Model.GetString("HolisticArea", "Grade", "Item='Listens to and appreciates simple songs rhymes and poems'")</td></td></tr>
-          <tr><td>Understands oral instructions for a complex task and gives clear oral instructions for the same to others<td>@Model.GetString("HolisticArea", "Grade", "Item='Understands oral instructions for a complex task and gives clear oral instructions for the same to others'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    
   </div>
 
-  <!-- PAGE 2 -->
-  <div class="page page-2">
-    
-    <div class="section page-1-section">
-      <div class="sec-head">Children develop fluency in reading and writing in Language 1</div>
-      <table>
-        <tbody>
-          <tr><td>Reads and comprehends meaning of short news items instructions and recipes and publicity material<td>@Model.GetString("HolisticArea", "Grade", "Item='Reads and comprehends meaning of short news items instructions and recipes and publicity material'")</td></td></tr>
-          <tr><td>Reads short poems and begins to appreciate the poem for its choice of words and imagination<td>@Model.GetString("HolisticArea", "Grade", "Item='Reads short poems and begins to appreciate the poem for its choice of words and imagination'")</td></td></tr>
-          <tr><td>Reads short stories and comprehends its meaning by identifying characters storyline and what the author wanted to say on their own Language 1<td>@Model.GetString("HolisticArea", "Grade", "Item='Reads short stories and comprehends its meaning by identifying characters storyline and what the author wanted to say on their own Language 1'")</td></td></tr>
-          <tr><td>Reads stories and passages in Language 1 with accuracy and fluency with appropriate pauses and voice modulation<td>@Model.GetString("HolisticArea", "Grade", "Item='Reads stories and passages in Language 1 with accuracy and fluency with appropriate pauses and voice modulation'")</td></td></tr>
-          <tr><td>Recognises all the letters of the alphabet forms of akshara of the script Language 1 and uses this knowledge to read and write words<td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises all the letters of the alphabet forms of akshara of the script Language 1 and uses this knowledge to read and write words'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- Scholastic Areas -->
+  <table class="grades">
+    <thead>
+      <th colspan="1"></th>
+      <!-- <th colspan="4">Periodic Test 1</th> -->
+      <th colspan="6">@Model.GetString("Exam", "Title")</th>
+      <tr>
+        <th style="text-align:left">Subject</th>
+        <th>PP</th>
+        <th>PO</th>
+        <th>OR</th>
+        <th>AC</th>
+        <th>SA#1</th>
+        <th>Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:left">English</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1'
+          and PaperType='Pen and Paper(PP)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1'
+          and PaperType='Portfolio(PO)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1'
+          and PaperType='Oral(OR)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Periodic Test 1'
+          and PaperType='Activity(AC)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='English' and ExamType='Term 1' and
+          PaperType='External'")</td>
+        <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='English'")</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">II Language</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test
+          1' and PaperType='Pen and Paper(PP)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test
+          1' and PaperType='Portfolio(PO)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test
+          1' and PaperType='Oral(OR)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Language' and ExamType='Periodic Test
+          1' and PaperType='Activity(AC)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='II Lang' and ExamType='Term 1' and
+          PaperType='External'")</td>
+        <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='II Lang'")</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">Mathematics</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test
+          1' and PaperType='Pen and Paper(PP)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test
+          1' and PaperType='Portfolio(PO)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test
+          1' and PaperType='Oral(OR)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Periodic Test
+          1' and PaperType='Activity(AC)'")</td>
+        <td>@Model.GetString("ExamPaperMarks", "SecuredGrade", "ExamSchedule ='Mathematics' and ExamType='Term 1' and
+          PaperType='External'")</td>
+        <td>@Model.GetString("ExamMarks", "SecuredGrade", "ExamSchedule ='Mathematics'")</td>
+      </tr>
 
-    <div class="section page-1-section">
-      <div class="sec-head">Children begin to read and write in language 2</div>
-      <table>
-        <tbody>
-          <tr><td>Recognises most frequently occurring letters of the alphabet forms of akshara of the script<td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises most frequently occurring letters of the alphabet forms of akshara of the script and uses this knowledge to read and write simple words and sentences'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
+    </tbody>
+  </table>
 
-    <!--<div class="section">      <div class="sec-head">Reads stories and passages in Language 1 with accuracy and fluency</div>
+  <!-- Co-Scholastic Sections (Page 1) - Reduced content -->
+  <div class="section page-1-section">
+    <div class="sec-head">Physical Development : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="bold">Children develop habits that keep them healthy and safe</td>
+          <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Practices basic self care and hygiene</td>
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Practices basic self care and hygiene'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Shows a liking for and understanding of nutritious food
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Shows a liking for and understanding of nutritious food
+            and does not waste food'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Understands unsafe situations and asks for help
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Understands unsafe situations and asks for help'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td class="bold">Children develop sharpness in sensorial perceptions</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Begins integrating sensorial perceptions
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Begins integrating sensorial perceptions to get a
+            holistic awareness of experiences'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Develops discrimination in the sense of touch
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Develops discrimination in the sense of touch'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Differentiates between shapes, colours and their shades
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Differentiates between shapes colours and their shades'")
+          </td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section page-1-section">
+    <div class="sec-head">Social, Emotional and Ethical Development : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="bold">Children develop emotional intelligence</td>
+          <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Interacts comfortably with other children and adults
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Interacts comfortably with other children and adults'")
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td>Recognises different emotions and makes deliberate effort to regulate them appropriately
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises different emotions and makes deliberate effort
+            to regulate them appropriately'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Shows kindness and helpfulness to others
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Shows kindness and helpfulness to others including
+            animals plants when they are in need'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Starts recognising 'self' as an individual belong to a family and community
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Starts recognising self as an individual belong to a
+            family and community'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td class="bold">Chidren develop a positive attitude towards productive work and service or seva</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Demonstrates willingness and participation in age appropriate physical work towards helping others
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Demonstrates willingness and participation in age
+            appropriate physical work towards helping others'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td class="bold">Children develop a positive regard for the natural environment around them</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Shows care for and joy in engaging with all life forms
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Shows care for and joy in engaging with all life forms
+            '")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section page-1-section">
+    <div class="sec-head">Cognitive Development : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td>Children Makes sense of world through observation and logical thinking
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Children make sense of world around through observation
+            and logical thinking'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Children Develops mathematical understanding and abilities
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Children develop mathematical understanding and abilities
+            to recognise the world through quantities'")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section page-1-section">
+    <div class="sec-head">Language and Literacy Development : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="bold">Children develop effective communication skills for a day today interactions in two languages
+          </td>
+          <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Comprehends narrated or read
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Comprehends narrated or read'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Converses fluently and can hold a meaningful conversation
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Converses fluently and can hold a meaningful
+            conversation'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Listens to and appreciates simple songs rhymes and poems
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Listens to and appreciates simple songs rhymes and
+            poems'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Understands oral instructions for a complex task and gives clear oral instructions for the same to others
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Understands oral instructions for a complex task and
+            gives clear oral instructions for the same to others'")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="page page-2">
+
+  <div class="section page-1-section">
+    <div class="sec-head">Children develop fluency in reading and writing in Language 1</div>
+    <table>
+      <tbody>
+        <tr>
+          <td>Reads and comprehends meaning of short news items instructions and recipes and publicity material
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Reads and comprehends meaning of short news items
+            instructions and recipes and publicity material'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Reads short poems and begins to appreciate the poem for its choice of words and imagination
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Reads short poems and begins to appreciate the poem for
+            its choice of words and imagination'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Reads short stories and comprehends its meaning by identifying characters storyline and what the author
+            wanted to say on their own Language 1
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Reads short stories and comprehends its meaning by
+            identifying characters storyline and what the author wanted to say on their own Language 1'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Reads stories and passages in Language 1 with accuracy and fluency with appropriate pauses and voice
+            modulation
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Reads stories and passages in Language 1 with accuracy
+            and fluency with appropriate pauses and voice modulation'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Recognises all the letters of the alphabet forms of akshara of the script Language 1 and uses this
+            knowledge to read and write words
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises all the letters of the alphabet forms of
+            akshara of the script Language 1 and uses this knowledge to read and write words'")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section page-1-section">
+    <div class="sec-head">Children begin to read and write in language 2</div>
+    <table>
+      <tbody>
+        <tr>
+          <td>Recognises most frequently occurring letters of the alphabet forms of akshara of the script
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Recognises most frequently occurring letters of the
+            alphabet forms of akshara of the script and uses this knowledge to read and write simple words and
+            sentences'")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--<div class="section">      <div class="sec-head">Reads stories and passages in Language 1 with accuracy and fluency</div>
       <table>
         <tbody>
           <tr><td>Reads stories and passages in Language 1 with accuracy and fluency with appropriate pauses and voice modulation<td>@Model.GetString("HolisticArea", "Grade", "Item='Practices basic self care and hygiene'")</td></td></tr>
@@ -553,82 +867,166 @@
       </table>
     </div> -->
 
-    <div class="section">
-      <div class="sec-head">Computer : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td>Computer</td><td>Term1</td></tr>
-          <tr><td>Computer<td>@Model.GetString("HolisticArea", "Grade", "Item='Computer'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="section">
-      <div class="sec-head">Aesthetic and cultural development : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td class="bold">Children develop abilities and sensibilities in visual and performing arts and express their emotions through art in meaningful and joyful ways</td><td>Term1</td></tr>
-          <tr><td>Explores and plays with a variety of materials and tools to create two dimensional and three dimensional artworks in varying sizes<td>@Model.GetString("HolisticArea", "Grade", "Item='Explores and plays with a variety of materials and tools to create two dimensional and three dimensional artworks in varying sizes'")</td></td></tr>
-          <tr><td>Explores and plays with own voice body spaces and a variety of objects to create music roleplay dance and movement<td>@Model.GetString("HolisticArea", "Grade", "Item='Explores and plays with own voice body spaces and a variety of objects to create music roleplay dance and movement'")</td></td></tr>
-          <tr><td>Innovates and works imaginatively to express ideas and emotions through the arts<td>@Model.GetString("HolisticArea", "Grade", "Item='Innovates and works imaginatively to express ideas and emotions through the arts '")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="section">
-      <div class="sec-head">Positive learning habits : [on a 3-point (A-C) grading scale]</div>
-      <table>
-        <tbody>
-          <tr><td class="bold">Children develop habits of learning that allow them to engage actively in formal learning environments like a school classroom</td><td>Term1</td></tr>
-          <tr><td>Attention and intentional action Acquires skills to plan focus attention and direct activities to achieve specific goals<td>@Model.GetString("HolisticArea", "Grade", "Item='Attention and intentional action Acquires skills to plan focus attention and direct activities to achieve specific goals'")</td></td></tr>
-          <tr><td>Observation wonder curiosity and exploration observes minute details of objects wonders and explores using various senses tinkers with objects asks questions<td>@Model.GetString("HolisticArea", "Grade", "Item='Observation wonder curiosity and exploration observes minute details of objects wonders and explores using various senses tinkers with objects asks questions'")</td></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Attendance -->
-    <table class="attendance">
-      <tr><th>Attendance</th><th>Total</th><th>%</th></tr>
-      <tr><td>Working Days</td><td>@Model.GetString("Attendance", "Total")</td><td rowspan="2">@Model.GetString("Attendance", "Per")</td></tr>
-      <tr><td>Present Days</td><td>@Model.GetString("Attendance", "Attended")</td></tr>
+  <div class="section">
+    <div class="sec-head">Computer : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td>Computer</td>
+          <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Computer
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Computer'")</td>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </div>
 
-    <!-- Remarks -->
-    <div class="remarks">
-      <p class="bold">Class Teacher's Remarks :</p>
-     
-<p>   @Model.GetString("Remarks","Remarks" )</p>
+  <div class="section">
+    <div class="sec-head">Aesthetic and cultural development : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        SChildren develop abilities and sensibilities in visual and performing arts and express their emotions through
+        art in meaningful and joyful ways</td>
+        <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Explores and plays with a variety of materials and tools to create two dimensional and three dimensional
+            artworks in varying sizes
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Explores and plays with a variety of materials and tools
+            to create two dimensional and three dimensional artworks in varying sizes'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Explores and plays with own voice body spaces and a variety of objects to create music roleplay dance and
+            movement
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Explores and plays with own voice body spaces and a
+            variety of objects to create music roleplay dance and movement'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Innovates and works imaginatively to express ideas and emotions through the arts
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Innovates and works imaginatively to express ideas and
+            emotions through the arts '")</td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="sec-head">Positive learning habits : [on a 3-point (A-C) grading scale]</div>
+    <table>
+      <tbody>
+        <tr>
+          <td class="bold">Children develop habits of learning that allow them to engage actively in formal learning
+            environments like a school classroom</td>
+          <td class="bold">Term1</td>
+        </tr>
+        <tr>
+          <td>Attention and intentional action Acquires skills to plan focus attention and direct activities to achieve
+            specific goals
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Attention and intentional action Acquires skills to plan
+            focus attention and direct activities to achieve specific goals'")</td>
+          </td>
+        </tr>
+        <tr>
+          <td>Observation wonder curiosity and exploration observes minute details of objects wonders and explores using
+            various senses tinkers with objects asks questions
+          <td>@Model.GetString("HolisticArea", "Grade", "Item='Observation wonder curiosity and exploration observes
+            minute details of objects wonders and explores using various senses tinkers with objects asks questions'")
+          </td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Attendance -->
+  <table class="attendance">
+    <tr>
+      <th>Attendance</th>
+      <th>Total</th>
+      <th>%</th>
+    </tr>
+    <tr>
+      <td>Working Days</td>
+      <td>@Model.GetString("Attendance", "Total")</td>
+      <td rowspan="2">@Model.GetString("Attendance", "Per")</td>
+    </tr>
+    <tr>
+      <td>Present Days</td>
+      <td>@Model.GetString("Attendance", "Attended")</td>
+    </tr>
+  </table>
+
+  <!-- Remarks -->
+  <div class="remarks">
+    <p class="bold">Class Teacher's Remarks :</p>
+
+    <p> @Model.GetString("Remarks","Remarks" )</p>
+  </div>
+
+  <!-- Grading Scales -->
+
+  <div class="section" style="margin-top:6px;text-align: center;">
+    <div class="sec-head small">Grading Scale for Co-Scholastic Areas</div>
+    <table class="grading small co-scholastic">
+      <thead>
+        <tr>
+          <th style="width:60px; text-align: center;">Grade</th>
+          <th style="width:100px; text-align: center;">Level</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; vertical-align: middle;">A</td>
+          <td style="text-align: center; vertical-align: middle;">Proficient</td>
+          <td>Achieves the Competency and associated Learning Outcomes on his/her own.</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; vertical-align: middle;">B</td>
+          <td style="text-align: center; vertical-align: middle;">Progressing</td>
+          <td>Achieves the Competency and associated Learning Outcomes with occasional/some support from teachers.</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; vertical-align: middle;">C</td>
+          <td style="text-align: center; vertical-align: middle;">Beginner</td>
+          <td>Tries to achieve the Competency and associated Learning Outcomes with lot of support from teachers.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="signature-container">
+
+    @if (Model.GetString("StudentHeader", "StudentClass") == "Class I")
+    {
+    <div class="signature-block">
+      <img src="https://sdigilite.blob.core.windows.net/institution/4/Grade1.png" alt="Signatures"
+        class="signatures-img">
+      <p>CLASS CLASS TEACHER'S SIGNATURE</p>
+    </div>
+    }
+    @if (Model.GetString("StudentHeader", "StudentClass") == "Class II")
+    {
+    <div class="signature-block">
+      <img src="https://sdigilite.blob.core.windows.net/institution/4/Grade2.jpg" alt="Signatures"
+        class="signatures-img">
+      <p>CLASS TEACHER'S SIGNATURE</p>
     </div>
 
-    <!-- Grading Scales -->
-    
-<div class="section" style="margin-top:6px;text-align: center;">
-  <div class="sec-head small">Grading Scale for Co-Scholastic Areas</div>
-  <table class="grading small co-scholastic">
-    <thead>
-      <tr>
-        <th style="width:60px; text-align: center;">Grade</th>
-        <th style="width:100px; text-align: center;">Level</th>
-        <th>Interpretation</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">A</td>
-        <td style="text-align: center; vertical-align: middle;">Proficient</td>
-        <td>Achieves the Competency and associated Learning Outcomes on his/her own.</td>
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">B</td>
-        <td style="text-align: center; vertical-align: middle;">Progressing</td>
-        <td>Achieves the Competency and associated Learning Outcomes with occasional/some support from teachers.</td>
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">C</td>
-        <td style="text-align: center; vertical-align: middle;">Beginner</td>
-        <td>Tries to achieve the Competency and associated Learning Outcomes with lot of support from teachers.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    }
+    <div class="signature-block">
+      <img src="https://sdigilite.blob.core.windows.net/institution/4/ce20595e_c735_4865_b457_68be88e1251f.png"
+        alt="Signatures" class="signatures-img">
+      <p>PRINCIPAL'S SIGNATURE</p>
+    </div>
+    <div class="signature-block">
+
+      <p>PARENT'S SIGNATURE</p>
+    </div>
+  </div>
 </div>

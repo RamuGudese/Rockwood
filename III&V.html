@@ -460,6 +460,10 @@
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
+   .page:not(:first-child) {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
   .academic-table td:first-child,
   .academic-table th:first-child,
   .grades-table.two-column-table td:first-child,

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm !important;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #111;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 210mm;
+            padding: 6mm;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: none;
+            min-height: 260mm;
+            height: auto;
+        }
+
+        /* Header */
+        .school-header {
+            border: 1px solid #222;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .school-title {
+            flex: 1;
+            text-align: center;
+        }
+
+        .school-title h1 {
+            font-size: 22px;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .school-title p {
+            margin: 0;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+
+        .header-logo {
+            width: 60px;
+            height: auto;
+        }
+
+        h2.session {
+            font-size: 16px;
+            text-align: center;
+            margin: 6px 0 8px;
+            font-weight: 700;
+        }
+
+        /* Student info */
+        .student-info {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 6px;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .info-table td {
+            padding: 3px 5px;
+            vertical-align: top;
+            line-height: 1.2;
+        }
+
+        .info-table td.label {
+            font-weight: 700;
+            width: 130px;
+        }
+
+        .photo-box {
+            text-align: center;
+        }
+
+        .photo-box img {
+            width: 85px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+
+        .rubric-container {
+            width: 103%;
+            /* max-width: 180mm; */
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .activityName {
+            padding-top: 10px;
+            text-align: left;
+            margin: 0px 0px 12px 1px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12pt;
+        }
+
+        .rubric-table th,
+        .rubric-table td {
+            border: 1px solid #000;
+            padding: 1px;
+            text-align: center;
+        }
+
+        .grading-panel {
+            max-width: 640px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .indicator_table {
+            width: 80%;
+            border-collapse: collapse;
+            font-size: 11pt;
+            margin: 0 auto;
+            /* <-- Add this line */
+            display: block;
+            /* <-- Optional, helps centering */
+
+        }
+
+        .indicator_table th,
+        .indicator_table td {
+            border: 1px solid #000;
+            padding: 3px 3px 7px 2px;
+            text-align: center;
+            width: auto;
+        }
+
+        .panel-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .grading-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            font-weight: 600;
+            width: 100%;
+        }
+
+
+        .footer div {
+            text-align: center;
+            /* width: 100%; */
+        }
+
+        /* Optional: Hide non-print elements */
+        @media print {
+            body {
+                background: none;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm 12mm !important;
+            }
+
+            html,
+            body {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                font-size: 12px !important;
+            }
+
+            .page {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 6mm !important;
+                box-shadow: none !important;
+                min-height: auto !important;
+                height: auto !important;
+            }
+
+            /* Force smaller font sizes for print */
+            .school-title h1 {
+                font-size: 20px !important;
+            }
+
+            .school-title p {
+                font-size: 9px !important;
+            }
+
+            h2.session {
+                font-size: 14px !important;
+                margin: 5px 0 6px !important;
+            }
+
+            .header-logo {
+                width: 55px !important;
+            }
+
+            .photo-box img {
+                width: 80px !important;
+                height: 95px !important;
+            }
+
+            .info-table {
+                font-size: 12px !important;
+            }
+
+            .info-table td {
+                padding: 2px 4px !important;
+            }
+
+            .indicator_table {
+                width: 80% !important;
+                margin: 0 auto !important;
+                font-size: 10pt !important;
+                border-collapse: collapse !important;
+                display: block !important;
+            }
+
+            .indicator_table th,
+            .indicator_table td {
+                border: 1px solid #000 !important;
+                padding: 1px !important;
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="school-header">
+            <img class="header-logo" src="https://www.cbse.gov.in/images//logo.png" alt="left logo" />
+            <div class="school-title">
+                <h1>ROCKWOODS INTERNATIONAL SCHOOL</h1>
+                <p>(Opp) Sreenidhi Institute of Science and Technology, Yamnampet, Hyderabad - 501301</p>
+                <p>Affiliated to CBSE, New Delhi [Affl.No#3630272]</p>
+            </div>
+            <img class="header-logo"
+                src="https://sdigilite.blob.core.windows.net/institution/4/RockwoodsLogoVertical.png"
+                alt="right logo" />
+        </header>
+        <h2 class="session">JULY ACTIVITY REPORT CARD (Class II)<br>2025-2026</h2>
+
+        <!-- Student Info -->
+        <div class="student-info">
+            <div class="info-left">
+                <table class="info-table">
+                    <tr>
+                        <td class="label">Roll No</td>
+                        <td>:</td>
+                        <td>21</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Student's Name</td>
+                        <td>:</td>
+                        <td>Kanishka</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Mother's/Father's/Guardian's Name</td>
+                        <td>:</td>
+                        <td>Anusha / Venkata Rao</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Date Of Birth</td>
+                        <td>:</td>
+                        <td>04 May 2018</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Class / Section</td>
+                        <td>:</td>
+                        <td>Class IX / Sapphire</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="photo-box">
+                <img src="—Pngtree—portrait of a young male_19532775.png" alt="student photo" />
+            </div>
+        </div>
+        <div class="rubric-container">
+            <p class="activityName"><strong>Activity Name:</strong> Accent Neutralization </p>
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Rubrics</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Letter - Sound Recognition</td>
+                        <td class="grade-a">A (4–5)</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Blending Sounds</td>
+                        <td class="grade-a">A (4–5)</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Segmenting Sounds</td>
+                        <td class="grade-a">A (4–5)</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>High - Frequency Words</td>
+                        <td class="grade-b">B (3–2)</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Reading Fluency and Accuracy</td>
+                        <td class="grade-b">B (3–2)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <br />
+        <table class="indicator_table">
+            <thead>
+                <tr>
+                    <th>Grade</th>
+                    <th>A (4–5)</th>
+                    <th>B (3–2)</th>
+                    <th>C (2–1)</th>
+                    <th>D</th>
+                    <th>NA</th>
+                    <th>AB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Indicators</strong></td>
+                    <td class="grade-a">Excellent</td>
+                    <td class="grade-b">Good</td>
+                    <td class="grade-c">Developing</td>
+                    <td class="grade-d">Beginner/Needs Support</td>
+                    <td class="grade-na">Not Applicable</td>
+                    <td class="grade-ab">Absent</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <div>Activity Coordinator</div>
+            <div>Principal</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

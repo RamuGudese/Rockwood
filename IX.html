@@ -226,6 +226,25 @@
       page-break-after: always;
       break-after: page;
     }
+
+   .signature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .signature-block {
+               flex: 1;
+    padding: 13px 13px;
+        }
+        .signatures-img {
+               display: block;
+    margin: 0 auto 10px;
+    max-height: 30px;
+}
+        
     
     @media print {
       @page {
@@ -427,6 +446,25 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         margin-bottom: 20px;
       }
+   .signature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .signature-block {
+               flex: 1;
+    padding: 13PX 13px;
+
+        .signatures-img {
+               display: block;
+    margin: 0 auto 10px;
+    max-height: 30px;
+}
+        
+        }
     }
 </style>
  <div class="page">
@@ -613,7 +651,9 @@
           <th class="section-header-term">Term1</th>
         </tr>
       </thead>
-      
+      </table>
+       <div class="page-2-content">
+       <table class="grades-table two-column-table">
       <tbody>
            <tr><td class="subject-name">III Language </td><td class="grade-center">@Model.GetString("HolisticArea", "Grade", "Item='III Language 2'")</td></tr>
       </tbody>
@@ -621,35 +661,13 @@
 
     <!-- Attendance -->
     <table class="attendance-table discipline-table">
-      <!--<thead>-->
-      <!--  <tr>-->
-      <!--    <th style="vertical-align: middle;">Attendance</th>-->
-      <!--    <th style="vertical-align: middle; text-align: center;">Term1</th>-->
-      <!--    <th style="vertical-align: middle; text-align: center;">Total</th>-->
-      <!--    <th style="vertical-align: middle; text-align: center;">%</th>-->
-      <!--  </tr>-->
-      <!--</thead>-->
-      <!--<tbody>-->
-      <!--  <tr>-->
-      <!--    <td style="vertical-align: middle;">Working Days</td>-->
-      <!--    <td class="grade-center">49</td>-->
-      <!--    <td class="grade-center">49</td>-->
-      <!--    <td class="grade-center">100</td>-->
-      <!--  </tr>-->
-      <!--  <tr>-->
-      <!--    <td style="vertical-align: middle;">Present Days</td>-->
-      <!--    <td class="grade-center">38</td>-->
-      <!--    <td class="grade-center">38</td>-->
-      <!--    <td class="grade-center">77.55</td>-->
-      <!--  </tr>-->
-      <!--</tbody>-->
       <tr><th  style="vertical-align: middle;">Attendance</th><th  style="vertical-align: middle;">Total</th><th  style="vertical-align: middle;">%</th></tr>
       <tr><td class="grade-center">Working Days</td><td>@Model.GetString("Attendance", "Total")</td><td rowspan="2">@Model.GetString("Attendance", "Per")</td></tr>
       <tr><td class="grade-center"> Present Days</td><td >@Model.GetString("Attendance", "Attended")</td></tr>
     </table>
 
     <!-- PAGE 2 CONTENT STARTS HERE -->
-    <div class="page-2-content">
+    <!-- <div class="page-2-content"> -->
     <!-- Teacher's Remarks -->
     <div class="teacher-remarks avoid-break page-2-start">
       <h3 style="font-size: 12px ;">Class Teacher's Remarks :</h3>

@@ -113,6 +113,7 @@ h2.session { font-size: 18px; text-align: center; margin: 8px 0 10px; font-weigh
     border-collapse: collapse !important;
     table-layout: fixed !important;
     font-size: 12px !important;
+       margin: 4px 0px 5px 0px;
 }
 .academic-table th,
 .academic-table td {
@@ -223,12 +224,15 @@ h2.session { font-size: 18px; text-align: center; margin: 8px 0 10px; font-weigh
         overflow: hidden !important;
         page-break-after: always !important;
     }
-    .page:last-child { page-break-after: avoid !important; }
+    
     .page-2-content {
     page-break-before: always !important;
     page-break-after: avoid !important; /* Prevent extra page after last content */
   }
-
+ .page:last-child,
+    .page:last-of-type {
+        page-break-after: auto !important;
+    }
     /* Prevent orphaned content */
     h2, h3 { page-break-after: avoid; break-after: avoid; }
     table, tr { page-break-inside: auto; break-inside: auto; } /* changed to auto to prevent extra page */
@@ -419,13 +423,15 @@ h2.session { font-size: 18px; text-align: center; margin: 8px 0 10px; font-weigh
       </tbody>
     </table>
 
-   
+  </div>
    
   
     <!-- Teacher's Remarks -->
    
     <!-- PAGE 2 CONTENT STARTS HERE -->
     <div class="page-2-content">
+   
+    <!-- Attendance Table -->
      <table class="attendance-table">
       <tr><th  style="vertical-align: middle;">Attendance</th><th  style="vertical-align: middle;">Total</th><th  style="vertical-align: middle;">%</th></tr>
       <tr><td class="grade-center">Working Days</td><td>@Model.GetString("Attendance", "Total")</td><td rowspan="2">@Model.GetString("Attendance", "Per")</td></tr>
@@ -464,4 +470,4 @@ h2.session { font-size: 18px; text-align: center; margin: 8px 0 10px; font-weigh
       </table>
     </div>
     </div>
-  </div>
+  
